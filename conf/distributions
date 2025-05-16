@@ -1,0 +1,5 @@
+Codename: wired
+Suite: testing
+Architectures: amd64 source
+Components: main
+SignWith: C3FFB557C87ABB714442508CCCF2630932CDFE6D
