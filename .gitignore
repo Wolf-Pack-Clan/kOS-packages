@@ -1,0 +1,9 @@
+db/
+
+*.swp
+*.swo
+.DS_Store
+.vscode/
+
+*.log
+*.tmp
