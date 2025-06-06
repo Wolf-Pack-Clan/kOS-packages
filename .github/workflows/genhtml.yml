@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 🔽  Checkout repo
+      - name: 🔽 Checkout repo
         uses: actions/checkout@v3
 
       - name: Generate index.html files recursively
