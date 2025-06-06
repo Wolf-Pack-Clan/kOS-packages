@@ -20,9 +20,9 @@ jobs:
         uses: gacts/directory-listing@v1
         with:
           target: '.'      # adjust to the root directory you want to index
-          ignore: |
-            **/index.html      # don't reprocess already generated listings
-            .git/**             # skip git internals
+          #ignore: |
+          #  **/index.html      # don't reprocess already generated listings
+          #  .git/**             # skip git internals
           show-hidden: false
           overwrite: true
 
