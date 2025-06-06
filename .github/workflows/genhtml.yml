@@ -26,7 +26,7 @@ jobs:
           show-hidden: false
           overwrite: true
 
-      - name: 📥  Commit generated listings
+      - name: 📥 Commit generated listings
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
