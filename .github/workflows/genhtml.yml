@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Generate index.html files recursively
-        uses: gacts/directory-listing@v1
+        uses: coyoteclan/directory-listing@main
         with:
           #target: '.'      # adjust to the root directory you want to index
           #ignore: |
