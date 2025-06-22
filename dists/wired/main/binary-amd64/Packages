@@ -16,18 +16,18 @@ Description: Default theme for kazamOS. Based on Materia.
  It focuses on XFCE desktop environment and LightDM.
 
 Package: orbix
-Version: 0.1.1-1
+Version: 0.2.0-1
 Architecture: amd64
 Maintainer: Kazam (Discord: kazam0180)
 Installed-Size: 2304
 Depends: libc6 (>= 2.39), libssl3t64 (>= 3.0.0)
 Priority: optional
 Section: utility
-Filename: pool/main/o/orbix/orbix_0.1.1-1_amd64.deb
-Size: 819432
-SHA256: 5535bcba2fe16450769325802c9f178f258be42208118b26c18fe5760733dc0c
-SHA1: 21da62a358c173db02b230eac9712ddc0d9bc3c9
-MD5sum: 30f3be00d8e579aad08029d859676a86
+Filename: pool/main/o/orbix/orbix_0.2.0-1_amd64.deb
+Size: 819156
+SHA256: a568c51b5134694dda55e552e1a88bb436de1b942bb6c01f0f1fb526c0f682f8
+SHA1: 9cdc083688e18acf29cc185cb3abd5d2eccce01b
+MD5sum: 4db0a6a25b529d7b3b00ca363f5d2ddb
 Description: CoD Server Creator
  This is utility that automates the creation of Call of Duty ®️ (2003)
  servers ( currently v1.1 only). Repo: https://github.com/Wolf-Pack-Clan/orbix
