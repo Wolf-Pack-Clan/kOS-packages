@@ -3,43 +3,43 @@ Hash: SHA512
 
 Suite: testing
 Codename: wired
-Date: Mon, 08 Dec 2025 02:29:08 UTC
+Date: Mon, 08 Dec 2025 03:27:38 UTC
 Architectures: amd64
 Components: main
 MD5Sum:
- 7063c9110d646fb4bfae851b3885abf2 1393 main/binary-amd64/Packages
- f035b4dd4e93f0920336c188279da858 800 main/binary-amd64/Packages.gz
+ 99417a67656e96c3067cec0bf00b4a48 625 main/binary-amd64/Packages
+ f03f8d65ce661d701e92d6a5031fdc8c 453 main/binary-amd64/Packages.gz
  7ba644bd19600030a4672503750344c2 53 main/binary-amd64/Release
  d41d8cd98f00b204e9800998ecf8427e 0 main/source/Sources
  7029066c27ac6f5ef18d660d5741979a 20 main/source/Sources.gz
  905efff64e540c2cffe6074a3dbbda63 54 main/source/Release
 SHA1:
- 4015da50e25e0713e6f3517c25b1b19c65599b6f 1393 main/binary-amd64/Packages
- 600c574c1cc3d5520c381d30b56093be8ae438f9 800 main/binary-amd64/Packages.gz
+ 9aa41ce09cdf9642b648c78a352581ed0e97e3b1 625 main/binary-amd64/Packages
+ 9963c1311a67672e76c47695c5c60f9ed2d91044 453 main/binary-amd64/Packages.gz
  1c8d841413d9b962b939bea747c53d9e8ca660a7 53 main/binary-amd64/Release
  da39a3ee5e6b4b0d3255bfef95601890afd80709 0 main/source/Sources
  46c6643f07aa7f6bfe7118de926b86defc5087c4 20 main/source/Sources.gz
  eaaab94dfe057a7a299eff96a8104e6379c25790 54 main/source/Release
 SHA256:
- c6a911a04e8c72773dcd1e6e8912c34d9adf89a0cd17886ba817806443cd36d5 1393 main/binary-amd64/Packages
- b0a6b1806398eee3f0980a6fe26b271089c9ec18de46e21b252c9007b8c7e960 800 main/binary-amd64/Packages.gz
+ 744a5ee214c92e1ea784f1379fd4f0e096468418acff84d6561c27d0fee601c1 625 main/binary-amd64/Packages
+ 8da8af9dec6086b689779a3ce21722945424554765577ebefe45ce574b44a187 453 main/binary-amd64/Packages.gz
  834b7a9094f552780d56ab1dda655e36ff8a3deafc6b9f6d010a53f2c10a5c4b 53 main/binary-amd64/Release
  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 0 main/source/Sources
  59869db34853933b239f1e2219cf7d431da006aa919635478511fabbfc8849d2 20 main/source/Sources.gz
  639556474cf52354a19874509e0c89c8867d44e84b02e09724c70547a4a6b63a 54 main/source/Release
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEEcbYtKZjf8mhk3afd/vX4YbdqgJoFAmk2N/QACgkQ/vX4Ybdq
-gJpS1BAAtmQ8ZEPW3C9bSlDDZu1mzQ75RVAXk4BhG3wHZhv+kz7BKBEo6XyvGFdy
-lanIvTQQ8WQcTGjU868uzxNTpPPecW7xL8hUcEjvtXnoSVggfrLYJ0jtPA0lAQAQ
-94UlaHH2GmO3LoHnnY7moMbW17aHJtj2RnfbO5bhllavd7VT78P+kXSn23wYI8dt
-2a+cCxVDQdJaX6j1DTCU8s7YxV7CcM/rVZ2Yaok7Xf+kX/+Aiv9CyyqJDtQeMbKt
-PNVZdNmhTJ1VCdIqsenzIknSYvmdj+HbvPdae7I9kQMft8uvV5gQ7Hx73R90fW15
-XgXk5Tai3RBavFgFvVobvjda+otUANJzwnBCY+dMNnhvs+BT1hkandR3PSA411c3
-9PM1HY0nhmeuQQSU+HVGb7JNfObBgjTeI7OqukeIzNfpWsOyuyHogLpjBJnoaZpb
-0XbcW+zzD/aRerzNuvOEFQ17/W/lliVHzIkK3lN0ve38P51v/TLkPGUTS0GaFMxF
-/5l9Ohpapo8f5tK/jIIdImCg7x6zjAONvfEgfurmsJtxPjPXmt4V5EtC1zyy9CIv
-UK/dlOAb3z27sxT/Tmeq4R0miFpweNxqqaGfRYsD9IXxkC4hD2kDeHrMjafEF+j7
-vpdEoRf1qVcmDmsVSeEgn0wM4Ajm7nHfKkNGdxOVEDvSVEXT3og=
-=TbGi
+iQIzBAEBCgAdFiEEcbYtKZjf8mhk3afd/vX4YbdqgJoFAmk2RaoACgkQ/vX4Ybdq
+gJoinhAAmevsLHvgcxJmaTwr3PZQjlYSFEg39Dpbn1jxmhueYG13N0C6ouU4rVqw
+SvDHAPlWPDEMGtYlaWDFOFO7XV54qFoApTjSQxFc5lZmjPQRANJ1UVT5Hk3dcrpI
+ICy6Cgh0DxHV94FeOFRktCPo+8/SCVANi+R7xyyDIIn8++esF5KPjU0BWTUP/5Q4
+ROiHdPsKf1EuQRNsbwS2/VSrSmfmMpGeGzvrcJpZJoFJcGyXnzPUpo+CTMccNGJH
+ibv42GZHmDPQ82RPLvuSmjKNn0Er45WTrWPKW4fjs+ICjP0A/Fq+eRhkMC/eRBa8
+4yjfIiFYmZy1+Tlhfexu5wTany2lo8txM9fQwbkv7tUXbj6RRPOnlv9aJl16QIQW
+0z5yM2GqZUF7FPorzMnsWgmqA06AlWdN3dfIEDROZh6SRqceJVYlNB1pJjTIWcsP
+HUkRa7BCburgGXobEZPEhRK2+Jo7rDYpY2N5o97aMeVmbsPjACpCHWE0vwSra3x3
+k5PcFIQiyQPHJ+VhemvgOyfeQApSG5vUtvNKGQu3LyNjjkc3BLAKqYPg9XuQO3s/
+k/FsQGI0iQ0hhIxf0B5FwJkPQ3RrMvqoIHpm8zIpd0s0xBdRFJlohDfJ6LyYUa0Q
+GZyN0O2UsNZA+VlIS6GAd66jeklp32ppj+avtRz/8jlpD9UP8Oc=
+=PzMg
 -----END PGP SIGNATURE-----
