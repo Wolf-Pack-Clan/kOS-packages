@@ -1,25 +1,25 @@
 Suite: testing
 Codename: wired
-Date: Sun, 22 Jun 2025 14:09:32 UTC
+Date: Mon, 08 Dec 2025 02:29:08 UTC
 Architectures: amd64
 Components: main
 MD5Sum:
- a70b0f9173e8f9eaeaba3caf8061c71f 1233 main/binary-amd64/Packages
- 5eb74f560610b8bdfc5b4f88b7899c98 747 main/binary-amd64/Packages.gz
+ 7063c9110d646fb4bfae851b3885abf2 1393 main/binary-amd64/Packages
+ f035b4dd4e93f0920336c188279da858 800 main/binary-amd64/Packages.gz
  7ba644bd19600030a4672503750344c2 53 main/binary-amd64/Release
  d41d8cd98f00b204e9800998ecf8427e 0 main/source/Sources
  7029066c27ac6f5ef18d660d5741979a 20 main/source/Sources.gz
  905efff64e540c2cffe6074a3dbbda63 54 main/source/Release
 SHA1:
- e40e9aac6ddc0b3b254ee8cb3a39aa9d016be8cc 1233 main/binary-amd64/Packages
- 69d8cdd95adb6d787849c43729c69fb0ee9a5cbe 747 main/binary-amd64/Packages.gz
+ 4015da50e25e0713e6f3517c25b1b19c65599b6f 1393 main/binary-amd64/Packages
+ 600c574c1cc3d5520c381d30b56093be8ae438f9 800 main/binary-amd64/Packages.gz
  1c8d841413d9b962b939bea747c53d9e8ca660a7 53 main/binary-amd64/Release
  da39a3ee5e6b4b0d3255bfef95601890afd80709 0 main/source/Sources
  46c6643f07aa7f6bfe7118de926b86defc5087c4 20 main/source/Sources.gz
  eaaab94dfe057a7a299eff96a8104e6379c25790 54 main/source/Release
 SHA256:
- 201d00fc5d9d078f93c655c5ca84b96e46735dce937404c0b9f821c85545234c 1233 main/binary-amd64/Packages
- 5852e0f3d32c309a42c7fcc73890b449cfe14e7b14768c2ee84f181f649dbf7c 747 main/binary-amd64/Packages.gz
+ c6a911a04e8c72773dcd1e6e8912c34d9adf89a0cd17886ba817806443cd36d5 1393 main/binary-amd64/Packages
+ b0a6b1806398eee3f0980a6fe26b271089c9ec18de46e21b252c9007b8c7e960 800 main/binary-amd64/Packages.gz
  834b7a9094f552780d56ab1dda655e36ff8a3deafc6b9f6d010a53f2c10a5c4b 53 main/binary-amd64/Release
  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 0 main/source/Sources
  59869db34853933b239f1e2219cf7d431da006aa919635478511fabbfc8849d2 20 main/source/Sources.gz
