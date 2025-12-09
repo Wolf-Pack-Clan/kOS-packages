@@ -346,8 +346,8 @@ footer {
             </svg>
             <a href="./pool">pool</a>
           </td>
-          <td class="size" title="30471506">29.06 MB</td>
-          <td class="mod-date">12/9/2025, 3:40:46 AM</td>
+          <td class="size" title="30533987">29.12 MB</td>
+          <td class="mod-date">12/9/2025, 11:18:00 AM</td>
         </tr>
 
         <tr>
@@ -357,8 +357,8 @@ footer {
             </svg>
             <a href="./dists">dists</a>
           </td>
-          <td class="size" title="8888">8.68 KB</td>
-          <td class="mod-date">12/9/2025, 3:40:46 AM</td>
+          <td class="size" title="50246">49.07 KB</td>
+          <td class="mod-date">12/9/2025, 11:18:00 AM</td>
         </tr>
 
         <tr>
@@ -368,8 +368,8 @@ footer {
             </svg>
             <a href="./conf">conf</a>
           </td>
-          <td class="size" title="182">182 B</td>
-          <td class="mod-date">12/9/2025, 3:40:46 AM</td>
+          <td class="size" title="8213">8.02 KB</td>
+          <td class="mod-date">12/9/2025, 11:18:00 AM</td>
         </tr>
 
         <tr>
@@ -380,7 +380,18 @@ footer {
             <a href="./public-key.gpg">public-key.gpg</a>
           </td>
           <td class="size" title="3171">3.1 KB</td>
-          <td class="mod-date">12/9/2025, 3:40:46 AM</td>
+          <td class="mod-date">12/9/2025, 11:18:00 AM</td>
+        </tr>
+
+        <tr>
+          <td class="name">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg">
+              <use href="#file"/>
+            </svg>
+            <a href="./kazamos.sources">kazamos.sources</a>
+          </td>
+          <td class="size" title="172">172 B</td>
+          <td class="mod-date">12/9/2025, 11:18:00 AM</td>
         </tr>
 
         <tr>
@@ -390,8 +401,8 @@ footer {
             </svg>
             <a href="./README.md">README.md</a>
           </td>
-          <td class="size" title="440">440 B</td>
-          <td class="mod-date">12/9/2025, 3:40:46 AM</td>
+          <td class="size" title="382">382 B</td>
+          <td class="mod-date">12/9/2025, 11:18:00 AM</td>
         </tr>
     </tbody>
   </table>
@@ -402,7 +413,8 @@ footer {
 curl -fsSL https://wolf-pack-clan.github.io/kOS-packages/public-key.gpg \
   | sudo gpg --dearmor -o /etc/apt/keyrings/kazamos-archive-keyring.gpg
 
-echo &quot;deb [arch=amd64 signed-by=/etc/apt/keyrings/kazamos-archive-keyring.gpg] https://wolf-pack-clan.github.io/kOS-packages/ wired main&quot; | sudo tee /etc/apt/sources.list.d/kazamos.list
+curl -fsSL https://wolf-pack-clan.github.io/kOS-packages/kazamos.sources \
+  | sudo tee /etc/apt/sources.list.d/kazamos.sources
 </code></pre>
 </div>
 </main>
