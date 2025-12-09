@@ -1,5 +1,8 @@
 Codename: wired
 Suite: testing
-Architectures: amd64 source
+Architectures: source amd64
 Components: main
-SignWith: 71B62D2998DFF26864DDA7DDFEF5F861B76A809A
+SignWith: 30C3FCD1AAF7EA8EE146F07F7EC23947CFD2A7E8
+Origin: kazamOS
+Label: kazamOS
+
