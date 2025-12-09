@@ -1,0 +1,7 @@
+Types: deb
+URIs: https://wolf-pack-clan.github.io/kOS-packages
+Suites: wired
+Components: main
+Architecture: amd64
+Signed-by: /etc/apt/keyrings/kazamos-archive-keyring.gpg
+
