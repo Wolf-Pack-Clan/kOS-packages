@@ -1,3 +1,24 @@
+Package: greengodot
+Source: greengodot
+Version: 3.6.3+96b2bd0
+Architecture: amd64
+Maintainer: Kazam <kazam0180@proton.me>
+Installed-Size: 67838
+Depends: libbullet3.24t64 (>= 3.24+dfsg), libc6 (>= 2.38), libenet7, libfreetype6 (>= 2.2.1), libgcc-s1 (>= 3.0), libgl1, libminiupnpc18 (>= 2.2.8), libogg0 (>= 1.0rc3), libopus0 (>= 1.1), libpcre2-32-0 (>= 10.22), libpng16-16t64 (>= 1.6.2), librecast1 (>= 1.5.1+git20210215.e75adf8), libsquish0 (>= 1.15), libstdc++6 (>= 13.1), libtheora0 (>= 1.0), libvorbis0a (>= 1.1.2), libvpx9 (>= 1.12.0), libwebp7 (>= 1.4.0), libwslay1 (>= 1.1.1), libx11-6 (>= 2:1.2.99.901), libxcursor1 (>> 1.1.2), libxext6, libxi6 (>= 2:1.2.99.4), libxinerama1 (>= 2:1.1.4), libxrandr2 (>= 2:1.2.0), libxrender1, libzstd1 (>= 1.5.5), zlib1g (>= 1:1.2.0)
+Homepage: https://github.com/Wolf-Pack-Clan/green-godot
+Priority: optional
+Section: devel
+Filename: pool/main/g/greengodot/greengodot_3.6.3+96b2bd0_amd64.deb
+Size: 29476788
+SHA256: ac7d24beb6f289d41cf4eaec0e12ff1956c17dcf4045941dbb686dffe30de925
+SHA1: bb8ddff8d0469ccf452db35686115f93fad93d38
+MD5sum: a50501421b03fd610d7f5f5ef19012f3
+Description: Full 2D and 3D game engine with editor
+ This is a modified version of Godot 3.
+ Godot is an advanced, feature packed, multi-platform 2D and 3D game engine.
+ It provides a huge set of common tools, so you can just focus on making
+ your game without reinventing the wheel.
+
 Package: kazamos-getting-started
 Version: 0.1.0-1
 Architecture: amd64
@@ -12,6 +33,40 @@ SHA256: 4ea90015a3022bf9a3c19e98dabfc9c10391aa29eb724b47bfe43243aca9fb86
 SHA1: 17a4124230049ab93dd1f318b15e35630d14d1b3
 MD5sum: 12c5c39116f8a4664a0efb589096f909
 Description: Guide for helping new users
+
+Package: kos-theme
+Version: 1.0-2
+Architecture: all
+Maintainer: Kazam (discord: kazam0180)
+Installed-Size: 5715
+Recommends: gtk2-engines-murrine, libgtk-3-common, libgtk2.0-common, libgtk-4-common
+Homepage: https://github.com/Wolf-Pack-Clan/kOS-theme
+Priority: optional
+Section: x11
+Filename: pool/main/k/kos-theme/kos-theme_1.0-2_all.deb
+Size: 175562
+SHA256: ca0b89e46b8d8336ec980349f797d04ec04704caee07497bc8cada5235ea925d
+SHA1: 042042e10c084e659a71314372518f25ce50a095
+MD5sum: 20cfcaf7c0af192fab528e7cb4aa7cc7
+Description: Default theme for kazamOS. Based on Materia.
+ It focuses on XFCE desktop environment and LightDM.
+
+Package: orbix
+Version: 0.2.0-1
+Architecture: amd64
+Maintainer: Kazam (Discord: kazam0180)
+Installed-Size: 2304
+Depends: libc6 (>= 2.39), libssl3t64 (>= 3.0.0)
+Priority: optional
+Section: utility
+Filename: pool/main/o/orbix/orbix_0.2.0-1_amd64.deb
+Size: 819156
+SHA256: a568c51b5134694dda55e552e1a88bb436de1b942bb6c01f0f1fb526c0f682f8
+SHA1: 9cdc083688e18acf29cc185cb3abd5d2eccce01b
+MD5sum: 4db0a6a25b529d7b3b00ca363f5d2ddb
+Description: CoD Server Creator
+ This is utility that automates the creation of Call of Duty ®️ (2003)
+ servers ( currently v1.1 only). Repo: https://github.com/Wolf-Pack-Clan/orbix
 
 Package: oreo-black-cursors
 Version: 1.0
