@@ -2,13 +2,14 @@ Package: oreo-black-cursors
 Version: 1.0
 Architecture: all
 Maintainer: Kazam <kazam0180@proton.me>
+Installed-Size: 11148
 Homepage: https://github.com/varlesh/oreo-cursors
 Priority: optional
 Section: x11
 Filename: pool/main/o/oreo-black-cursors/oreo-black-cursors_1.0_all.deb
-Size: 54324
-SHA256: ca00170d08b0f7805db8058f6e5eecfcf9c61b146347aaffdedff13386ee42da
-SHA1: ff8024a908abbbf93e7645b7db53021980825a8f
-MD5sum: 169fe9bc794893e724f7aad7fd019030
+Size: 54340
+SHA256: 948593b184730a3c43e41a8284c0a9af68ad4d90fbe94b2806e03d930b821e44
+SHA1: b66c86b8571e249f4284e728655cdd77777d4ca0
+MD5sum: fdefb9a7e611f67fd906ae6343c171ab
 Description: Oreo Cursors (black color)
 
