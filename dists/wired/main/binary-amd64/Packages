@@ -23,15 +23,15 @@ Package: kazamos-getting-started
 Version: 0.1.0-1
 Architecture: amd64
 Maintainer: Kazam (Discord: kazam0180)
-Installed-Size: 20368
+Installed-Size: 20370
 Depends: libc6 (>= 2.34), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.2.4), libgdk-pixbuf-2.0-0 (>= 2.22.0), libglib2.0-0t64 (>= 2.54.0), libgtk-4-1 (>= 4.0.0), libpango-1.0-0 (>= 1.14.0)
 Priority: optional
 Section: misc
 Filename: pool/main/k/kazamos-getting-started/kazamos-getting-started_0.1.0-1_amd64.deb
-Size: 19672928
-SHA256: 4ea90015a3022bf9a3c19e98dabfc9c10391aa29eb724b47bfe43243aca9fb86
-SHA1: 17a4124230049ab93dd1f318b15e35630d14d1b3
-MD5sum: 12c5c39116f8a4664a0efb589096f909
+Size: 19673328
+SHA256: e4969fca81aa0b689d963cd9f9bfe10ef151b9ff463c9094b34bd136a381fdd2
+SHA1: 9cd6781dfd3ce16cf1915a8ce6d685c5f05b9974
+MD5sum: c44128aefa1a656ec86773742bbcdbd1
 Description: Guide for helping new users
 
 Package: kos-theme
