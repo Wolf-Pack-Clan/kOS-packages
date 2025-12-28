@@ -50,6 +50,23 @@ MD5sum: a930b5bda4fd0e25769489d6a9502942
 Description: Default theme for kazamOS. Based on Materia.
  It focuses on XFCE desktop environment and LightDM.
 
+Package: mpris-kontrol-server
+Version: 0.1.0-1
+Architecture: amd64
+Maintainer: Kazam (Discord: kazam0180)
+Installed-Size: 1455
+Depends: libc6 (>= 2.34), libc6 (>= 2.39), libglib2.0-0t64 (>= 2.54.0), libgtk-4-1 (>= 4.0.0)
+Priority: optional
+Section: utility
+Filename: pool/main/m/mpris-kontrol-server/mpris-kontrol-server_0.1.0-1_amd64.deb
+Size: 426416
+SHA256: b71e6dba666606892019c35df54ed9cadd24857622b01a727f1483a674df3c4e
+SHA1: 6e90a3bc3581a0cc58d5a5c646ae5acf0136ca1e
+MD5sum: 8e66b7785d397084a2afd955027bf879
+Description: [generated from Rust crate mpris_kontrol]
+ MPRIS Kontrol is a utility that allows you to control playback of linux media
+ players that support MPRIS 
+
 Package: orbix
 Version: 0.2.0-1
 Architecture: amd64
