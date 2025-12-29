@@ -68,21 +68,22 @@ Description: [generated from Rust crate mpris_kontrol]
  players that support MPRIS 
 
 Package: orbix
-Version: 0.2.0-1
+Version: 0.3.0-1
 Architecture: amd64
 Maintainer: Kazam (Discord: kazam0180)
-Installed-Size: 2304
+Installed-Size: 2733
 Depends: libc6 (>= 2.39), libssl3t64 (>= 3.0.0)
 Priority: optional
 Section: utility
-Filename: pool/main/o/orbix/orbix_0.2.0-1_amd64.deb
-Size: 819156
-SHA256: a568c51b5134694dda55e552e1a88bb436de1b942bb6c01f0f1fb526c0f682f8
-SHA1: 9cdc083688e18acf29cc185cb3abd5d2eccce01b
-MD5sum: 4db0a6a25b529d7b3b00ca363f5d2ddb
-Description: CoD Server Creator
- This is utility that automates the creation of Call of Duty ®️ (2003)
- servers ( currently v1.1 only). Repo: https://github.com/Wolf-Pack-Clan/orbix
+Filename: pool/main/o/orbix/orbix_0.3.0-1_amd64.deb
+Size: 973832
+SHA256: e7de4ec68b6aa9b7af905cee9b02e4783dfa3d97318a9edf6d9bc37140ecf229
+SHA1: 54e61454645c0383e80a8cb5727ddb8eca9b756d
+MD5sum: c29fbdfecc399d35f6cdfc4525906964
+Description: CoD server creator written in Rust
+ This is utility that automates the creation of Call of Duty ®️ (2003) and
+ the expansion pack, United Offensive servers. Repo:
+ https://github.com/Wolf-Pack-Clan/orbix
 
 Package: oreo-black-cursors
 Version: 1.0
