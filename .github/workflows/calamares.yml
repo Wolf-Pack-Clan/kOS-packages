@@ -111,7 +111,7 @@ jobs:
         
         # Get key ID
         # GPG_KEY_ID=$(gpg --list-secret-keys --keyid-format LONG --with-colons | 
-          awk -F: '/^sec:/ { split($5, a, "/"); print a[2]; exit }')
+        #  awk -F: '/^sec:/ { split($5, a, "/"); print a[2]; exit }')
         echo "GPG_KEY_ID=30C3FCD1AAF7EA8EE146F07F7EC23947CFD2A7E8" >> $GITHUB_ENV
 
         echo "key check"
