@@ -32,14 +32,17 @@ jobs:
         apt-get build-dep -y calamares
 
         apt-get source calamares
+        git clone https://gitlab.com/kazamOS/calamares-kos.git
+
+    - name: Build Calamares
+      run: |
 
         SRCDIR="$(ls -d calamares-*/ | head -n 1)"
         echo "SRCDIR=${SRCDIR}" >> $GITHUB_ENV
 
-        git clone https://gitlab.com/kazamOS/calamares-kos.git ../calamares-kos
         cd "$SRCDIR"
-        rsync -a ../../calamares-kos/kOS-images/ data/images/
-        rm -rf ../../calamares-kos
+        rsync -a ../calamares-kos/kOS-images/ data/images/
+        rm -rf ../calamares-kos
 
         # Update changelog
         dch --local "~kazamos" "Apply kOS custom icons (kOS-images) [automated CI build]"
