@@ -118,12 +118,6 @@ jobs:
       run: |
 
         tree -L 3
-        echo "======================================="
-        tree -L ..
-        
-        # Copy built debs
-        cp ../*.deb . || (echo "No debs found to publish" && exit 1)
-        ls -lh *.deb
 
         # Backup and modify distributions file for temporary signing disable
         if [ -f conf/distributions ]; then
@@ -156,6 +150,7 @@ jobs:
         # Restore original distributions config
         rm conf/distributions
         mv conf/distributions.bak conf/distributions
+        rm calamares_*.deb
         
         # Verify files
         ls -l dists/wired/
