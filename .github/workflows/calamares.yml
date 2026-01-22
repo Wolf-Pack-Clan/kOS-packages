@@ -164,11 +164,12 @@ jobs:
     - name: Commit and push to kOS-packages
       run: |
         git add -A
-        
+
         # Check if there are changes
         if git diff --cached --quiet; then
           echo "No changes to commit"
         else
           git commit -m "CI: Update Calamares package (Build ${{ github.run_id }})"
+          git pull --rebase # pull the changes from genhtml workflow first
           git push origin main
         fi
