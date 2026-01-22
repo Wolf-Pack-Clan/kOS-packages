@@ -39,6 +39,7 @@ jobs:
 
         SRCDIR="$(ls -d calamares-*/ | head -n 1)"
         echo "SRCDIR=${SRCDIR}" >> $GITHUB_ENV
+        echo "DEBEMAIL=kazam0180@proton.me" >> $GITHUB_ENV
 
         cd "$SRCDIR"
         rsync -a ../calamares-kos/kOS-images/ data/images/
