@@ -157,6 +157,8 @@ jobs:
         
         # Verify files
         ls -l dists/wired/
+
+        git status
         
     - name: Commit and push to kOS-packages
       run: |
