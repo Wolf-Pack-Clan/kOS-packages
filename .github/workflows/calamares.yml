@@ -161,7 +161,6 @@ jobs:
 
         cp -rf /tmp/repo/dists .
         cp -rf /tmp/repo/pool .
-        cp -rf /tmp/repo/db .
 
         # Verify files
         ls -l dists/wired/
@@ -173,7 +172,7 @@ jobs:
         set -euo pipefail
 
         # safe stage of only the directories we expect to change
-        git add -- dists/ pool/ conf/ db/
+        git add -- dists/ pool/ conf/
 
         # Detect staged deletions (abort if any — safety)
         DELETIONS=$(git status --porcelain | awk '/^ D/ {count++} END{print count+0}')
