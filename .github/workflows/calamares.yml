@@ -80,8 +80,9 @@ jobs:
     needs: build-calamares
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
 
     - name: Download build artifacts
       uses: actions/download-artifact@v4
@@ -123,20 +124,22 @@ jobs:
 
         tree -L 3
 
+        git clone https://github.com/Wolf-Pack-Clan/kOS-packages.git /tmp/repo
+
         # Backup and modify distributions file for temporary signing disable
-        if [ -f conf/distributions ]; then
-          cp conf/distributions conf/distributions.bak
-          sed -E 's/^[[:space:]]*SignWith:.*$/# &/g' conf/distributions.bak > conf/distributions
+        if [ -f /tmp/repo/conf/distributions ]; then
+          cp /tmp/repo/conf/distributions /tmp/repo/conf/distributions.bak
+          sed -E 's/^[[:space:]]*SignWith:.*$/# &/g' /tmp/repo/conf/distributions.bak > /tmp/repo/conf/distributions
         else
           echo "ERROR: No conf/distributions found"
           exit 1
         fi
 
         # Add package to repository
-        reprepro -b . includedeb wired *.deb
+        reprepro -b /tmp/repo/ includedeb wired *.deb
         
         # Sign Release file manually
-        RELEASE_PATH="dists/wired/Release"
+        RELEASE_PATH="/tmp/repo/dists/wired/Release"
         if [ ! -f "$RELEASE_PATH" ]; then
           echo "Release file missing at $RELEASE_PATH"
           exit 1
@@ -149,13 +152,17 @@ jobs:
         
         echo "${{ secrets.GPG_PASS }}" | gpg --batch --pinentry-mode loopback \
           --passphrase-fd 0 --default-key "$GPG_KEY_ID" \
-          --clearsign --output "dists/wired/InRelease" "$RELEASE_PATH"
+          --clearsign --output "/tmp/repo/dists/wired/InRelease" "$RELEASE_PATH"
         
         # Restore original distributions config
-        rm conf/distributions
-        mv conf/distributions.bak conf/distributions
+        rm /tmp/repo/conf/distributions
+        mv /tmp/repo/conf/distributions.bak /tmp/repo/conf/distributions
         rm calamares_*.deb
-        
+
+        cp -rf /tmp/repo/dists .
+        cp -rf /tmp/repo/pool .
+        cp -rf /tmp/repo/db .
+
         # Verify files
         ls -l dists/wired/
 
@@ -163,7 +170,7 @@ jobs:
 
     - name: Commit and push to kOS-packages
       run: |
-        git add -A
+        git add -- dists/ pool/ conf/
 
         # Check if there are changes
         if git diff --cached --quiet; then
