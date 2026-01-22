@@ -1,0 +1,171 @@
+name: Build and Publish Calamares
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:  # Allow manual triggers
+
+jobs:
+  build-calamares:
+    runs-on: ubuntu-latest
+    container:
+      image: debian:trixie
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Setup environment
+      run: |
+        apt-get update
+        apt-get install -y --no-install-recommends \
+          rsync python3-yaml python3-jsonschema \
+          devscripts build-essential fakeroot dpkg-dev \
+          equivs ca-certificates git \
+          software-properties-common gnupg
+        
+        # Add source repositories
+        echo "deb-src http://deb.debian.org/debian trixie main contrib non-free non-free-firmware" >> /etc/apt/sources.list
+        echo "deb-src http://deb.debian.org/debian-security trixie-security main contrib non-free non-free-firmware" >> /etc/apt/sources.list
+        echo "deb-src http://deb.debian.org/debian trixie-updates main contrib non-free non-free-firmware" >> /etc/apt/sources.list
+        
+        apt-get update
+        apt-get build-dep -y calamares
+
+        apt-get source calamares
+
+        SRCDIR="$(ls -d calamares-*/ | head -n 1)"
+        echo "SRCDIR=${SRCDIR}" >> $GITHUB_ENV
+
+        git clone https://gitlab.com/kazamOS/calamares-kos.git ../calamares-kos
+        cd "$SRCDIR"
+        rsync -a ../../calamares-kos/kOS-images/ data/images/
+        rm -rf ../../calamares-kos
+
+        # Update changelog
+        dch --local "~kazamos" "Apply kOS custom icons (kOS-images) [automated CI build]"
+        
+        # Build package
+        dpkg-buildpackage -us -uc -b
+        
+        # Move artifacts
+        cd ..
+        mkdir -p artifacts
+        mv *.deb artifacts/ 2>/dev/null || echo "No deb files found"
+        
+        echo "Build completed"
+    
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: calamares-deb
+        path: artifacts/calamares_*.deb
+        retention-days: 7
+
+    - name: Upload debug artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: calamares-dbg
+        path: artifacts/calamares-dbg*.deb
+        retention-days: 7
+
+  publish-deb:
+    runs-on: ubuntu-latest
+    needs: build-calamares
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Download build artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: calamares-deb
+
+    - name: Setup Git
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+    
+    - name: Setup GPG
+      run: |
+        mkdir -p ~/.gnupg
+        chmod 700 ~/.gnupg
+        echo "allow-loopback-pinentry" >> ~/.gnupg/gpg-agent.conf
+        echo "pinentry-mode loopback" >> ~/.gnupg/gpg.conf
+        
+        # Import GPG key
+        echo "${{ secrets.GPG_PKEY }}" | base64 -d > /tmp/private.key
+        gpg --batch --import /tmp/private.key
+        rm /tmp/private.key
+        
+        # Get key ID
+        GPG_KEY_ID=$(gpg --list-secret-keys --keyid-format LONG --with-colons | 
+          awk -F: '/^sec:/ { split($5, a, "/"); print a[2]; exit }')
+        echo "GPG_KEY_ID=${GPG_KEY_ID}" >> $GITHUB_ENV
+        
+    - name: Setup reprepro and publish
+      run: |
+        
+        # Install reprepro
+        apt-get update
+        apt-get install -y --no-install-recommends reprepro gnupg2 tree
+
+        tree -L 3
+        echo "======================================="
+        tree -L ..
+        
+        # Copy built debs
+        cp ../*.deb . || (echo "No debs found to publish" && exit 1)
+        ls -lh *.deb
+
+        # Backup and modify distributions file for temporary signing disable
+        if [ -f conf/distributions ]; then
+          cp conf/distributions conf/distributions.bak
+          sed -E 's/^[[:space:]]*SignWith:.*$/# &/g' conf/distributions.bak > conf/distributions
+        else
+          echo "ERROR: No conf/distributions found"
+          exit 1
+        fi
+
+        # Add package to repository
+        reprepro -b . includedeb wired *.deb
+        
+        # Sign Release file manually
+        RELEASE_PATH="dists/wired/Release"
+        if [ ! -f "$RELEASE_PATH" ]; then
+          echo "Release file missing at $RELEASE_PATH"
+          exit 1
+        fi
+        
+        # Sign manually
+        echo "${{ secrets.GPG_PASS }}" | gpg --batch --pinentry-mode loopback \
+          --passphrase-fd 0 --default-key "$GPG_KEY_ID" \
+          --output "${RELEASE_PATH}.gpg" --detach-sign "$RELEASE_PATH"
+        
+        echo "${{ secrets.GPG_PASS }}" | gpg --batch --pinentry-mode loopback \
+          --passphrase-fd 0 --default-key "$GPG_KEY_ID" \
+          --clearsign --output "dists/wired/InRelease" "$RELEASE_PATH"
+        
+        # Restore original distributions config
+        rm conf/distributions
+        mv conf/distributions.bak conf/distributions
+        
+        # Verify files
+        ls -l dists/wired/
+        
+    - name: Commit and push to kOS-packages
+      run: |
+        cd repo
+        
+        # Add all changes
+        git add -A
+        
+        # Check if there are changes
+        if git diff --cached --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "CI: Update Calamares package (Build ${{ github.run_id }})"
+          git push origin main
+        fi
