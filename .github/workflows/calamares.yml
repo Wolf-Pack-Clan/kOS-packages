@@ -113,6 +113,9 @@ jobs:
         GPG_KEY_ID=$(gpg --list-secret-keys --keyid-format LONG --with-colons | 
           awk -F: '/^sec:/ { split($5, a, "/"); print a[2]; exit }')
         echo "GPG_KEY_ID=${GPG_KEY_ID}" >> $GITHUB_ENV
+
+        echo "key check"
+        gpg --list-secret-keys --keyid-format LONG
         
     - name: Setup reprepro and publish
       run: |
