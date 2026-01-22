@@ -74,8 +74,6 @@ jobs:
 
   publish-deb:
     runs-on: ubuntu-latest
-    container:
-      image: debian:trixie
     needs: build-calamares
 
     steps:
@@ -89,8 +87,8 @@ jobs:
 
     - name: Install deps
       run: |
-        apt-get update
-        apt-get install -y --no-install-recommends reprepro gnupg2 tree git
+        sudo apt-get update
+        sudo apt-get install -y --no-install-recommends reprepro gnupg2 tree git
 
     - name: Setup Git
       run: |
@@ -159,7 +157,7 @@ jobs:
         ls -l dists/wired/
 
         git status
-        
+
     - name: Commit and push to kOS-packages
       run: |
         git add -A
