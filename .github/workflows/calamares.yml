@@ -160,9 +160,6 @@ jobs:
         
     - name: Commit and push to kOS-packages
       run: |
-        cd repo
-        
-        # Add all changes
         git add -A
         
         # Check if there are changes
