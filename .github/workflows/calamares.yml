@@ -168,15 +168,37 @@ jobs:
 
         git status
 
-    - name: Commit and push to kOS-packages
+    - name: Commit and Push
       run: |
-        git add -- dists/ pool/ conf/
+        set -euo pipefail
 
-        # Check if there are changes
-        if git diff --cached --quiet; then
-          echo "No changes to commit"
-        else
-          git commit -m "CI: Update Calamares package (Build ${{ github.run_id }})"
-          git pull --rebase # pull the changes from genhtml workflow first
-          git push origin main
+        # safe stage of only the directories we expect to change
+        git add -- dists/ pool/ conf/ db/
+
+        # Detect staged deletions (abort if any — safety)
+        DELETIONS=$(git status --porcelain | awk '/^ D/ {count++} END{print count+0}')
+        if [ "$DELETIONS" -gt 0 ]; then
+          echo "ERROR: Detected $DELETIONS staged deletions — aborting to avoid wiping repo"
+          git status --porcelain
+          exit 1
         fi
+
+        if git diff --cached --quiet; then
+          echo "No repository changes to commit."
+          exit 0
+        fi
+
+        # create a unique branch name
+        BRANCH="ci/repo-update-${GITHUB_RUN_ID}-$(date +%s)"
+        echo "Creating branch: $BRANCH"
+
+        # create branch from current main (checkout ensures we are on a branch)
+        git checkout -b "$BRANCH"
+
+        # commit
+        git commit -m "CI: add/update calamares package (Build ${GITHUB_RUN_ID})"
+
+        # push the new branch up
+        git push --set-upstream origin "$BRANCH"
+
+        echo "Pushed branch $BRANCH"
