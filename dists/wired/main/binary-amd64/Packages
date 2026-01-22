@@ -1,237 +1,29 @@
-Package: greengodot
-Source: greengodot
-Version: 3.6.3+96b2bd0
+Package: calamares
+Version: 3.3.14-1~kazamos1
 Architecture: amd64
-Maintainer: Kazam <kazam0180@proton.me>
-Installed-Size: 67838
-Depends: libbullet3.24t64 (>= 3.24+dfsg), libc6 (>= 2.38), libenet7, libfreetype6 (>= 2.2.1), libgcc-s1 (>= 3.0), libgl1, libminiupnpc18 (>= 2.2.8), libogg0 (>= 1.0rc3), libopus0 (>= 1.1), libpcre2-32-0 (>= 10.22), libpng16-16t64 (>= 1.6.2), librecast1 (>= 1.5.1+git20210215.e75adf8), libsquish0 (>= 1.15), libstdc++6 (>= 13.1), libtheora0 (>= 1.0), libvorbis0a (>= 1.1.2), libvpx9 (>= 1.12.0), libwebp7 (>= 1.4.0), libwslay1 (>= 1.1.1), libx11-6 (>= 2:1.2.99.901), libxcursor1 (>> 1.1.2), libxext6, libxi6 (>= 2:1.2.99.4), libxinerama1 (>= 2:1.1.4), libxrandr2 (>= 2:1.2.0), libxrender1, libzstd1 (>= 1.5.5), zlib1g (>= 1:1.2.0)
-Homepage: https://github.com/Wolf-Pack-Clan/green-godot
+Maintainer: Jonathan Carter <jcc@debian.org>
+Installed-Size: 11076
+Depends: os-prober, libc6 (>= 2.34), libcrypt1 (>= 1:4.1.0), libgcc-s1 (>= 3.0), libkf6coreaddons6 (>= 6.0.0), libkf6crash6 (>= 6.0.0), libkf6parts6 (>= 6.0.0), libkpmcore12 (>= 24.05.2), libparted2t64 (>= 3.1), libpwquality1 (>= 1.1.0), libpython3.13 (>= 3.13.0~rc3), libqt6core6t64 (>= 6.8.2), libqt6dbus6 (>= 6.4.0), libqt6gui6 (>= 6.8.2), libqt6network6 (>= 6.1.2), libqt6qml6 (>= 6.6.0), libqt6quick6 (>= 6.6.0), libqt6quickwidgets6 (>= 6.6.0), libqt6svg6 (>= 6.6.0), libqt6widgets6 (>= 6.7.2), libqt6xml6 (>= 6.6.0), libstdc++6 (>= 14), libyaml-cpp0.8 (>= 0.8.0+dfsg-7)
+Recommends: btrfs-progs, squashfs-tools
+Breaks: calamares-extensions (<< 3.3.12-1)
+Replaces: calamares-extensions (<< 3.3.12-1)
+Homepage: https://github.com/calamares/calamares
 Priority: optional
-Section: devel
-Filename: pool/main/g/greengodot/greengodot_3.6.3+96b2bd0_amd64.deb
-Size: 29476788
-SHA256: ac7d24beb6f289d41cf4eaec0e12ff1956c17dcf4045941dbb686dffe30de925
-SHA1: bb8ddff8d0469ccf452db35686115f93fad93d38
-MD5sum: a50501421b03fd610d7f5f5ef19012f3
-Description: Full 2D and 3D game engine with editor
- This is a modified version of Godot 3.
- Godot is an advanced, feature packed, multi-platform 2D and 3D game engine.
- It provides a huge set of common tools, so you can just focus on making
- your game without reinventing the wheel.
-
-Package: kazamos-getting-started
-Version: 0.1.0-1
-Architecture: amd64
-Maintainer: Kazam (Discord: kazam0180)
-Installed-Size: 20370
-Depends: libc6 (>= 2.34), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.2.4), libgdk-pixbuf-2.0-0 (>= 2.22.0), libglib2.0-0t64 (>= 2.54.0), libgtk-4-1 (>= 4.0.0), libpango-1.0-0 (>= 1.14.0)
-Priority: optional
-Section: misc
-Filename: pool/main/k/kazamos-getting-started/kazamos-getting-started_0.1.0-1_amd64.deb
-Size: 19673328
-SHA256: e4969fca81aa0b689d963cd9f9bfe10ef151b9ff463c9094b34bd136a381fdd2
-SHA1: 9cd6781dfd3ce16cf1915a8ce6d685c5f05b9974
-MD5sum: c44128aefa1a656ec86773742bbcdbd1
-Description: Guide for helping new users
-
-Package: kos-theme
-Version: 2.0
-Architecture: all
-Installed-Size: 15748
-Maintainer: Kazam <kazam0180@proton.me>
-Recommends: gtk2-engines-murrine, libgtk-3-common, libgtk2.0-common, libgtk-4-common
-Priority: optional
-Section: x11
-Filename: pool/main/k/kos-theme/kos-theme_2.0_all.deb
-Size: 153144
-SHA256: bdd76ff93daeb094713d26b914b88c67c170f7e4067ef9a568468238426bcfd0
-SHA1: 38897a216816970d2b7df7b4156fa7ba51eb81cb
-MD5sum: a930b5bda4fd0e25769489d6a9502942
-Description: Default theme for kazamOS. Based on Materia.
- It focuses on XFCE desktop environment and LightDM.
-
-Package: mpris-kontrol-server
-Version: 0.1.0-1
-Architecture: amd64
-Maintainer: Kazam (Discord: kazam0180)
-Installed-Size: 1455
-Depends: libc6 (>= 2.34), libc6 (>= 2.39), libglib2.0-0t64 (>= 2.54.0), libgtk-4-1 (>= 4.0.0)
-Priority: optional
-Section: utility
-Filename: pool/main/m/mpris-kontrol-server/mpris-kontrol-server_0.1.0-1_amd64.deb
-Size: 426416
-SHA256: b71e6dba666606892019c35df54ed9cadd24857622b01a727f1483a674df3c4e
-SHA1: 6e90a3bc3581a0cc58d5a5c646ae5acf0136ca1e
-MD5sum: 8e66b7785d397084a2afd955027bf879
-Description: [generated from Rust crate mpris_kontrol]
- MPRIS Kontrol is a utility that allows you to control playback of linux media
- players that support MPRIS 
-
-Package: orbix
-Version: 0.3.2-1
-Architecture: amd64
-Maintainer: Kazam (Discord: kazam0180)
-Installed-Size: 2732
-Depends: libc6 (>= 2.39), libssl3t64 (>= 3.0.0)
-Priority: optional
-Section: utility
-Filename: pool/main/o/orbix/orbix_0.3.2-1_amd64.deb
-Size: 972812
-SHA256: 519a6e2229e86c3277c6130dd9a8ea294fca892c46714818ba2d7d8eb9b2c0a3
-SHA1: 0abfefb0ba8dfe97fb813ca63d169c21113373a7
-MD5sum: 7958131fecae3aeb8c34f0076cf194c3
-Description: CoD server creator written in Rust
- This is utility that automates the creation of Call of Duty ®️ (2003) and
- the expansion pack, United Offensive servers. Repo:
- https://github.com/Wolf-Pack-Clan/orbix
-
-Package: oreo-black-cursors
-Version: 1.0
-Architecture: all
-Maintainer: Kazam <kazam0180@proton.me>
-Installed-Size: 11148
-Homepage: https://github.com/varlesh/oreo-cursors
-Priority: optional
-Section: x11
-Filename: pool/main/o/oreo-black-cursors/oreo-black-cursors_1.0_all.deb
-Size: 54340
-SHA256: 948593b184730a3c43e41a8284c0a9af68ad4d90fbe94b2806e03d930b821e44
-SHA1: b66c86b8571e249f4284e728655cdd77777d4ca0
-MD5sum: fdefb9a7e611f67fd906ae6343c171ab
-Description: Oreo Cursors (black color)
-
-Package: oreo-blue-cursors
-Version: 1.0
-Architecture: all
-Maintainer: Kazam <kazam0180@proton.me>
-Installed-Size: 11148
-Homepage: https://github.com/varlesh/oreo-cursors
-Priority: optional
-Section: x11
-Filename: pool/main/o/oreo-blue-cursors/oreo-blue-cursors_1.0_all.deb
-Size: 58280
-SHA256: ee9e1d35819c0597864196e5f2355ee9b1aeb858c5f30ec820db4096d6f0a411
-SHA1: 71554037fdf0b24d28254221ca56269aa9dda6ac
-MD5sum: e7cd8d81b975922c6e7ee180ed98b70f
-Description: Oreo Cursors (blue color)
-
-Package: oreo-grey-cursors
-Version: 1.0
-Architecture: all
-Maintainer: Kazam <kazam0180@proton.me>
-Installed-Size: 11148
-Homepage: https://github.com/varlesh/oreo-cursors
-Priority: optional
-Section: x11
-Filename: pool/main/o/oreo-grey-cursors/oreo-grey-cursors_1.0_all.deb
-Size: 59272
-SHA256: c4d48bdb1d9a13d40fe8387f14912a06fe6f7ddc653feee9ea3b4f3abd339b57
-SHA1: 6b04456594b0db146817f4e91c95d1171f68b270
-MD5sum: 6f9479d1415b330615d709207436ad99
-Description: Oreo Cursors (grey color)
-
-Package: oreo-pink-cursors
-Version: 1.0
-Architecture: all
-Maintainer: Kazam <kazam0180@proton.me>
-Installed-Size: 11148
-Homepage: https://github.com/varlesh/oreo-cursors
-Priority: optional
-Section: x11
-Filename: pool/main/o/oreo-pink-cursors/oreo-pink-cursors_1.0_all.deb
-Size: 58680
-SHA256: c69a5b0f7011154bc01e36cc94236a843efff0702963743cb04f8d4a13ef5c3c
-SHA1: 13f056995d4da83834db18b1b9c53c7fe8d95b66
-MD5sum: 81151b8ce94ba42f365ec6342f0dadfb
-Description: Oreo Cursors (pink color)
-
-Package: oreo-purple-cursors
-Version: 1.0
-Architecture: all
-Maintainer: Kazam <kazam0180@proton.me>
-Installed-Size: 11148
-Homepage: https://github.com/varlesh/oreo-cursors
-Priority: optional
-Section: x11
-Filename: pool/main/o/oreo-purple-cursors/oreo-purple-cursors_1.0_all.deb
-Size: 58968
-SHA256: dcce6a763f3196458b5211650224e448f19954036e5cc90311c85ee4b2250231
-SHA1: d4e95175babca6b3e1b9c66df69804718712617b
-MD5sum: a242e8f62266e8ee98af8f14658fb114
-Description: Oreo Cursors (purple color)
-
-Package: oreo-red-cursors
-Version: 1.0
-Architecture: all
-Maintainer: Kazam <kazam0180@proton.me>
-Installed-Size: 11148
-Homepage: https://github.com/varlesh/oreo-cursors
-Priority: optional
-Section: x11
-Filename: pool/main/o/oreo-red-cursors/oreo-red-cursors_1.0_all.deb
-Size: 58236
-SHA256: 7b867df9b88d5bc344d131bfd3ab1d755090d147a4c30205cd4bc182255aa4b2
-SHA1: 2df15977c2dba02f8c2c38643658a9a14ffb76f1
-MD5sum: 1756c61d469d27ce15ef70bd3cdd303f
-Description: Oreo Cursors (red color)
-
-Package: oreo-spark-lime-cursors
-Version: 1.0
-Architecture: all
-Maintainer: Kazam <kazam0180@proton.me>
-Installed-Size: 11148
-Homepage: https://github.com/varlesh/oreo-cursors
-Priority: optional
-Section: x11
-Filename: pool/main/o/oreo-spark-lime-cursors/oreo-spark-lime-cursors_1.0_all.deb
-Size: 59352
-SHA256: 81e3caf6bf0669d417ea5b068c465a2487209a2ff59860b157f95cca7370262d
-SHA1: c19fbf48a4a0f89eca60036b438fad477e4afd53
-MD5sum: 9235cdb8de1bf6521f15c0ff3f8d292f
-Description: Oreo Cursors (spark) (lime color)
-
-Package: oreo-spark-orange-cursors
-Version: 1.0
-Architecture: all
-Maintainer: Kazam <kazam0180@proton.me>
-Installed-Size: 11148
-Homepage: https://github.com/varlesh/oreo-cursors
-Priority: optional
-Section: x11
-Filename: pool/main/o/oreo-spark-orange-cursors/oreo-spark-orange-cursors_1.0_all.deb
-Size: 57100
-SHA256: 126893e7ce048be1c1963fee99377eaba5e0cecad1cdfd1c31fec320d9e10a1c
-SHA1: 68d4bdf76a43fbad7634c278b2b48c5da55e426f
-MD5sum: 693587995b53e7ee7463e67be28e2fff
-Description: Oreo Cursors (spark) (orange color)
-
-Package: oreo-teal-cursors
-Version: 1.0
-Architecture: all
-Maintainer: Kazam <kazam0180@proton.me>
-Installed-Size: 11148
-Homepage: https://github.com/varlesh/oreo-cursors
-Priority: optional
-Section: x11
-Filename: pool/main/o/oreo-teal-cursors/oreo-teal-cursors_1.0_all.deb
-Size: 59884
-SHA256: 1ad28e7bf224be247f9d03917f05fb4321d45cd69c2bc2f99ff06d55ad9ea480
-SHA1: 2e90405d2f8846fa1e70767e621340bf26a157f2
-MD5sum: 443c5c5ed7513c51eccdeb4722de4959
-Description: Oreo Cursors (teal color)
-
-Package: oreo-white-cursors
-Version: 1.0
-Architecture: all
-Maintainer: Kazam <kazam0180@proton.me>
-Installed-Size: 11148
-Homepage: https://github.com/varlesh/oreo-cursors
-Priority: optional
-Section: x11
-Filename: pool/main/o/oreo-white-cursors/oreo-white-cursors_1.0_all.deb
-Size: 51556
-SHA256: 71727aa48bd82cfe114da11927861e5a9562f3002a0a94841a56bc6996278fe7
-SHA1: 17313074b19dca1fbeb3fa596e68173c709e1ae9
-MD5sum: 1cf345f46b8609b568b23adad6c0d234
-Description: Oreo Cursors (white color)
+Section: utils
+Filename: pool/main/c/calamares/calamares_3.3.14-1~kazamos1_amd64.deb
+Size: 4234012
+SHA256: 22d6ead93cf367c07dc56abbe8d8305944ff77c4476ef77088d19d743d7a4fad
+SHA1: 39df342c40081ac0a3824347989155e6c1df6e6c
+MD5sum: ac3a7b7f83db9bc5102cef1d2cb8219e
+Description: distribution-independent installer framework
+ Calamares is a distribution-independent installer framework.
+ .
+ It provides a graphical installer that can be used with nearly
+ any distribution. This package is suitable for live media on
+ Debian-based systems, and won't be of any particular use on
+ an already installed system.
+ .
+ You will likely want to provide your own config files to match
+ your distribution, reading the Calamares documentation will guide
+ you through that process.
 
