@@ -90,7 +90,7 @@ jobs:
     - name: Install deps
       run: |
         apt-get update
-        apt-get install -y --no-install-recommends reprepro gnupg2 tree
+        apt-get install -y --no-install-recommends reprepro gnupg2 tree git
 
     - name: Setup Git
       run: |
