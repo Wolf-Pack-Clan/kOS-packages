@@ -87,6 +87,11 @@ jobs:
       with:
         name: calamares-deb
 
+    - name: Install deps
+      run: |
+        apt-get update
+        apt-get install -y --no-install-recommends reprepro gnupg2 tree
+
     - name: Setup Git
       run: |
         git config --global user.name "github-actions[bot]"
@@ -111,10 +116,6 @@ jobs:
         
     - name: Setup reprepro and publish
       run: |
-        
-        # Install reprepro
-        apt-get update
-        apt-get install -y --no-install-recommends reprepro gnupg2 tree
 
         tree -L 3
         echo "======================================="
