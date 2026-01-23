@@ -124,27 +124,51 @@ jobs:
 
         tree -L 3
 
-        echo "${{ secrets.GPG_PASS }}" | gpg --batch --pinentry-mode loopback \
-          --passphrase-fd 0 --armor --detach-sign --default-key "$GPG_KEY_ID" \
-          --output /tmp/test.sig <(echo "test") || {
+        # Create a wrapper script for GPG signing
+        cat > /tmp/gpg-sign.sh <<'SIGNSCRIPT'
+        #!/bin/bash
+        
+        echo "$GPG_PASS" | gpg --batch --pinentry-mode loopback \
+          --passphrase-fd 0 "$@"
+        
+        SIGNSCRIPT
+        
+        chmod +x /tmp/gpg-sign.sh
+        
+        # Test the signing setup
+        echo "test" | /tmp/gpg-sign.sh --armor --detach-sign \
+          --default-key "$GPG_KEY_ID" --output /tmp/test.sig || {
           echo "GPG test signing failed"
           exit 1
         }
-
-        # Start gpg-agent and preset the passphrase
-        gpgconf --kill gpg-agent
-        gpg-agent --daemon --allow-preset-passphrase || true
-
-        KEYGRIP=$(gpg --with-keygrip --list-secret-keys "$GPG_KEY_ID" | \
-          awk '/Keygrip/ {print $3; exit}')
+        echo "GPG signing test successful"
         
-        if [ -n "$KEYGRIP" ]; then
-          echo "$GPG_PASS" | /usr/lib/gnupg/gpg-preset-passphrase --preset "$KEYGRIP"
-        fi
-
-        # Add package to repository
-        reprepro -b . includedeb wired calamares_*.deb
+        # Configure reprepro to use our wrapper script
+        export GNUPGHOME="$HOME/.gnupg"
+        
+        # Add package to repository with custom signing command
+        reprepro --gnupghome "$GNUPGHOME" \
+          --export=never \
+          -b . includedeb wired calamares_*.deb
+        
+        # Now manually sign the Release file
+        cd dists/wired
+        
+        # Remove old signatures
+        rm -f Release.gpg InRelease
+        
+        # Create new signatures using our wrapper
+        /tmp/gpg-sign.sh --default-key "$GPG_KEY_ID" \
+          --output Release.gpg --detach-sign Release
+        
+        /tmp/gpg-sign.sh --default-key "$GPG_KEY_ID" \
+          --clearsign --output InRelease Release
+        
+        cd ../..
+        
+        # Clean up artifacts and wrapper
         rm calamares_*.deb
+        rm /tmp/gpg-sign.sh
 
         # Verify files
         ls -l dists/wired/
