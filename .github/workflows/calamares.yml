@@ -128,7 +128,7 @@ jobs:
         cat > /tmp/gpg-sign.sh <<'SIGNSCRIPT'
         #!/bin/bash
         
-        echo "$GPG_PASS" | gpg --batch --pinentry-mode loopback \
+        echo "${{ secrets.GPG_PASS }}" | gpg --batch --pinentry-mode loopback \
           --passphrase-fd 0 "$@"
         
         SIGNSCRIPT
