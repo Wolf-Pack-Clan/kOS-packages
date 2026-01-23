@@ -124,46 +124,31 @@ jobs:
 
         tree -L 3
 
-        git clone https://github.com/Wolf-Pack-Clan/kOS-packages.git /tmp/repo
-
-        # Backup and modify distributions file for temporary signing disable
-        if [ -f /tmp/repo/conf/distributions ]; then
-          cp /tmp/repo/conf/distributions /tmp/repo/conf/distributions.bak
-          sed -E 's/^[[:space:]]*SignWith:.*$/# &/g' /tmp/repo/conf/distributions.bak > /tmp/repo/conf/distributions
-        else
-          echo "ERROR: No conf/distributions found"
+        echo "${{ secrets.GPG_PASS }}" | gpg --batch --pinentry-mode loopback \
+          --passphrase-fd 0 --armor --detach-sign --default-key "$GPG_KEY_ID" \
+          --output /tmp/test.sig <(echo "test") || {
+          echo "GPG test signing failed"
           exit 1
+        }
+
+        # Start gpg-agent and preset the passphrase
+        gpgconf --kill gpg-agent
+        gpg-agent --daemon --allow-preset-passphrase || true
+
+        KEYGRIP=$(gpg --with-keygrip --list-secret-keys "$GPG_KEY_ID" | \
+          awk '/Keygrip/ {print $3; exit}')
+        
+        if [ -n "$KEYGRIP" ]; then
+          echo "$GPG_PASS" | /usr/lib/gnupg/gpg-preset-passphrase --preset "$KEYGRIP"
         fi
 
         # Add package to repository
-        reprepro -b /tmp/repo/ includedeb wired *.deb
-        
-        # Sign Release file manually
-        RELEASE_PATH="/tmp/repo/dists/wired/Release"
-        if [ ! -f "$RELEASE_PATH" ]; then
-          echo "Release file missing at $RELEASE_PATH"
-          exit 1
-        fi
-        
-        # Sign manually
-        echo "${{ secrets.GPG_PASS }}" | gpg --batch --pinentry-mode loopback \
-          --passphrase-fd 0 --default-key "$GPG_KEY_ID" \
-          --output "${RELEASE_PATH}.gpg" --detach-sign "$RELEASE_PATH"
-        
-        echo "${{ secrets.GPG_PASS }}" | gpg --batch --pinentry-mode loopback \
-          --passphrase-fd 0 --default-key "$GPG_KEY_ID" \
-          --clearsign --output "/tmp/repo/dists/wired/InRelease" "$RELEASE_PATH"
-        
-        # Restore original distributions config
-        rm /tmp/repo/conf/distributions
-        mv /tmp/repo/conf/distributions.bak /tmp/repo/conf/distributions
+        reprepro -b . includedeb wired calamares_*.deb
         rm calamares_*.deb
-
-        cp -rf /tmp/repo/dists .
-        cp -rf /tmp/repo/pool .
 
         # Verify files
         ls -l dists/wired/
+        cat dists/wired/main/binary-amd64/Packages
 
         git status
 
@@ -188,7 +173,7 @@ jobs:
         fi
 
         # create a unique branch name
-        BRANCH="ci/repo-update-${GITHUB_RUN_ID}-$(date +%s)"
+        BRANCH="ci/calamares-update-${GITHUB_RUN_ID}-$(date +%s)"
         echo "Creating branch: $BRANCH"
 
         # create branch from current main (checkout ensures we are on a branch)
