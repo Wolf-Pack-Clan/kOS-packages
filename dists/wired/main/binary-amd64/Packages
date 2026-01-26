@@ -11,10 +11,10 @@ Homepage: https://github.com/calamares/calamares
 Priority: optional
 Section: utils
 Filename: pool/main/c/calamares/calamares_3.3.14-1~kazamos1_amd64.deb
-Size: 4235760
-SHA256: 56044514885b524e6018cb9e3d070a7f353509fb399f1d33113a2df41e73d917
-SHA1: 47e346d13ed6c5405c1942e3ea62d6a33220664b
-MD5sum: 3c1420cb4f4d38ccb7cb48fa15046256
+Size: 4235104
+SHA256: ead096aa9a0cb9e6079b4e8376ba17d4066e68ef4c2fd9ea4d0ecc79b3485595
+SHA1: 9fed959d48b376bd31b66a4ce77e28b5d811982a
+MD5sum: a0a05a6dc0047d70abb500a8f0ec6c69
 Description: distribution-independent installer framework
  Calamares is a distribution-independent installer framework.
  .
