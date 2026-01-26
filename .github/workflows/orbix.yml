@@ -20,9 +20,9 @@ jobs:
       run: |
         apt-get update
         apt-get install -y --no-install-recommends \
-          rsync python3-yaml python3-jsonschema \
+          rsync python3-yaml python3-jsonschema libcurl4-openssl-dev \
           devscripts build-essential fakeroot dpkg-dev \
-          equivs ca-certificates git gnupg rustup
+          equivs ca-certificates git gnupg rustup pkgconf
 
         rustup default stable
         cargo install cargo-deb
