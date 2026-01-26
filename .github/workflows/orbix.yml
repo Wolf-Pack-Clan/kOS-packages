@@ -134,7 +134,10 @@ jobs:
         }
         echo "GPG wrapper working correctly"
 
+        reprepro -b . export
+        find pool -name "orbix_*.deb" -exec rm {} \;
         reprepro -b . includedeb wired orbix*.deb
+        find pool -name "*.deb" -exec reprepro -b . includedeb wired {} \;
 
         rm orbix*.deb
         echo "latestTag=$(cat tag)" >> $GITHUB_ENV
