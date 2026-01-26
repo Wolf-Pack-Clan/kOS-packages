@@ -37,7 +37,6 @@ jobs:
 
         cd "$SRCDIR"
         latestTag=$(git describe --tags $(git rev-list --tags --max-count=1))
-        echo "latestTag=$latestTag" >> $GITHUB_ENV
         git checkout $latestTag
 
         cargo deb
@@ -46,6 +45,7 @@ jobs:
         cd ..
         mkdir -p artifacts
         mv $SRCDIR/target/debian/*.deb artifacts/ 2>/dev/null || echo "No deb files found"
+        echo "$latestTag" >> artifacts/tag
 
         echo "Build completed"
 
@@ -54,6 +54,13 @@ jobs:
       with:
         name: orbix-deb
         path: artifacts/orbix*.deb
+        retention-days: 7
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: orbix-tag
+        path: artifacts/tag
         retention-days: 7
 
   publish-deb:
@@ -69,6 +76,11 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: orbix-deb
+
+    - name: Download tag
+      uses: actions/download-artifact@v4
+      with:
+        name: orbix-tag
 
     - name: Install deps
       run: |
@@ -125,6 +137,8 @@ jobs:
         reprepro -b . includedeb wired orbix*.deb
 
         rm orbix*.deb
+        echo "latestTag=$(cat tag)" >> $GITHUB_ENV
+        rm tag
 
         # Verify files
         ls -l dists/wired/
