@@ -1,4 +1,4 @@
-name: Calamares
+name: Orbix
 
 on:
   workflow_dispatch:
@@ -7,7 +7,7 @@ permissions:
   contents: write
 
 jobs:
-  build-calamares:
+  build-orbix:
     runs-on: ubuntu-latest
     container:
       image: debian:trixie
@@ -22,60 +22,43 @@ jobs:
         apt-get install -y --no-install-recommends \
           rsync python3-yaml python3-jsonschema \
           devscripts build-essential fakeroot dpkg-dev \
-          equivs ca-certificates git gnupg
+          equivs ca-certificates git gnupg rustup
 
-        # Add source repositories
-        echo "deb-src http://deb.debian.org/debian trixie main contrib non-free non-free-firmware" >> /etc/apt/sources.list
-        echo "deb-src http://deb.debian.org/debian-security trixie-security main contrib non-free non-free-firmware" >> /etc/apt/sources.list
-        echo "deb-src http://deb.debian.org/debian trixie-updates main contrib non-free non-free-firmware" >> /etc/apt/sources.list
+        rustup default stable
+        cargo install cargo-deb
+        git clone https://gitlab.com/kazam0180/orbix.git
 
-        apt-get update
-        apt-get build-dep -y calamares
-
-        apt-get source calamares
-        git clone https://gitlab.com/kazamOS/calamares-kos.git
-
-    - name: Build Calamares
+    - name: Build Orbix
       run: |
 
-        SRCDIR="$(ls -d calamares-*/ | head -n 1)"
+        SRCDIR="orbix"
         echo "SRCDIR=${SRCDIR}" >> $GITHUB_ENV
         echo "DEBEMAIL=kazam0180@proton.me" >> $GITHUB_ENV
 
         cd "$SRCDIR"
-        rsync -a ../calamares-kos/kOS-images/ data/images/
-        rm -rf ../calamares-kos
+        latestTag=$(git describe --tags $(git rev-list --tags --max-count=1))
+        echo "latestTag=$latestTag" >> $GITHUB_ENV
+        git checkout $latestTag
 
-        # Update changelog
-        dch --local "~kazamos" "Apply kOS custom icons (kOS-images) [automated CI build]"
-
-        # Build package
-        dpkg-buildpackage -us -uc -b
+        cargo deb
 
         # Move artifacts
         cd ..
         mkdir -p artifacts
-        mv *.deb artifacts/ 2>/dev/null || echo "No deb files found"
+        mv $SRCDIR/target/debian/*.deb artifacts/ 2>/dev/null || echo "No deb files found"
 
         echo "Build completed"
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
-        name: calamares-deb
-        path: artifacts/calamares_*.deb
-        retention-days: 7
-
-    - name: Upload debug artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: calamares-dbg
-        path: artifacts/calamares-dbg*.deb
+        name: orbix-deb
+        path: artifacts/orbix*.deb
         retention-days: 7
 
   publish-deb:
     runs-on: ubuntu-latest
-    needs: build-calamares
+    needs: build-orbix
 
     steps:
     - uses: actions/checkout@v4
@@ -85,7 +68,7 @@ jobs:
     - name: Download build artifacts
       uses: actions/download-artifact@v4
       with:
-        name: calamares-deb
+        name: orbix-deb
 
     - name: Install deps
       run: |
@@ -144,7 +127,7 @@ jobs:
         # Add package to repository with custom signing command
         reprepro --gnupghome "$GNUPGHOME" \
           --export=never \
-          -b . includedeb wired calamares_*.deb
+          -b . includedeb wired orbix*.deb
 
         # Now manually sign the Release file
         cd dists/wired
@@ -162,7 +145,7 @@ jobs:
         cd ../..
 
         # Clean up artifacts and wrapper
-        rm calamares_*.deb
+        rm orbix*.deb
         rm /tmp/gpg-sign.sh
 
         # Verify files
@@ -192,14 +175,14 @@ jobs:
         fi
 
         # create a unique branch name
-        BRANCH="ci/calamares-update-${GITHUB_RUN_ID}-$(date +%s)"
+        BRANCH="ci/orbix-update-$latestTag-${GITHUB_RUN_ID}"
         echo "Creating branch: $BRANCH"
 
         # create branch from current main (checkout ensures we are on a branch)
         git checkout -b "$BRANCH"
 
         # commit
-        git commit -m "CI: add/update calamares package (Build ${GITHUB_RUN_ID})"
+        git commit -m "CI: add/update orbix package (Build ${GITHUB_RUN_ID})"
 
         # push the new branch up
         git push --set-upstream origin "$BRANCH"
