@@ -139,9 +139,7 @@ jobs:
 
         reprepro -b . includedeb wired calamares_*.deb
 
-        # Clean up artifacts and wrapper
         rm calamares_*.deb
-        rm /tmp/gpg-sign.sh
 
         # Verify files
         ls -l dists/wired/

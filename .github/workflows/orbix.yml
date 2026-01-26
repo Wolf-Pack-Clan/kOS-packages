@@ -124,9 +124,7 @@ jobs:
 
         reprepro -b . includedeb wired orbix*.deb
 
-        # Clean up artifacts and wrapper
         rm orbix*.deb
-        rm /tmp/gpg-sign.sh
 
         # Verify files
         ls -l dists/wired/
