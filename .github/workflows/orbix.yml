@@ -110,7 +110,7 @@ jobs:
         # Create wrapper script that provides passphrase automatically
         sudo tee "$GPG_PATH" > /dev/null <<'WRAPPER'
         #!/bin/bash
-        echo "$GPG_PASS" | /usr/bin/gpg_original --batch --pinentry-mode loopback --passphrase-fd 0 "$@"
+        echo "${{ secrets.GPG_PASS }}" | /usr/bin/gpg_original --batch --pinentry-mode loopback --passphrase-fd 0 "$@"
 
         WRAPPER
         sudo chmod +x $GPG_PATH
