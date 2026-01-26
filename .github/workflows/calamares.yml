@@ -137,7 +137,10 @@ jobs:
         }
         echo "GPG wrapper working correctly"
 
+        find pool -name "calamares_*.deb" -exec rm {} \;
+        reprepro -b . export
         reprepro -b . includedeb wired calamares_*.deb
+        find pool -name "*.deb" -exec reprepro -b . includedeb wired {} \;
 
         rm calamares_*.deb
 
