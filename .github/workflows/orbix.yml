@@ -1,0 +1,190 @@
+name: Orbix
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-orbix:
+    runs-on: ubuntu-latest
+    container:
+      image: debian:trixie
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup environment
+      run: |
+        apt-get update
+        apt-get install -y --no-install-recommends \
+          rsync python3-yaml python3-jsonschema \
+          devscripts build-essential fakeroot dpkg-dev \
+          equivs ca-certificates git gnupg rustup
+
+        rustup default stable
+        cargo install cargo-deb
+        git clone https://gitlab.com/kazam0180/orbix.git
+
+    - name: Build Orbix
+      run: |
+
+        SRCDIR="orbix"
+        echo "SRCDIR=${SRCDIR}" >> $GITHUB_ENV
+        echo "DEBEMAIL=kazam0180@proton.me" >> $GITHUB_ENV
+
+        cd "$SRCDIR"
+        latestTag=$(git describe --tags $(git rev-list --tags --max-count=1))
+        echo "latestTag=$latestTag" >> $GITHUB_ENV
+        git checkout $latestTag
+
+        cargo deb
+
+        # Move artifacts
+        cd ..
+        mkdir -p artifacts
+        mv $SRCDIR/target/debian/*.deb artifacts/ 2>/dev/null || echo "No deb files found"
+
+        echo "Build completed"
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: orbix-deb
+        path: artifacts/orbix*.deb
+        retention-days: 7
+
+  publish-deb:
+    runs-on: ubuntu-latest
+    needs: build-orbix
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Download build artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: orbix-deb
+
+    - name: Install deps
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y --no-install-recommends reprepro gnupg2 tree git
+
+    - name: Setup Git
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+    - name: Setup GPG
+      run: |
+        mkdir -p ~/.gnupg
+        chmod 700 ~/.gnupg
+        echo "allow-loopback-pinentry" >> ~/.gnupg/gpg-agent.conf
+        echo "pinentry-mode loopback" >> ~/.gnupg/gpg.conf
+
+        # Import GPG key
+        echo "${{ secrets.GPG_PKEY }}" | base64 -d > /tmp/private.key
+        gpg --batch --import /tmp/private.key
+        rm /tmp/private.key
+
+        echo "GPG_KEY_ID=30C3FCD1AAF7EA8EE146F07F7EC23947CFD2A7E8" >> $GITHUB_ENV
+
+        echo "key check"
+        gpg --list-secret-keys --keyid-format LONG
+
+    - name: Setup reprepro and publish
+      run: |
+
+        tree -L 3
+
+        # Create a wrapper script for GPG signing
+        cat > /tmp/gpg-sign.sh <<'SIGNSCRIPT'
+        #!/bin/bash
+
+        echo "${{ secrets.GPG_PASS }}" | gpg --batch --pinentry-mode loopback \
+          --passphrase-fd 0 "$@"
+
+        SIGNSCRIPT
+
+        chmod +x /tmp/gpg-sign.sh
+
+        # Test the signing setup
+        echo "test" | /tmp/gpg-sign.sh --armor --detach-sign \
+          --default-key "$GPG_KEY_ID" --output /tmp/test.sig || {
+          echo "GPG test signing failed"
+          exit 1
+        }
+        echo "GPG signing test successful"
+
+        # Configure reprepro to use our wrapper script
+        export GNUPGHOME="$HOME/.gnupg"
+
+        # Add package to repository with custom signing command
+        reprepro --gnupghome "$GNUPGHOME" \
+          --export=never \
+          -b . includedeb wired orbix*.deb
+
+        # Now manually sign the Release file
+        cd dists/wired
+
+        # Remove old signatures
+        rm -f Release.gpg InRelease
+
+        # Create new signatures using our wrapper
+        /tmp/gpg-sign.sh --default-key "$GPG_KEY_ID" \
+          --output Release.gpg --detach-sign Release
+
+        /tmp/gpg-sign.sh --default-key "$GPG_KEY_ID" \
+          --clearsign --output InRelease Release
+
+        cd ../..
+
+        # Clean up artifacts and wrapper
+        rm orbix*.deb
+        rm /tmp/gpg-sign.sh
+
+        # Verify files
+        ls -l dists/wired/
+        cat dists/wired/main/binary-amd64/Packages
+
+        git status
+
+    - name: Commit and Push
+      run: |
+        set -euo pipefail
+
+        # safe stage of only the directories we expect to change
+        git add -- dists/ pool/ conf/
+
+        # Detect staged deletions (abort if any — safety)
+        DELETIONS=$(git status --porcelain | awk '/^ D/ {count++} END{print count+0}')
+        if [ "$DELETIONS" -gt 0 ]; then
+          echo "ERROR: Detected $DELETIONS staged deletions — aborting to avoid wiping repo"
+          git status --porcelain
+          exit 1
+        fi
+
+        if git diff --cached --quiet; then
+          echo "No repository changes to commit."
+          exit 0
+        fi
+
+        # create a unique branch name
+        BRANCH="ci/orbix-update-$latestTag-${GITHUB_RUN_ID}"
+        echo "Creating branch: $BRANCH"
+
+        # create branch from current main (checkout ensures we are on a branch)
+        git checkout -b "$BRANCH"
+
+        # commit
+        git commit -m "CI: add/update orbix package (Build ${GITHUB_RUN_ID})"
+
+        # push the new branch up
+        git push --set-upstream origin "$BRANCH"
+
+        echo "Pushed branch $BRANCH"
