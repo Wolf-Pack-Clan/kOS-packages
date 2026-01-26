@@ -119,47 +119,26 @@ jobs:
 
         tree -L 3
 
-        # Create a wrapper script for GPG signing
-        cat > /tmp/gpg-sign.sh <<'SIGNSCRIPT'
+        GPG_PATH=$(which gpg)
+        echo "Original GPG at: $GPG_PATH"
+
+        sudo mv "$GPG_PATH" "${GPG_PATH}_original"
+
+        # Create wrapper script that provides passphrase automatically
+        sudo tee "$GPG_PATH" > /dev/null <<'WRAPPER'
         #!/bin/bash
+        echo "$GPG_PASS" | /usr/bin/gpg_original --batch --pinentry-mode loopback --passphrase-fd 0 "$@"
 
-        echo "${{ secrets.GPG_PASS }}" | gpg --batch --pinentry-mode loopback \
-          --passphrase-fd 0 "$@"
+        WRAPPER
 
-        SIGNSCRIPT
-
-        chmod +x /tmp/gpg-sign.sh
-
-        # Test the signing setup
-        echo "test" | /tmp/gpg-sign.sh --armor --detach-sign \
+        echo "test" | gpg --armor --detach-sign \
           --default-key "$GPG_KEY_ID" --output /tmp/test.sig || {
-          echo "GPG test signing failed"
+          echo "GPG wrapper test failed"
           exit 1
         }
-        echo "GPG signing test successful"
+        echo "GPG wrapper working correctly"
 
-        # Configure reprepro to use our wrapper script
-        export GNUPGHOME="$HOME/.gnupg"
-
-        # Add package to repository with custom signing command
-        reprepro --gnupghome "$GNUPGHOME" \
-          --export=never \
-          -b . includedeb wired calamares_*.deb
-
-        # Now manually sign the Release file
-        cd dists/wired
-
-        # Remove old signatures
-        rm -f Release.gpg InRelease
-
-        # Create new signatures using our wrapper
-        /tmp/gpg-sign.sh --default-key "$GPG_KEY_ID" \
-          --output Release.gpg --detach-sign Release
-
-        /tmp/gpg-sign.sh --default-key "$GPG_KEY_ID" \
-          --clearsign --output InRelease Release
-
-        cd ../..
+        reprepro -b . includedeb wired calamares_*.deb
 
         # Clean up artifacts and wrapper
         rm calamares_*.deb
