@@ -2,27 +2,27 @@ Origin: kazamOS
 Label: kazamOS
 Suite: testing
 Codename: wired
-Date: Mon, 09 Feb 2026 14:45:16 UTC
+Date: Tue, 10 Feb 2026 12:09:29 UTC
 Architectures: amd64
 Components: main
 MD5Sum:
- 3076f7b8a7e47b565ff31fe7a69b3c47 11976 main/binary-amd64/Packages
- acb4bde3cefd6254d951c2be94dc02ae 4143 main/binary-amd64/Packages.gz
+ bdd6f12ca7290813cf002aacd0b3ba31 11995 main/binary-amd64/Packages
+ 08ee2b5e5ce30a530c96faadb3cfe1f6 4158 main/binary-amd64/Packages.gz
  365cf0f87534e0c0c2e2c6a7710af98b 84 main/binary-amd64/Release
- 549fbf549c7c7e50297b77ca6ea3e8b3 2850 main/source/Sources
- 52a038aa19d295833aef28567b1db4fa 1039 main/source/Sources.gz
+ e3db69ff576d90e541c4537c6e75f8ae 2889 main/source/Sources
+ 8c0e186603baac9896012f25dd5c1f8f 1055 main/source/Sources.gz
  30bae49292a0ec3b4c3b1f8d740efa9f 85 main/source/Release
 SHA1:
- 995d2453f5aa3e8c900c7ed25d4dcb0df36c0d1b 11976 main/binary-amd64/Packages
- cf37fb41870983e54aa0ccb7acbba0cde6a0b91b 4143 main/binary-amd64/Packages.gz
+ 13e50d3bfc82c349c11cd6afa6d6a160a742ad9a 11995 main/binary-amd64/Packages
+ 469d21afa3ff6b1498dcef47a7703de1dab84b1c 4158 main/binary-amd64/Packages.gz
  46105b3c179126b1600fde7a8b797ec5d477d299 84 main/binary-amd64/Release
- 9c69dac69a631aae78e2f30bbd28be0d7069688d 2850 main/source/Sources
- c1af7d65b6667707a79078b02daa8f2de4297be8 1039 main/source/Sources.gz
+ 9a71a594e14c69445b5d837edd0b8946a99a0b99 2889 main/source/Sources
+ e05224ba79e2366b803dc92e2a3863ebe5a85df5 1055 main/source/Sources.gz
  8719f95feb2f480758c07431327e2f2b99d63f59 85 main/source/Release
 SHA256:
- 296174d04609b438fb4e233651c1df251d5df8e8bf0024f54eaaed98c0af751b 11976 main/binary-amd64/Packages
- 921c0cefe9aeb46e6d46e3998087fc23c090e9bdc790fb903664d53d93c7e4be 4143 main/binary-amd64/Packages.gz
+ cf207eac152aea4f86d680edbe387d56d7dc540fb29259f32ae925ce5bfa8697 11995 main/binary-amd64/Packages
+ 984390e644427d0d731edf2dd22acb2b45d4d5bf7d092a88fbb26e2b157e4b2f 4158 main/binary-amd64/Packages.gz
  9fabe4aa9a8e566f4f5d69c8ff67d37b5415d7b254842941b34dd1c6aeb1fa71 84 main/binary-amd64/Release
- 421425ce716256f08faaa0b15ca0fc3bdc7427b8b2d26fc0a2c0f05598e5bb2d 2850 main/source/Sources
- a8589e42cabe36570af2d453fc2cef5a04b31f3416be6f69fba696f0a3efad34 1039 main/source/Sources.gz
+ 7307d83f9dd8e418152600deeea96519bb3671ac28a97c9c2f9c6ed105038331 2889 main/source/Sources
+ 0ea69e353d6b0d7055d1b9940de78b5472b8703ee00b9558441a43ec2e2909b5 1055 main/source/Sources.gz
  9eff6d3251959088c63467429c735cf0353c1fe3c9c27e8c80d2075d19e3ff95 85 main/source/Release
