@@ -117,18 +117,18 @@ Description: [generated from Rust crate mpris_kontrol]
  players that support MPRIS 
 
 Package: orbix
-Version: 0.3.2-1
+Version: 0.3.3-1
 Architecture: amd64
 Maintainer: Kazam (Discord: kazam0180)
-Installed-Size: 2732
+Installed-Size: 2689
 Depends: libc6 (>= 2.39), libssl3t64 (>= 3.0.0)
 Priority: optional
 Section: utility
-Filename: pool/main/o/orbix/orbix_0.3.2-1_amd64.deb
-Size: 972812
-SHA256: 519a6e2229e86c3277c6130dd9a8ea294fca892c46714818ba2d7d8eb9b2c0a3
-SHA1: 0abfefb0ba8dfe97fb813ca63d169c21113373a7
-MD5sum: 7958131fecae3aeb8c34f0076cf194c3
+Filename: pool/main/o/orbix/orbix_0.3.3-1_amd64.deb
+Size: 987144
+SHA256: 657f17d0b17395f400fd0b7b241fef74f76df1fe0ddd3204963b19b6e45bb198
+SHA1: f6a653ad987533fd2d8d2bfbc5a7401051c4bf75
+MD5sum: 62f21ae081fddf8f2f561c718f656b78
 Description: CoD server creator written in Rust
  This is utility that automates the creation of Call of Duty ®️ (2003) and
  the expansion pack, United Offensive servers. Repo:
