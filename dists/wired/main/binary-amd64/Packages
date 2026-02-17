@@ -28,20 +28,20 @@ Description: distribution-independent installer framework
  you through that process.
 
 Package: calamares-settings-kos
-Version: 1.0.2-1
+Version: 1.0.3-1
 Architecture: all
 Maintainer: Muhammad Kazam <kazam0180@proton.me>
-Installed-Size: 176
+Installed-Size: 181
 Depends: calamares, rsync, cryptsetup, libglib2.0-bin, keyutils, pkexec, qml-module-qtquick-window2, qml-module-qtquick2
 Provides: calamares-settings
 Homepage: https://gitlab.com/kazamOS/calamares/calamares-settings-kos
 Priority: optional
 Section: utils
-Filename: pool/main/c/calamares-settings-kos/calamares-settings-kos_1.0.2-1_all.deb
-Size: 98788
-SHA256: dbdab93372b6adc6b888e5fe0a823745a314950905ec0bc12b41260dba5f4a12
-SHA1: 3122b00727ea49cf6dcea2a0c2163ca5e8bbffc9
-MD5sum: 1e2344c9d7ddeafe764ed1e147652bdb
+Filename: pool/main/c/calamares-settings-kos/calamares-settings-kos_1.0.3-1_all.deb
+Size: 104492
+SHA256: ec3978b44dfe0292dd9cb09a493b076b1d65add6e7a676a599fce17a0eb80a30
+SHA1: 3fa4ad39b5e5c51f1212f57191a896b46563d0c6
+MD5sum: f04712fbe6f77ed6c3228ca1cb6f51db
 Description: kazamOS theme and settings for the Calamares Installer
  Calamares is a generic installer framework for Linux distributions.
  By default, it contains a set of boilerplate wording and images.
