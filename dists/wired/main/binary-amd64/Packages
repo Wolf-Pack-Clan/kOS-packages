@@ -28,20 +28,20 @@ Description: distribution-independent installer framework
  you through that process.
 
 Package: calamares-settings-kos
-Version: 1.0.3-1
+Version: 1.0.4-1
 Architecture: all
 Maintainer: Muhammad Kazam <kazam0180@proton.me>
-Installed-Size: 181
+Installed-Size: 188
 Depends: calamares, rsync, cryptsetup, libglib2.0-bin, keyutils, pkexec, qml-module-qtquick-window2, qml-module-qtquick2
 Provides: calamares-settings
 Homepage: https://gitlab.com/kazamOS/calamares/calamares-settings-kos
 Priority: optional
 Section: utils
-Filename: pool/main/c/calamares-settings-kos/calamares-settings-kos_1.0.3-1_all.deb
-Size: 104492
-SHA256: ec3978b44dfe0292dd9cb09a493b076b1d65add6e7a676a599fce17a0eb80a30
-SHA1: 3fa4ad39b5e5c51f1212f57191a896b46563d0c6
-MD5sum: f04712fbe6f77ed6c3228ca1cb6f51db
+Filename: pool/main/c/calamares-settings-kos/calamares-settings-kos_1.0.4-1_all.deb
+Size: 110868
+SHA256: e67976ec7e72c0b6bda42c0526fc7e0db26d6dd32bc16364cb0d0995a81b4f60
+SHA1: 1f7d39cb312695935e8fbd2af23f07fa5ed2ae7f
+MD5sum: 393f324234c3ca5dba9338a9d2ce2d61
 Description: kazamOS theme and settings for the Calamares Installer
  Calamares is a generic installer framework for Linux distributions.
  By default, it contains a set of boilerplate wording and images.
@@ -309,10 +309,10 @@ Homepage: https://gitlab.com/kazamOS/plymouth-theme-kos
 Priority: optional
 Section: misc
 Filename: pool/main/p/plymouth-theme-kos/plymouth-theme-kos_1.0.0-1_all.deb
-Size: 5747996
-SHA256: 28a45a902d0af4799b3304d3745c99e651e81524ce68b79fde8ed90b535ebb29
-SHA1: 210a1b7ec91e7f06923f2ba403a626a937aa927f
-MD5sum: 883cfc94f222960f125839865ff9b2d2
+Size: 5747992
+SHA256: 35b1fc9ed83a65bc4725b137ec34ccb1ee330b07468971ea53313a2b26b4a466
+SHA1: b4b0385803dc040fd9a248722ee07e8b92954c67
+MD5sum: 6b006dfb33cfed04b34aa4c9e3546328
 Description: Boot theme for kazamOS
  Plymouth theme for kazamOS.
 
