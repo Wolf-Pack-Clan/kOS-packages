@@ -47,6 +47,21 @@ Description: kazamOS theme and settings for the Calamares Installer
  By default, it contains a set of boilerplate wording and images.
  This package is based on calamares-settings-debian.
 
+Package: donatepage
+Version: 0.1.0-1
+Architecture: amd64
+Maintainer: Kazam (@the.watermelon:matrix.org)
+Installed-Size: 363
+Depends: libc6 (>= 2.34), libglib2.0-0t64 (>= 2.54.0), libgtk-4-1 (>= 4.0.0), libwebkitgtk-6.0-4 (>= 2.5.3)
+Priority: optional
+Section: utility
+Filename: pool/main/d/donatepage/donatepage_0.1.0-1_amd64.deb
+Size: 151748
+SHA256: 1217c74fbbf1215c2f0502594c7c46bdf0e785261b7e0f0b4108cb453bfc3227
+SHA1: 5c3d2d4df8a01c39850921b6362fcbae30927cc1
+MD5sum: a361108d729be7695ca9beecbb61a865
+Description: WebKit app for showing Kazam's donation page.
+
 Package: greengodot
 Source: greengodot
 Version: 3.6.3+96b2bd0
