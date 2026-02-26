@@ -84,18 +84,18 @@ Description: Full 2D and 3D game engine with editor
  your game without reinventing the wheel.
 
 Package: kazamos-desktop-base
-Version: 1.0.0-1
+Version: 1.0.0-2
 Architecture: all
 Maintainer: Kazam <kazam0180@proton.me>
-Installed-Size: 139
+Installed-Size: 137
 Homepage: https://gitlab.com/kazamOS/kazamos-desktop-base
 Priority: optional
 Section: misc
-Filename: pool/main/k/kazamos-desktop-base/kazamos-desktop-base_1.0.0-1_all.deb
-Size: 23140
-SHA256: aef574f0693ca1cdc084ad33b67fa45fe41133e0e39a2486f3864e462f6feb13
-SHA1: ea6a1f1c091a2b7d6bff3397f08c9df4ae3a16c2
-MD5sum: 10921645d94fc9d963bf4a63a73dc9c3
+Filename: pool/main/k/kazamos-desktop-base/kazamos-desktop-base_1.0.0-2_all.deb
+Size: 23268
+SHA256: ef0d2d8549586a3215828df6772f254443f8af526c95e213d7e8fd09da3de591
+SHA1: 86ac28ec8ee8daa0f2d3380ebd8474e389cfbe00
+MD5sum: 77d126ade3ff4170ea116824bc094b2c
 Description: kazamOS backgrounds and icons
  kazamOS grub, login, lockscreen backgrounds and face icon
 
