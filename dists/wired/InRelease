@@ -5,43 +5,43 @@ Origin: kazamOS
 Label: kazamOS
 Suite: testing
 Codename: wired
-Date: Fri, 27 Feb 2026 09:38:19 UTC
+Date: Sat, 28 Feb 2026 02:02:46 UTC
 Architectures: amd64
 Components: main
 MD5Sum:
- b7c337aaf85e7dc38b2840753cb42d53 13153 main/binary-amd64/Packages
- 16f4e4447fd221b4f4d13a6758918d7c 4535 main/binary-amd64/Packages.gz
+ b643494739886828e30853575350312c 13190 main/binary-amd64/Packages
+ c72544df0158f293a5eeb1c1d1a02fa3 4545 main/binary-amd64/Packages.gz
  365cf0f87534e0c0c2e2c6a7710af98b 84 main/binary-amd64/Release
- 21066cca08d536f2780f39e41c1e86af 2889 main/source/Sources
- d8403d4c1d5063905f8b7ea83091094d 1055 main/source/Sources.gz
+ 8dc674bf02d865cfe0976554d0201dce 2889 main/source/Sources
+ 2e5b34bb878acc4414b928d497662995 1055 main/source/Sources.gz
  30bae49292a0ec3b4c3b1f8d740efa9f 85 main/source/Release
 SHA1:
- 3c20f05e30455a6bab654fda1f75303d127d76ee 13153 main/binary-amd64/Packages
- 38677f9c6f9ded91d1cb71454b50181a6b5fcffd 4535 main/binary-amd64/Packages.gz
+ 3df1f4eaa3a83690b33ade391eda657f9991ad20 13190 main/binary-amd64/Packages
+ ba7092829744b2261b263afc836261e49c4b1fe4 4545 main/binary-amd64/Packages.gz
  46105b3c179126b1600fde7a8b797ec5d477d299 84 main/binary-amd64/Release
- 589885bf12efb4a59261e639a12aba1719eedc82 2889 main/source/Sources
- 14e50cdac8b00da9072e56fb6642090bda8b1c7d 1055 main/source/Sources.gz
+ 3081e37658c8ecc266b50435d46a1a4fa5df32fb 2889 main/source/Sources
+ d618f36e15e94d385f31d965e967660a1715c408 1055 main/source/Sources.gz
  8719f95feb2f480758c07431327e2f2b99d63f59 85 main/source/Release
 SHA256:
- ac93d28ffd8f0cb4676ce1968a5559f3f64ea25bad02a766823690343cb2a1d0 13153 main/binary-amd64/Packages
- dfc33d23d99fecffff82ccf2abeb98c4058099f8ba65e2f3091be0a67ab3cc33 4535 main/binary-amd64/Packages.gz
+ 2a9bb1efbfd9e8860da4867018252cb0b955433e9b364cd06356b10094aee94c 13190 main/binary-amd64/Packages
+ 2717649dd022c4f56f186bcaaa364f67d9164738888ce96acbaa7de9a39a63f6 4545 main/binary-amd64/Packages.gz
  9fabe4aa9a8e566f4f5d69c8ff67d37b5415d7b254842941b34dd1c6aeb1fa71 84 main/binary-amd64/Release
- 972f890483ffdc9c139419ef7a79a2f588ace75b48ca4772eb9105803695d595 2889 main/source/Sources
- 225ffffe9a7ae59c0815312b3000af2057da6cfd3d018818907355bf804a424a 1055 main/source/Sources.gz
+ 501034fca7b69d0fc6f1df377c4d0bb351e375fee6cb98f63d173f981ba3339f 2889 main/source/Sources
+ a225520c578fbd1f84e8086a1c95cbbf6a79fa25d7a7b987a874f931ebfb0542 1055 main/source/Sources.gz
  9eff6d3251959088c63467429c735cf0353c1fe3c9c27e8c80d2075d19e3ff95 85 main/source/Release
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEEkQFrhB/kL89m7EzJYGF/fMruLIoFAmmhZgsACgkQYGF/fMru
-LIp1XxAAkmINpem4xREvCi07pHbTd06jfp4Dt1Bz3Y8Uqe52uW+uYTMtQt3cmB9t
-XVUB0GbZ3LwZz1mIuHkcA/G9AnbSDsyqA2rXSEXU+tD8pqj/AMCqUvSRPUqopHoj
-Poh7Sxe2fSDpFKHUVsufOCsrH7l2g+70W/C9Y9SfLkj+ZyoaFhQlXOy8gUGAxTWz
-N9wTjmkuazEtWBrTpRmuCcnsI08uIR/t4s1te1pWrcD3MU1BRRdNbgMm2+ReOT9L
-BTytWvTYbrbkvFmaWuCaxghf4yv04k0tJF+KyoklQeL6O0/SSAbBYkMHdsOogDFE
-0cV2bXS+M7XByREUqGzCFzvg9PRfUWmzYYN+OLt3OYDexEOell6wnSVxDRkj8TCG
-oJFiywfqhCTXz02Ln5T5PTbb+fax6a0mNAuUBILmddN/7KaIRQDXtSK9BL/N4eRH
-uoD8x392ptg+0GSfhC0F4DOYozaapYv9uGwFAE97aT80NhZwk07iaE5x9RqPctBu
-yrBg4XZWWuB5NNBOpKJmij3Dq71BhP1z2f0C3YWESJyZokqTKl1CpF2Vl1k1enjy
-o1gmfPqXcCvNzJYPzDZWgAMOSYR+f6Nyl/LpoRksmHrkLgSqPe35FonLl835tk+k
-0EpaGEcK+P4cbo1jqeuE3e7W9cEmsLhbuflDb4vcMbKQ2UQ3LVI=
-=KU6x
+iQIzBAEBCgAdFiEEkQFrhB/kL89m7EzJYGF/fMruLIoFAmmiTMcACgkQYGF/fMru
+LIoBFg//chdAfnYh+VhzekJDaNJ6pwGCbywHdrBEdnwDzykp5XP1lo0qLb89n4P4
+lq4W+GcwvOzbLG/1MvDIT7OQ717cdkpabnX8aoF/QMHdwjOGw0ZZ5iJsLPsGhS63
+BY1cwlr6qR/sY9t9ZYdRes5t/QdsS6fVfG6DGTqjLKUIM4gUOed1pujHKOuLqQN9
+EVQ5ij+/K1i+VP2BJvG6f2uyI1wbDDl5PsXnc+SHojlGAYNd507Wy51QEqol6Ym6
+ooYq8sWxkXxqyKyGYezD7cYDCGt3lEXWPy7l2DsEciyGROQqGHfvYusDvTAbmBK7
+4R3LmIh1qr6ZG/p/ZTBn5ro/EIyCXD9NkkPMaVt8npyRRPebRex2QElyiNZmGXgQ
+xdEV7s6VQEb6bR89slUg+6lx6qblbr5O74NHj6Sm+2SU0X1KJKTP44W9pivTOAaN
+4nMNZZ16/sevVP41NJTbjagRnomkT5he/RH3cWZFhn0XqLpXweMtbuUimaSZA8uo
+FVioSs2QHMF/CtYaSNtldm+3wrKKKLafNO3o7HP2CqTbNUCmKpgWwcHL2zOSk22f
+VFtxpoFnck+X37Nkc6cZT661S49rbQn/g/EXoJ7Ig5ZnEYYGkdWvIuXEIqDKElXW
+8WEOgY1DzxuaZT5ZV4v5WS5qLIwEXkhC+Jxk5EOdkinxpg5euNI=
+=MqIR
 -----END PGP SIGNATURE-----
