@@ -107,7 +107,7 @@ jobs:
         gpg --batch --import /tmp/private.key
         rm /tmp/private.key
 
-        echo "GPG_KEY_ID=30C3FCD1AAF7EA8EE146F07F7EC23947CFD2A7E8" >> $GITHUB_ENV
+        echo "GPG_KEY_ID=91016B841FE42FCF66EC4CC960617F7CCAEE2C8A" >> $GITHUB_ENV
 
         echo "key check"
         gpg --list-secret-keys --keyid-format LONG
@@ -140,6 +140,7 @@ jobs:
         find pool -name "calamares_*.deb" -exec rm {} \;
         reprepro -b . export
         reprepro -b . includedeb wired calamares_*.deb
+        find pool -name "*.dsc" -exec reprepro -b . includedsc wired {} \;
         find pool -name "*.deb" -exec reprepro -b . includedeb wired {} \;
 
         rm calamares_*.deb
