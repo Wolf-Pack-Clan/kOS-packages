@@ -20,12 +20,10 @@ jobs:
       run: |
         apt-get update
         apt-get install -y --no-install-recommends \
-          rsync python3-yaml python3-jsonschema libcurl4-openssl-dev \
-          devscripts build-essential fakeroot dpkg-dev \
+          devscripts build-essential fakeroot dpkg-dev curl \
           equivs ca-certificates git gnupg rustup pkgconf
 
         rustup default stable
-        cargo install cargo-deb
         bash -c "$(curl -fsSL https://pacstall.dev/q/install)"
 
     - name: Build Niri
