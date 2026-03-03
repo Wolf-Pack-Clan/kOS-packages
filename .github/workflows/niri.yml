@@ -1,0 +1,177 @@
+name: Niri
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-niri:
+    runs-on: ubuntu-latest
+    container:
+      image: debian:trixie
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup environment
+      run: |
+        apt-get update
+        apt-get install -y --no-install-recommends \
+          rsync python3-yaml python3-jsonschema libcurl4-openssl-dev \
+          devscripts build-essential fakeroot dpkg-dev \
+          equivs ca-certificates git gnupg rustup pkgconf
+
+        rustup default stable
+        cargo install cargo-deb
+        bash -c "$(curl -fsSL https://pacstall.dev/q/install)"
+
+    - name: Build Niri
+      run: |
+        pacstall -I -B --keep niri
+
+        # Move artifacts
+        mkdir -p artifacts
+        mv *.deb artifacts/ 2>/dev/null || echo "No deb files found"
+        pkgver=$(curl -s 'https://raw.githubusercontent.com/pacstall/pacstall-programs/refs/heads/master/packages/niri/niri.pacscript' | sed -n 's/.*pkgver="\([^"]*\)".*/\1/p')
+        echo "v$pkgver" >> artifacts/tag
+
+        echo "Build completed"
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: niri-deb
+        path: artifacts/niri_*.deb
+        retention-days: 7
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: niri-tag
+        path: artifacts/tag
+        retention-days: 7
+
+  publish-deb:
+    runs-on: ubuntu-latest
+    needs: build-niri
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Download build artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: niri-deb
+
+    - name: Download tag
+      uses: actions/download-artifact@v4
+      with:
+        name: niri-tag
+
+    - name: Install deps
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y --no-install-recommends reprepro gnupg2 tree git
+
+    - name: Setup Git
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+    - name: Setup GPG
+      run: |
+        mkdir -p ~/.gnupg
+        chmod 700 ~/.gnupg
+        echo "allow-loopback-pinentry" >> ~/.gnupg/gpg-agent.conf
+        echo "pinentry-mode loopback" >> ~/.gnupg/gpg.conf
+
+        # Import GPG key
+        echo "${{ secrets.GPG_PKEY }}" | base64 -d > /tmp/private.key
+        gpg --batch --import /tmp/private.key
+        rm /tmp/private.key
+
+        echo "GPG_KEY_ID=91016B841FE42FCF66EC4CC960617F7CCAEE2C8A" >> $GITHUB_ENV
+
+        echo "key check"
+        gpg --list-secret-keys --keyid-format LONG
+
+    - name: Setup reprepro and publish
+      run: |
+
+        tree -L 3
+
+        GPG_PATH=$(which gpg)
+        echo "Original GPG at: $GPG_PATH"
+
+        sudo mv "$GPG_PATH" "${GPG_PATH}_original"
+
+        # Create wrapper script that provides passphrase automatically
+        sudo tee "$GPG_PATH" > /dev/null <<'WRAPPER'
+        #!/bin/bash
+        echo "${{ secrets.GPG_PASS }}" | /usr/bin/gpg_original --batch --pinentry-mode loopback --passphrase-fd 0 "$@"
+
+        WRAPPER
+        sudo chmod +x $GPG_PATH
+
+        echo "test" | gpg --armor --detach-sign \
+          --default-key "$GPG_KEY_ID" --output /tmp/test.sig || {
+          echo "GPG wrapper test failed"
+          exit 1
+        }
+        echo "GPG wrapper working correctly"
+
+        find pool -name "niri_*.deb" -exec rm {} \;
+        reprepro -b . export
+        reprepro -b . includedeb wired niri*.deb
+        find pool -name "*.dsc" -exec reprepro -b . includedsc wired {} \;
+        find pool -name "*.deb" -exec reprepro -b . includedeb wired {} \;
+
+        rm niri*.deb
+        echo "latestTag=$(cat tag)" >> $GITHUB_ENV
+        rm tag
+
+        # Verify files
+        ls -l dists/wired/
+        cat dists/wired/main/binary-amd64/Packages
+
+        git status
+
+    - name: Commit and Push
+      run: |
+        set -euo pipefail
+
+        # safe stage of only the directories we expect to change
+        git add -- dists/ pool/ conf/
+
+        # Detect staged deletions (abort if any — safety)
+        DELETIONS=$(git status --porcelain | awk '/^ D/ {count++} END{print count+0}')
+        if [ "$DELETIONS" -gt 0 ]; then
+          echo "ERROR: Detected $DELETIONS staged deletions — aborting to avoid wiping repo"
+          git status --porcelain
+          exit 1
+        fi
+
+        if git diff --cached --quiet; then
+          echo "No repository changes to commit."
+          exit 0
+        fi
+
+        # create a unique branch name
+        BRANCH="ci/niri-update-$latestTag-${GITHUB_RUN_ID}"
+        echo "Creating branch: $BRANCH"
+
+        # create branch from current main (checkout ensures we are on a branch)
+        git checkout -b "$BRANCH"
+
+        # commit
+        git commit -m "CI: add/update niri package (Build ${GITHUB_RUN_ID})"
+
+        # push the new branch up
+        git push --set-upstream origin "$BRANCH"
+
+        echo "Pushed branch $BRANCH"
