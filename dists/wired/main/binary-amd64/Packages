@@ -116,6 +116,23 @@ SHA1: 9cd6781dfd3ce16cf1915a8ce6d685c5f05b9974
 MD5sum: c44128aefa1a656ec86773742bbcdbd1
 Description: Guide for helping new users
 
+Package: kos-kvantum-theme
+Version: 1.0.0-1
+Architecture: all
+Maintainer: Kazam <kazam0180@proton.me>
+Installed-Size: 104
+Depends: qt-style-kvantum
+Homepage: https://gitlab.com/kazamOS/kos-kvantum-theme
+Priority: optional
+Section: misc
+Filename: pool/main/k/kos-kvantum-theme/kos-kvantum-theme_1.0.0-1_all.deb
+Size: 15036
+SHA256: ade06ed9fffaa3759c30edad0e2336f0867523602e653953496193fcc6706e0a
+SHA1: 7e18345f6fd492469c10f2a2a4c631f5a219e9e4
+MD5sum: 750e7911902db789e4accab6d6ff121b
+Description: Kvantum theme for kazamOS
+ Kvantum theme for kazamOS.
+
 Package: kos-theme
 Version: 2.0
 Architecture: all
