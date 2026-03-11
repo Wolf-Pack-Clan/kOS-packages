@@ -12,6 +12,7 @@ Priority: optional
 Section: utils
 Filename: pool/main/c/calamares/calamares_3.3.14-1~kazamos1_amd64.deb
 Size: 4235856
+SHA512: e4afb4890ff714cac087b337d5c3f261441fef5829747eab47225521e58c9417fda899ea863961b41e3f548dd93aa35dacdd9d387e38f718f93cd415926b2881
 SHA256: 847bdb78ac6bb704c38c8894fa4480c7ae6b057a9e468eeea5713953697f8643
 SHA1: feb1d8e698c3a763980e51ab9379f5668a3ff95f
 MD5sum: ca4b484f271f703e542243ed3a3793b1
@@ -28,7 +29,7 @@ Description: distribution-independent installer framework
  you through that process.
 
 Package: calamares-settings-kos
-Version: 1.0.8-1
+Version: 1.0.8-1.1
 Architecture: all
 Maintainer: Muhammad Kazam <kazam0180@proton.me>
 Installed-Size: 156
@@ -38,11 +39,12 @@ Provides: calamares-settings
 Homepage: https://gitlab.com/kazamOS/calamares/calamares-settings-kos
 Priority: optional
 Section: utils
-Filename: pool/main/c/calamares-settings-kos/calamares-settings-kos_1.0.8-1_all.deb
-Size: 72040
-SHA256: 3a4349e9b24abf9682ed3030f835c1a35d18ce8b868073564b7fba780854330e
-SHA1: 00fd2161506984fc1491bd4958d278a07e97e9e2
-MD5sum: a707cd4ff521a38f087c299f991a3c85
+Filename: pool/main/c/calamares-settings-kos/calamares-settings-kos_1.0.8-1.1_all.deb
+Size: 72092
+SHA512: 7ca5c1051dde23eac3395b0cc00b40494a68cfd8afc6f8d6855e020ad0dd9519da4bb4423525daf7c696a79d4d929a21a866bb85054f5883b4d4ebd86b0cdcaa
+SHA256: f6917764bbba43adfa92295fa337a1db94c2ab28b67d3c51f6e5332a540c7731
+SHA1: 7ef7f5232f414ceb9c2e4323dc894eb897b331a4
+MD5sum: 60e559f11cfb836b11719b0b30445004
 Description: kazamOS theme and settings for the Calamares Installer
  Calamares is a generic installer framework for Linux distributions.
  By default, it contains a set of boilerplate wording and images.
@@ -58,6 +60,7 @@ Priority: optional
 Section: utility
 Filename: pool/main/d/donatepage/donatepage_0.1.3-1_amd64.deb
 Size: 154168
+SHA512: ec8048cf3e9ea8b4e0866a57046c5634b09eb92f397ee24025c442c13b99b83ba2106c07ed7954254c4970e6d8ef4ed929fad99b0dcd340ca36f184b3f8afb04
 SHA256: 6d8f712a03fa496938c6bb5680bbcc51d0e94b3eb758a1a3baacb0ec7551ccb2
 SHA1: 769bcb6f41a46d0f4581f45fa79177dd2b795140
 MD5sum: 5b6c885a7eec0144654501e95dba4247
@@ -75,6 +78,7 @@ Priority: optional
 Section: devel
 Filename: pool/main/g/greengodot/greengodot_3.6.3+96b2bd0_amd64.deb
 Size: 29476788
+SHA512: cd5b4aee16aee7a14b0c690d62b6dafde200119369f22a7815c9be1faf16b734832d610a41c515bed959aef9607357dda7ea98a6ea48f416e122a2eee89a5dff
 SHA256: ac7d24beb6f289d41cf4eaec0e12ff1956c17dcf4045941dbb686dffe30de925
 SHA1: bb8ddff8d0469ccf452db35686115f93fad93d38
 MD5sum: a50501421b03fd610d7f5f5ef19012f3
@@ -95,6 +99,7 @@ Priority: optional
 Section: misc
 Filename: pool/main/k/kazamos-desktop-base/kazamos-desktop-base_1.0.3-1_all.deb
 Size: 37756
+SHA512: 6f5b7083c6f7c65959a579c59f1804af06c9d49875076bce375ebb81041476e857d886c19bccb1b0aeb20fd7f6b8d661cb7f398229bd76b7844f7d798125fec6
 SHA256: 2f64123d79931f83f54fca86c816be82cabce45da625fdec4d46eb424881f903
 SHA1: 5c3bda1d707ffacfb582ffe2fa7df9620ae9be1a
 MD5sum: 764dc41b3a122d51229697fa1e0bed36
@@ -111,6 +116,7 @@ Priority: optional
 Section: misc
 Filename: pool/main/k/kazamos-getting-started/kazamos-getting-started_0.1.0-1_amd64.deb
 Size: 19673328
+SHA512: 66ce7cabd2f2844a0b6d5ba8d4531f554849aca9c0c4351d450065c311b3f695cecafec4f6cc6ae8b91112e24b68ce9ae3bbfe3cb01618f8ec2c8d34ca11aab0
 SHA256: e4969fca81aa0b689d963cd9f9bfe10ef151b9ff463c9094b34bd136a381fdd2
 SHA1: 9cd6781dfd3ce16cf1915a8ce6d685c5f05b9974
 MD5sum: c44128aefa1a656ec86773742bbcdbd1
@@ -127,6 +133,7 @@ Priority: optional
 Section: misc
 Filename: pool/main/k/kos-kvantum-theme/kos-kvantum-theme_1.0.0-1_all.deb
 Size: 15036
+SHA512: a098ea23a537c3eb629ad7c6ecfb9143add3bdd5db9fa6a98da7493e6ab2715edb5e60eab50efe3da80fddc1bd2ea494702b29c6223c20e2f80af49b5fb71e65
 SHA256: ade06ed9fffaa3759c30edad0e2336f0867523602e653953496193fcc6706e0a
 SHA1: 7e18345f6fd492469c10f2a2a4c631f5a219e9e4
 MD5sum: 750e7911902db789e4accab6d6ff121b
@@ -143,6 +150,7 @@ Priority: optional
 Section: x11
 Filename: pool/main/k/kos-theme/kos-theme_2.0_all.deb
 Size: 153144
+SHA512: c3105e2d54155a0e180a0950716d4ca41dd200f85f75918f47562e6dc3670304c233445bd58ce52d43c15264d9fac0b336b43bbcac14393a00bf2a1384190689
 SHA256: bdd76ff93daeb094713d26b914b88c67c170f7e4067ef9a568468238426bcfd0
 SHA1: 38897a216816970d2b7df7b4156fa7ba51eb81cb
 MD5sum: a930b5bda4fd0e25769489d6a9502942
@@ -159,6 +167,7 @@ Priority: optional
 Section: utility
 Filename: pool/main/m/mpris-kontrol-server/mpris-kontrol-server_0.1.0-1_amd64.deb
 Size: 426416
+SHA512: 3b512985acf81b87f48bb2c12355740622531ee3c02a243f9cc09b2246138071207d0fad5a370d32645327b13ec3e951f4fdf15937c2787ac32df22ac21130e6
 SHA256: b71e6dba666606892019c35df54ed9cadd24857622b01a727f1483a674df3c4e
 SHA1: 6e90a3bc3581a0cc58d5a5c646ae5acf0136ca1e
 MD5sum: 8e66b7785d397084a2afd955027bf879
@@ -183,6 +192,7 @@ Priority: optional
 Section: Pacstall
 Filename: pool/main/n/niri/niri_25.11-pacstall1_amd64.deb
 Size: 21710548
+SHA512: 210ab0660c8a98c3c4365474d6bf4d64ee986fad095c2e429755cf11b82714dbf20e12565aecb240609bfbcb213899d65b5f9dd13e5878667e05dc1316f390d1
 SHA256: 22155341f0aedba69fe7f8e73e7772fa67b167cda776849d0d947cd97a81e44c
 SHA1: 3c09c111ce05f0e0dba30c3b18c30733f01ec25e
 MD5sum: 7d744b57be896a6da6e1c578e6633546
@@ -199,6 +209,7 @@ Priority: optional
 Section: utility
 Filename: pool/main/o/orbix/orbix_0.3.6-1_amd64.deb
 Size: 994244
+SHA512: b1d3199fc4ee9e9de057f164e68afe1db436f7041ac188ffecf2371ad911d83469a04f177897cdde4e81c93a08f84810622aaa54f3831d2481d87e6bce6749fd
 SHA256: 3338c1cae98266bb0f7f15ff40cf912e261f77598e7c933c9a9e82b69b82814f
 SHA1: c9939851cc5c0b31004c0b88316a9e0fbf6b006a
 MD5sum: d3f95105e40d9e3aa95f8a1ad4426408
@@ -217,6 +228,7 @@ Priority: optional
 Section: x11
 Filename: pool/main/o/oreo-black-cursors/oreo-black-cursors_1.0_all.deb
 Size: 54340
+SHA512: 252615d87a36db93491550c73c12d5d67895675a2ef1a3e831b02134fcd1cbebbf844b925d85037367d5fbe934500ed1c4c58e21a9fa8cd3e1622392a045f3d3
 SHA256: 948593b184730a3c43e41a8284c0a9af68ad4d90fbe94b2806e03d930b821e44
 SHA1: b66c86b8571e249f4284e728655cdd77777d4ca0
 MD5sum: fdefb9a7e611f67fd906ae6343c171ab
@@ -232,6 +244,7 @@ Priority: optional
 Section: x11
 Filename: pool/main/o/oreo-blue-cursors/oreo-blue-cursors_1.0_all.deb
 Size: 58280
+SHA512: 941ba7704ae9bab62ff44a22fb2a8c93f06ea9629b7ace25009f8ff95acf6ac13e2e1544ca67a154a9569d6737e997fc87945e8bba45c6923bc0b4db1da421ea
 SHA256: ee9e1d35819c0597864196e5f2355ee9b1aeb858c5f30ec820db4096d6f0a411
 SHA1: 71554037fdf0b24d28254221ca56269aa9dda6ac
 MD5sum: e7cd8d81b975922c6e7ee180ed98b70f
@@ -247,6 +260,7 @@ Priority: optional
 Section: x11
 Filename: pool/main/o/oreo-grey-cursors/oreo-grey-cursors_1.0_all.deb
 Size: 59272
+SHA512: 36d432e4f76cd4458d1869e60279fa2db51c2cfe090a8ee4f5b257e049c18eb6ee79c240d1708a1cf2eca73dba0ebac9d3a6c52304c5b73f497718993127b398
 SHA256: c4d48bdb1d9a13d40fe8387f14912a06fe6f7ddc653feee9ea3b4f3abd339b57
 SHA1: 6b04456594b0db146817f4e91c95d1171f68b270
 MD5sum: 6f9479d1415b330615d709207436ad99
@@ -262,6 +276,7 @@ Priority: optional
 Section: x11
 Filename: pool/main/o/oreo-pink-cursors/oreo-pink-cursors_1.0_all.deb
 Size: 58680
+SHA512: fd88085b410393639bd719288a073a900e4e59bb150e8fbcddc219d20e479f52bcb988ef8331219092ca4099538a299d07529b914b191973ca3071235919b4e8
 SHA256: c69a5b0f7011154bc01e36cc94236a843efff0702963743cb04f8d4a13ef5c3c
 SHA1: 13f056995d4da83834db18b1b9c53c7fe8d95b66
 MD5sum: 81151b8ce94ba42f365ec6342f0dadfb
@@ -277,6 +292,7 @@ Priority: optional
 Section: x11
 Filename: pool/main/o/oreo-purple-cursors/oreo-purple-cursors_1.0_all.deb
 Size: 58968
+SHA512: aa3f5498c3679c02ead86d90aaa7daf83179e538861728cf49774ef55726106335983cdbf164655a5ade6a1d2fffde640fff460944a85d90335d5c9d797621c7
 SHA256: dcce6a763f3196458b5211650224e448f19954036e5cc90311c85ee4b2250231
 SHA1: d4e95175babca6b3e1b9c66df69804718712617b
 MD5sum: a242e8f62266e8ee98af8f14658fb114
@@ -292,6 +308,7 @@ Priority: optional
 Section: x11
 Filename: pool/main/o/oreo-red-cursors/oreo-red-cursors_1.0_all.deb
 Size: 58236
+SHA512: dbe5b90ba6775fb6132e7ad64c0219fc60000195abd0cae8b8c16ca698876fba69adac489998d817d5760cff04d2f5a7524330437a173b9234b3d092f25d0eb3
 SHA256: 7b867df9b88d5bc344d131bfd3ab1d755090d147a4c30205cd4bc182255aa4b2
 SHA1: 2df15977c2dba02f8c2c38643658a9a14ffb76f1
 MD5sum: 1756c61d469d27ce15ef70bd3cdd303f
@@ -307,6 +324,7 @@ Priority: optional
 Section: x11
 Filename: pool/main/o/oreo-spark-lime-cursors/oreo-spark-lime-cursors_1.0_all.deb
 Size: 59352
+SHA512: 073f260e61923af671ad7ec2ef60822fd9f048d7a46d069e45aaeee559d39f386ca78dba4ec5561d4e9945a4e498c5a379609565c3e10541ee7697c5cf812e62
 SHA256: 81e3caf6bf0669d417ea5b068c465a2487209a2ff59860b157f95cca7370262d
 SHA1: c19fbf48a4a0f89eca60036b438fad477e4afd53
 MD5sum: 9235cdb8de1bf6521f15c0ff3f8d292f
@@ -322,6 +340,7 @@ Priority: optional
 Section: x11
 Filename: pool/main/o/oreo-spark-orange-cursors/oreo-spark-orange-cursors_1.0_all.deb
 Size: 57100
+SHA512: 2179a994d682e7a335255b0acdb0ac4a2b07ac2ab43d671f05818fbaed81a9f154b7100249883915305c928c4b0f16ecd5bb25ac758946fbdf522537a3efc3fb
 SHA256: 126893e7ce048be1c1963fee99377eaba5e0cecad1cdfd1c31fec320d9e10a1c
 SHA1: 68d4bdf76a43fbad7634c278b2b48c5da55e426f
 MD5sum: 693587995b53e7ee7463e67be28e2fff
@@ -337,6 +356,7 @@ Priority: optional
 Section: x11
 Filename: pool/main/o/oreo-teal-cursors/oreo-teal-cursors_1.0_all.deb
 Size: 59884
+SHA512: e6b8c63fd9d77491fa58c31ba43c0170f33d9ba91dd3d0645472df1a96961ded5e6f550731cf8ccb26bc96fd50e59fcc4d0d83e407f0e5e7cfd6b1ef38c21d46
 SHA256: 1ad28e7bf224be247f9d03917f05fb4321d45cd69c2bc2f99ff06d55ad9ea480
 SHA1: 2e90405d2f8846fa1e70767e621340bf26a157f2
 MD5sum: 443c5c5ed7513c51eccdeb4722de4959
@@ -352,6 +372,7 @@ Priority: optional
 Section: x11
 Filename: pool/main/o/oreo-white-cursors/oreo-white-cursors_1.0_all.deb
 Size: 51556
+SHA512: 5ca25c31792d7cde1e6263e15a51a3cd2f4246200c3a03da3fc322238ec97a754a18a00997a2c214f9865f2f39642575ec09cad81e966a7915f5421ed3eacc52
 SHA256: 71727aa48bd82cfe114da11927861e5a9562f3002a0a94841a56bc6996278fe7
 SHA1: 17313074b19dca1fbeb3fa596e68173c709e1ae9
 MD5sum: 1cf345f46b8609b568b23adad6c0d234
@@ -368,6 +389,7 @@ Priority: optional
 Section: misc
 Filename: pool/main/p/plymouth-theme-kos/plymouth-theme-kos_1.0.0-1_all.deb
 Size: 5747992
+SHA512: e65d2b088551a5c2f1c43774af35910174761197a25e467c1f62d47a74c6fdac7ab1bfedfb68680cc5078facf84111a3090775f9c0b5078bb5b14474ecc05fe2
 SHA256: 35b1fc9ed83a65bc4725b137ec34ccb1ee330b07468971ea53313a2b26b4a466
 SHA1: b4b0385803dc040fd9a248722ee07e8b92954c67
 MD5sum: 6b006dfb33cfed04b34aa4c9e3546328
