@@ -167,8 +167,8 @@ Description: [generated from Rust crate mpris_kontrol]
  players that support MPRIS 
 
 Package: niri
-Depends: libseat1, libdbus-1-3, libinput10, libudev1, libpipewire-0.3-0, libpango1.0-dev, libsystemd0, libegl1, libxkbcommon0, libgbm1, libdisplay-info3 | libdisplay-info2 | libdisplay-info1
-Version: 25.11-pacstall1
+Depends: libgbm1, libseat1, libudev1, libinput10, libdbus-1-3, libegl1, libsystemd0, libxkbcommon0, libpipewire-0.3-0, libpango1.0-dev, libdisplay-info3 | libdisplay-info2 | libdisplay-info1
+Version: 26.04-pacstall1
 Architecture: amd64
 Bugs: https://github.com/pacstall/pacstall-programs/issues
 Build-Depends: libudev-dev, libwayland-dev, libseat-dev, libglib2.0-dev, libclang-dev, cargo (>= 1.85) | rustup, libpipewire-0.3-dev, libcairo2-dev, libpango1.0-dev, libdisplay-info-dev, libinput-dev, libgbm-dev, libxkbcommon-dev
@@ -181,13 +181,13 @@ Maintainer: Alxhr0 <alxhr0@proton.me>
 Uploaders: Alxhr0 <alxhr0@proton.me>
 Priority: optional
 Section: Pacstall
-Filename: pool/main/n/niri/niri_25.11-pacstall1_amd64.deb
-Size: 21710548
-SHA256: 22155341f0aedba69fe7f8e73e7772fa67b167cda776849d0d947cd97a81e44c
-SHA1: 3c09c111ce05f0e0dba30c3b18c30733f01ec25e
-MD5sum: 7d744b57be896a6da6e1c578e6633546
+Filename: pool/main/n/niri/niri_26.04-pacstall1_amd64.deb
+Size: 21534924
+SHA256: d160e488dca6fed0620feb4ee31fdc863258e453191147907461a8c11f286cee
+SHA1: df92d0c5768301e08f632abbbfdfae485cd202d0
+MD5sum: 8c42016a26175ebce1866e1967be596a
 Description: Scrollable-tiling Wayland compositor
-Installed-Size: 137959
+Installed-Size: 134122
 
 Package: orbix
 Version: 1.0.3-1
