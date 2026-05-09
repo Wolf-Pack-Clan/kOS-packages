@@ -199,25 +199,6 @@ MD5sum: 7d744b57be896a6da6e1c578e6633546
 Description: Scrollable-tiling Wayland compositor
 Installed-Size: 137959
 
-Package: orbix
-Version: 1.0.4-1
-Architecture: amd64
-Maintainer: @the.watermelon:matrix.org
-Installed-Size: 5993
-Depends: git
-Recommends: bubblewrap tzdata
-Priority: optional
-Section: utility
-Filename: pool/main/o/orbix/orbix_1.0.4-1_amd64.deb
-Size: 1875648
-SHA512: a724fbc1ea6c8e2af1b64701b7a39e5dc7c0b1025d4f18aa693312e971496d2204cbaf192cfbae99b0d1ca4904c4be8dda6268bb8571101fb2c76eb3b3849497
-SHA256: d62c965afbaf99be4a0a2d8d114a57223214ff52d5fc3d5bab9610cb8b1e974a
-SHA1: 2ae18b97875b86451806000a615941987e9f5070
-MD5sum: 493cbda2aed8cc7bbda3afae20cef1eb
-Description: TUI CoD server panel written in Rust
- TUI server panel for Call of Duty (R) (2003), its expansion pack (United
- Offensive) and Call of Duty 2. Repo: https://gitlab.com/kazam0180/orbix
-
 Package: oreo-black-cursors
 Version: 1.0
 Architecture: all
