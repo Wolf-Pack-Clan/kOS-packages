@@ -40,6 +40,7 @@ jobs:
         git checkout $latestTag
 
         sed -i 's/\$auto //g' Cargo.toml
+        sed -i 's/it'\''s/its/g; s/®️/(R)/g' Cargo.toml
         cargo deb
 
         # Move artifacts
