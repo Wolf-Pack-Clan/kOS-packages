@@ -194,15 +194,15 @@ Version: 1.0.3-1
 Architecture: amd64
 Maintainer: @the.watermelon:matrix.org
 Installed-Size: 5992
-Depends: $auto git
+Depends: git
 Recommends: bubblewrap tzdata
 Priority: optional
 Section: utility
 Filename: pool/main/o/orbix/orbix_1.0.3-1_amd64.deb
-Size: 1877000
-SHA256: 4a29292b0f4450809ad7429a3f7204e2d7c04a6a434f4d294b2bb2b5747b73fe
-SHA1: f3e94cd8b91fcc48d63a9dfe4507600dd03a8e7a
-MD5sum: 42a4635bcd702fc2708d2afd8685b43c
+Size: 1875972
+SHA256: c07638b11b0c06046f76fd9f2fa9b5272cb42758abbf3c7c200e2ea0d280c9fb
+SHA1: 96076aba28db35cda43f10675fb15e488a8b616e
+MD5sum: 02b0850f51fa461ebb95f60bc5de56c5
 Description: TUI CoD server panel written in Rust
  TUI server panel for Call of Duty ®️ (2003), it's expansion pack (United
  Offensive) and Call of Duty 2. Repo: https://gitlab.com/kazam0180/orbix

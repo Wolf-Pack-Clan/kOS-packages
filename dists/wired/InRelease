@@ -5,43 +5,43 @@ Origin: kazamOS
 Label: kazamOS
 Suite: testing
 Codename: wired
-Date: Thu, 30 Apr 2026 09:13:34 UTC
+Date: Fri, 08 May 2026 23:59:28 UTC
 Architectures: amd64
 Components: main
 MD5Sum:
- ed87f7dd9888624818e2b52a235dd667 14963 main/binary-amd64/Packages
- 5851b2aa52087d814e05b37b6e44313a 5241 main/binary-amd64/Packages.gz
+ 8e87e40059742c3b04640a103ceaa7d3 14957 main/binary-amd64/Packages
+ 31da22dc968c1ae2794deddf7e488d33 5232 main/binary-amd64/Packages.gz
  365cf0f87534e0c0c2e2c6a7710af98b 84 main/binary-amd64/Release
  c99feb378e19096b099a005fd3a99d2d 2889 main/source/Sources
  9ef0e54a870b7d4b2164f52f263593ff 1055 main/source/Sources.gz
  30bae49292a0ec3b4c3b1f8d740efa9f 85 main/source/Release
 SHA1:
- 8c814f52c6b71c9456a513136093b76b929cff58 14963 main/binary-amd64/Packages
- e2eeff58b6d51772a1f8cdd58eb7cbfac8fea603 5241 main/binary-amd64/Packages.gz
+ 570942d2e21a4c91da506ad1eb2885d5c3e84b73 14957 main/binary-amd64/Packages
+ 77edd7b6df7331ca86a807d7918403e8ffd354c3 5232 main/binary-amd64/Packages.gz
  46105b3c179126b1600fde7a8b797ec5d477d299 84 main/binary-amd64/Release
  312397380db3ee7e48164b1c8ce2592b927942a3 2889 main/source/Sources
  05d641974eac74cf7c8cebeee8d1cb83421c21fa 1055 main/source/Sources.gz
  8719f95feb2f480758c07431327e2f2b99d63f59 85 main/source/Release
 SHA256:
- 86939697f0865980812cfd3c28dd3b9907d99273aced4787c27c979adb7ce72b 14963 main/binary-amd64/Packages
- 200ad669761d20b12bf851e3de8e2825babb62e5231712e210dde69005c62057 5241 main/binary-amd64/Packages.gz
+ 2377e1f40bdcd17f36975b926a9076cb5389621e755a98b247c751e1cdcc53a8 14957 main/binary-amd64/Packages
+ dc7d349c210a8a1a9ceb74ffdfabcbc6e847aaed50b7eb4aff7787c146bc293a 5232 main/binary-amd64/Packages.gz
  9fabe4aa9a8e566f4f5d69c8ff67d37b5415d7b254842941b34dd1c6aeb1fa71 84 main/binary-amd64/Release
  76d72f1f5088be59490bd62d6d6affbfc5c157f4ffec0b1bbd9bad3f1d828303 2889 main/source/Sources
  50f9bf2a46fb7a9e1842325df37e29dcc1ef1430a9bf489ee3e16b6e3a232743 1055 main/source/Sources.gz
  9eff6d3251959088c63467429c735cf0353c1fe3c9c27e8c80d2075d19e3ff95 85 main/source/Release
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEEkQFrhB/kL89m7EzJYGF/fMruLIoFAmnzHT4ACgkQYGF/fMru
-LIoJ+w//VwwBm5vO/n4So6Qum3fHRVnwDP/BquCfRVevtpURFNnXuIjXf5JCUupM
-FtafZyEOTRpC8j1Bzk5l/89B864AuY2bzBvJBv4r0AFG63JoG/THD1xhdG1sWjby
-32W0iHwwcrmoMkLyZb7M1bVcgrZdotpke6MLiySdHNu1GP+HeehVQapJcOJIgps5
-sMFUWlxy7LoLEB6nTA+6hHR48wOGAPhRDw2joU2Q5Q6NpPicAVxOaQllG+hIRq4v
-6DedOKjotzyRdvlL6HY0VNRWUiIj/kzdE9OqM0Nu1o8SONcP4fbtHVn1iWSZGzvW
-2i3DeDN47puExEC9hmz3xBNBN3bhnOCUW/FIy+RDMgFnzsb+oVC7J2RlS8mMvMWW
-Jw5vS6rdJjGUxoGEtVbQlqBNRDgt2/yfRIV9RayXVXL4GQRT2G+R8/7NSO8YDRih
-Fsndc5SGTTAZFD5XqSibjCCRfhPvrosIGCzB1aFcDCJYkI/iKOZfgqxilX/pUQp4
-Itu6xzeUSuIT5Ifen/VjmzxPecROmOSwj/Ys3iEyoNwTb8mLzzgUyCjPDpW4N+cE
-qzoM+zicDb1TK2aU/ySZmHZf3I6FHaKnctrfz3Ec82MQiwdLDQwn4uQViZB08LdJ
-va1pBAT4KGnrazlovKnu8Eb6aRTK23j1K8JSD/fBv0sG5iZCcCM=
-=wTL7
+iQIzBAEBCgAdFiEEkQFrhB/kL89m7EzJYGF/fMruLIoFAmn+eOEACgkQYGF/fMru
+LIo36g/+MmQfR8OATnKOVCtZcIAIw12/EmEZzivUpRWpOIIXzcD3sXiY7d3Muplp
+pSSA0WCPL1ycZdxAaLZSOj7wu+yAr9IpVFHAUZ8Hawhq2o5tVpneHkRiaeE2PApd
+gmhq5GDk6rjPb62jzB52XpWPvRWhEsH/KedKD8jjjVkmZSufjsaHg10JM50i8WY0
+7DT4uWl6ZAnJtW6aIauyTdh0SQ2ufaykKOapOMbkbPbo016VbpoI84pu3FqdF+38
+nQjAiNHDqSjb3jO62EvWHKgRau2hkZUo450FZtXUbuwN1oM4QzASY5zIRYmZlsSJ
+ew1BwWDet7XAPwcVBNxXp/JaO37YYDgLjJ20MGuFFrzyOZkZD2eE54zeTiw/NNRW
+azxxRhj3hrRUfbDjtBFNuAQN7L4fthH3Q9rLMY04WzzW8WCQhrt5c7Lke7jkVBgN
+LFsWN7iXGM/77FtUKwfphTx9TEaDRd/OZfLO6j6Tv6Te1tQ4AxEUl0fNcQ60hPl4
+Td/kd0ZNftOiJDSBYg6xpqn8MVQTudn/a4bo66stnD162hy1aQb/82l0mveTH3R6
+HwnhTMwjd43qzobf6wrtyDskeWClrXH9RgaoBwX3Db4cMmBM3zVdkw7X3aINL0TI
+lVy86c3N+egvL2nyqoOncNa1xqTIRxYIEwPmHrTjX/uV8Loy7+U=
+=3CZE
 -----END PGP SIGNATURE-----
