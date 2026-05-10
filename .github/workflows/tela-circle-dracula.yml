@@ -39,7 +39,7 @@ jobs:
 
         cd ..
         mkdir -p deb-pkg/DEBIAN
-        mkdir -p deb-pkg/usr
+        mkdir -p deb-pkg/usr/share/icons/
         cp -r telaicons/* deb-pkg/usr/share/icons/
 
         cat > deb-pkg/DEBIAN/control << EOF
