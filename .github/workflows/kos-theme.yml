@@ -39,7 +39,8 @@ jobs:
         mkdir -p prefix
         meson setup _build -Dprefix="$(realpath ./prefix)" -Dcolors=green,purple -Dschemes=default,dark,light -Dsizes=default,compact
         meson compile -C _build
-        meson install -C _build
+        ls _build/src/xfce4-terminal
+        meson install -C _build 1> /dev/null
 
         mkdir -p deb-pkg/DEBIAN
         mkdir -p deb-pkg/usr
