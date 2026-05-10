@@ -37,6 +37,7 @@ jobs:
 
         (./install.sh -d ../telaicons dracula)
 
+        cd ..
         mkdir -p deb-pkg/DEBIAN
         mkdir -p deb-pkg/usr
         cp -r telaicons/* deb-pkg/usr/share/icons/
