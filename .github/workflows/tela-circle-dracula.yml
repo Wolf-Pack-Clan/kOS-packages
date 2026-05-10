@@ -49,6 +49,7 @@ jobs:
         Section: x11
         Maintainer: Kazam <kazam0180@proton.me>
         Priority: optional
+        Installed-Size: 88584
         Description: A flat, colorful icon theme. Dracula color.
          https://github.com/vinceliuice/Tela-circle-icon-theme
         EOF
