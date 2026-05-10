@@ -134,18 +134,18 @@ Description: Kvantum theme for kazamOS
  Kvantum theme for kazamOS.
 
 Package: kos-theme
-Version: 2.0
+Version: 2.1.2
 Architecture: all
 Installed-Size: 15748
 Maintainer: Kazam <kazam0180@proton.me>
 Recommends: gtk2-engines-murrine, libgtk-3-common, libgtk2.0-common, libgtk-4-common
 Priority: optional
 Section: x11
-Filename: pool/main/k/kos-theme/kos-theme_2.0_all.deb
-Size: 153144
-SHA256: bdd76ff93daeb094713d26b914b88c67c170f7e4067ef9a568468238426bcfd0
-SHA1: 38897a216816970d2b7df7b4156fa7ba51eb81cb
-MD5sum: a930b5bda4fd0e25769489d6a9502942
+Filename: pool/main/k/kos-theme/kos-theme_2.1.2_all.deb
+Size: 171124
+SHA256: 38ef698f4b2913d99bef031f2c736d7e776408bd7a9a04c3d1ef426a72c16938
+SHA1: 5eb81edba8a02983f78e5afe0d30666fa37b3a9a
+MD5sum: 5aa30e83345f7af71814c1ee254e6ce7
 Description: Default theme for kazamOS. Based on Materia.
  It focuses on XFCE desktop environment and LightDM.
 
