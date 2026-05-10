@@ -57,7 +57,7 @@ jobs:
 
         # Move artifacts
         mkdir -p artifacts
-        mv $SRCDIR/tela-circle-dracula-icons_$latestTag.deb artifacts/ 2>/dev/null || echo "No deb files found"
+        mv tela-circle-dracula-icons_$latestTag.deb artifacts/ 2>/dev/null || echo "No deb files found"
         echo "$latestTag" >> artifacts/tag
 
         echo "Build completed"
