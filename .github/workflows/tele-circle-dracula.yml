@@ -20,7 +20,7 @@ jobs:
       run: |
         apt-get update
         apt-get install -y --no-install-recommends \
-          sed coreutils \
+          sed coreutils gtk-update-icon-cache \
           devscripts fakeroot dpkg-dev git \
 
         git clone https://github.com/vinceliuice/Tela-circle-icon-theme.git
