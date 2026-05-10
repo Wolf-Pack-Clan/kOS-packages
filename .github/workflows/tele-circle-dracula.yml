@@ -78,7 +78,7 @@ jobs:
 
   publish-deb:
     runs-on: ubuntu-latest
-    needs: build-tela-circle-dracula-icons
+    needs: build-tela-icon-theme
 
     steps:
     - uses: actions/checkout@v6
