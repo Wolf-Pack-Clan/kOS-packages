@@ -378,13 +378,14 @@ Package: tela-circle-dracula-icons
 Version: 10.05.2026
 Architecture: all
 Maintainer: Kazam <kazam0180@proton.me>
+Installed-Size: 88584
 Priority: optional
 Section: x11
 Filename: pool/main/t/tela-circle-dracula-icons/tela-circle-dracula-icons_10.05.2026_all.deb
-Size: 3423752
-SHA256: aed1054daa11b5e09482851f967e3e7a188d93fc05e416fefc659284294f19d8
-SHA1: 17d7b241febff5b2c4aaf0dfb141c67f17e888e2
-MD5sum: ff051b3a09737a7a29d55b2c7c59809b
+Size: 3422304
+SHA256: 0e41bc27f5fee0be0fec6b21fa57ff11717f804e3c2376b956cca990b8ce2623
+SHA1: cf16906b64815fcd0949045ff06a04b5b9200b0d
+MD5sum: 6d0c01d42338f07295988137b39b6840
 Description: A flat, colorful icon theme. Dracula color.
  https://github.com/vinceliuice/Tela-circle-icon-theme
 
