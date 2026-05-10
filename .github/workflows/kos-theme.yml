@@ -38,9 +38,10 @@ jobs:
 
         mkdir -p prefix
         meson setup _build -Dprefix="$(realpath ./prefix)" -Dcolors=green,purple -Dschemes=default,dark,light -Dsizes=default,compact
-        meson compile -C _build
+        //meson compile -C _build
         tree _build/src
-        meson install -C _build | tail
+        //meson install -C _build | tail
+        ninja -C _build install | grep terminal
 
         mkdir -p deb-pkg/DEBIAN
         mkdir -p deb-pkg/usr
