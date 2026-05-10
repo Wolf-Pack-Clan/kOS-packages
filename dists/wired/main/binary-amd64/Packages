@@ -374,3 +374,17 @@ MD5sum: 6b006dfb33cfed04b34aa4c9e3546328
 Description: Boot theme for kazamOS
  Plymouth theme for kazamOS.
 
+Package: tela-circle-dracula-icons
+Version: 10.05.2026
+Architecture: all
+Maintainer: Kazam <kazam0180@proton.me>
+Priority: optional
+Section: x11
+Filename: pool/main/t/tela-circle-dracula-icons/tela-circle-dracula-icons_10.05.2026_all.deb
+Size: 3423752
+SHA256: aed1054daa11b5e09482851f967e3e7a188d93fc05e416fefc659284294f19d8
+SHA1: 17d7b241febff5b2c4aaf0dfb141c67f17e888e2
+MD5sum: ff051b3a09737a7a29d55b2c7c59809b
+Description: A flat, colorful icon theme. Dracula color.
+ https://github.com/vinceliuice/Tela-circle-icon-theme
+
