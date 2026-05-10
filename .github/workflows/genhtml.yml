@@ -9,20 +9,46 @@ permissions:
   contents: write
 
 jobs:
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      has_visible_changes: ${{ steps.filter.outputs.has_visible_changes }}
+
+    steps:
+      - name: 🔽 Checkout repo
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 2
+
+      - name: Check for non-hidden file changes
+        id: filter
+        run: |
+          changed=$(git diff --name-only HEAD~1 HEAD)
+          echo "Changed files:"
+          echo "$changed"
+
+          # Filter out files where every path component starting with . (hidden)
+          visible=$(echo "$changed" | grep -v '^\.' | grep -v '/\.' || true)
+
+          if [ -n "$visible" ]; then
+            echo "has_visible_changes=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_visible_changes=false" >> "$GITHUB_OUTPUT"
+          fi
+
   build:
+    needs: check
+    if: needs.check.outputs.has_visible_changes == 'true'
     runs-on: ubuntu-latest
 
     steps:
       - name: 🔽 Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
 
       - name: Generate index.html files recursively
         uses: coyoteclan/directory-listing@main
         with:
-          target: '.'      # adjust to the root directory you want to index
-          #ignore: |
-          #  **/index.html      # don't reprocess already generated listings
-          #  .git/**             # skip git internals
+          target: '.'
           show-hidden: false
           overwrite: true
 
