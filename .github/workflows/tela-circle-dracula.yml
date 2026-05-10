@@ -56,7 +56,6 @@ jobs:
         dpkg-deb --build deb-pkg tela-circle-dracula-icons_$latestTag.deb
 
         # Move artifacts
-        cd ..
         mkdir -p artifacts
         mv $SRCDIR/tela-circle-dracula-icons_$latestTag.deb artifacts/ 2>/dev/null || echo "No deb files found"
         echo "$latestTag" >> artifacts/tag
@@ -67,7 +66,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: tela-circle-dracula-icons-deb
-        path: artifacts/kos*.deb
+        path: artifacts/tela*.deb
         retention-days: 7
 
     - name: Upload artifact
