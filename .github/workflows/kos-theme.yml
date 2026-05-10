@@ -21,7 +21,7 @@ jobs:
         apt-get update
         apt-get install -y --no-install-recommends \
           meson ninja-build optipng dpkg-dev nodejs npm inkscape parallel \
-          devscripts fakeroot dpkg-dev git \
+          devscripts fakeroot dpkg-dev git tree \
 
         git clone https://gitlab.com/kazamOS/kOS-theme.git
 
@@ -39,8 +39,8 @@ jobs:
         mkdir -p prefix
         meson setup _build -Dprefix="$(realpath ./prefix)" -Dcolors=green,purple -Dschemes=default,dark,light -Dsizes=default,compact
         meson compile -C _build
-        ls -l _build/src/xfce4-terminal
-        meson install -C _build | grep -A 5 "Error"
+        tree _build/src
+        meson install -C _build | tail
 
         mkdir -p deb-pkg/DEBIAN
         mkdir -p deb-pkg/usr
