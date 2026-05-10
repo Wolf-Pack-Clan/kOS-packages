@@ -41,7 +41,9 @@ jobs:
         # meson compile -C _build
         tree _build/src
         # meson install -C _build | tail
-        ninja -C _build install | grep terminal
+        ninja -C _build | grep terminal
+        tree _build/src/xfce4-terminal
+        exit 1
 
         mkdir -p deb-pkg/DEBIAN
         mkdir -p deb-pkg/usr
