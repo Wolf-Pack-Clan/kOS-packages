@@ -35,7 +35,7 @@ jobs:
         cd "$SRCDIR"
         latestTag=$(date +'%d.%m.%Y')
 
-        (cd Tela-circle-icon-theme;./install.sh -d ../telaicons dracula)
+        (./install.sh -d ../telaicons dracula)
 
         mkdir -p deb-pkg/DEBIAN
         mkdir -p deb-pkg/usr
