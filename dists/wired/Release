@@ -2,26 +2,26 @@ Origin: kazamOS
 Label: kazamOS
 Suite: testing
 Codename: wired
-Date: Sun, 10 May 2026 08:48:47 UTC
+Date: Sun, 10 May 2026 09:19:25 UTC
 Architectures: amd64
 Components: main
 MD5Sum:
- 6e542c5545481c7521a60d04ef846c13 15547 main/binary-amd64/Packages
- 61e377c28b7117e8c83a2b8aab2c2543 5422 main/binary-amd64/Packages.gz
+ 1c8bf32cd52958b3e765c04b44c71e41 16095 main/binary-amd64/Packages
+ 8f866cdd00be866ea7030f56d637dc2f 5545 main/binary-amd64/Packages.gz
  365cf0f87534e0c0c2e2c6a7710af98b 84 main/binary-amd64/Release
  c99feb378e19096b099a005fd3a99d2d 2889 main/source/Sources
  9ef0e54a870b7d4b2164f52f263593ff 1055 main/source/Sources.gz
  30bae49292a0ec3b4c3b1f8d740efa9f 85 main/source/Release
 SHA1:
- 2fdac24eeca3e5b469c8f775cbce52364dda47d8 15547 main/binary-amd64/Packages
- 8d2f5848531c6ad28818bcaff42ef38bd1ac958d 5422 main/binary-amd64/Packages.gz
+ f21e5e7afda83ef33a7057203274ce1fb54949b0 16095 main/binary-amd64/Packages
+ 678984bf37ee19ad19fc6417b95345ada682c652 5545 main/binary-amd64/Packages.gz
  46105b3c179126b1600fde7a8b797ec5d477d299 84 main/binary-amd64/Release
  312397380db3ee7e48164b1c8ce2592b927942a3 2889 main/source/Sources
  05d641974eac74cf7c8cebeee8d1cb83421c21fa 1055 main/source/Sources.gz
  8719f95feb2f480758c07431327e2f2b99d63f59 85 main/source/Release
 SHA256:
- 3a74875da8a8b5029b52979b2cb47cb3d00a231d958230aa0626ae93ffe5aae6 15547 main/binary-amd64/Packages
- e3c11eee5e2a6863ff026f041629ea4108095333334823ea1a649d402c6efee7 5422 main/binary-amd64/Packages.gz
+ c0e9595f03f7f0344299705088367640858e70db578d360cfd16f46e9c4f3761 16095 main/binary-amd64/Packages
+ 7c9b08801645cc9b34e9f2c791188b6fe9d231d294036c59040af82929451bab 5545 main/binary-amd64/Packages.gz
  9fabe4aa9a8e566f4f5d69c8ff67d37b5415d7b254842941b34dd1c6aeb1fa71 84 main/binary-amd64/Release
  76d72f1f5088be59490bd62d6d6affbfc5c157f4ffec0b1bbd9bad3f1d828303 2889 main/source/Sources
  50f9bf2a46fb7a9e1842325df37e29dcc1ef1430a9bf489ee3e16b6e3a232743 1055 main/source/Sources.gz
