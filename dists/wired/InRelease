@@ -5,32 +5,60 @@ Origin: kazamOS
 Label: kazamOS
 Suite: testing
 Codename: wired
+<<<<<<< HEAD
 Date: Sun, 10 May 2026 09:19:25 UTC
 Architectures: amd64
 Components: main
 MD5Sum:
  1c8bf32cd52958b3e765c04b44c71e41 16095 main/binary-amd64/Packages
  8f866cdd00be866ea7030f56d637dc2f 5545 main/binary-amd64/Packages.gz
+=======
+Date: Mon, 25 May 2026 16:15:56 UTC
+Architectures: amd64
+Components: main
+MD5Sum:
+ ab5442320b734e471f3fc487f752cd01 17847 main/binary-amd64/Packages
+ 108ae33ad3d0359117cca39183db32dc 6940 main/binary-amd64/Packages.gz
+>>>>>>> 9dd2fd1 (kos-sounds)
  365cf0f87534e0c0c2e2c6a7710af98b 84 main/binary-amd64/Release
- c99feb378e19096b099a005fd3a99d2d 2889 main/source/Sources
- 9ef0e54a870b7d4b2164f52f263593ff 1055 main/source/Sources.gz
+ 81c1519df8d8296248e4c29885e27169 4131 main/source/Sources
+ f4a3b780f83729c63f47ffdff871e23c 1399 main/source/Sources.gz
  30bae49292a0ec3b4c3b1f8d740efa9f 85 main/source/Release
 SHA1:
+<<<<<<< HEAD
  f21e5e7afda83ef33a7057203274ce1fb54949b0 16095 main/binary-amd64/Packages
  678984bf37ee19ad19fc6417b95345ada682c652 5545 main/binary-amd64/Packages.gz
+=======
+ 14c79062ad81ece9f24e8b4ac49023258c6751d5 17847 main/binary-amd64/Packages
+ ab96a10014072c93a54860d323c51e07225f5a29 6940 main/binary-amd64/Packages.gz
+>>>>>>> 9dd2fd1 (kos-sounds)
  46105b3c179126b1600fde7a8b797ec5d477d299 84 main/binary-amd64/Release
- 312397380db3ee7e48164b1c8ce2592b927942a3 2889 main/source/Sources
- 05d641974eac74cf7c8cebeee8d1cb83421c21fa 1055 main/source/Sources.gz
+ 029747fee68e0a8d169cd681a7ce9cdb9e1622f1 4131 main/source/Sources
+ 18ca7164a088e5cd1e285bcbad8be1d5260ef0d9 1399 main/source/Sources.gz
  8719f95feb2f480758c07431327e2f2b99d63f59 85 main/source/Release
 SHA256:
+<<<<<<< HEAD
  c0e9595f03f7f0344299705088367640858e70db578d360cfd16f46e9c4f3761 16095 main/binary-amd64/Packages
  7c9b08801645cc9b34e9f2c791188b6fe9d231d294036c59040af82929451bab 5545 main/binary-amd64/Packages.gz
+=======
+ 02c40b5316375ddc182a1883b6bc21c37646bde6fa63adc463344ae5a6b38fe7 17847 main/binary-amd64/Packages
+ c36e76702aaf551b4d055f62552c2ae38f9890f96d8e492a4d8e0523de533a92 6940 main/binary-amd64/Packages.gz
+>>>>>>> 9dd2fd1 (kos-sounds)
  9fabe4aa9a8e566f4f5d69c8ff67d37b5415d7b254842941b34dd1c6aeb1fa71 84 main/binary-amd64/Release
- 76d72f1f5088be59490bd62d6d6affbfc5c157f4ffec0b1bbd9bad3f1d828303 2889 main/source/Sources
- 50f9bf2a46fb7a9e1842325df37e29dcc1ef1430a9bf489ee3e16b6e3a232743 1055 main/source/Sources.gz
+ 9d5ea70c65e5e01ca91d763037eca124d750c53548e53726344a14d7e9f6cb55 4131 main/source/Sources
+ 27644aa867f2fefd5cc497fdbbbeb3a3132e271f64b190d8682b79d8f600be82 1399 main/source/Sources.gz
  9eff6d3251959088c63467429c735cf0353c1fe3c9c27e8c80d2075d19e3ff95 85 main/source/Release
+SHA512:
+ aef0df9a4ca4c9cf28cfb2da884ff85ef6d28fa21daa7d840f5099e53d85b279968628d4d9a307529e59dfd256cafa71f3ede3980288b90a20ca0c5232919fa2 17847 main/binary-amd64/Packages
+ a0dcc21bc1ff05c1ac6bb0c043733bcfb54f7255fc4c5d3eb6192a1527fd20a1c8338d82d08ad62c7c4ce3c03419a6fbe5d418efa02a9b9457d30a82859f94e9 6940 main/binary-amd64/Packages.gz
+ d8c7181fbb00447f5744e7bc6eb92737580527c4ada6dbf23ed7d8dc1e5d0fa277d5615bc0fc8e2950c94af7e0965d0cd320f84d6a268409210ee17d8b2732c4 84 main/binary-amd64/Release
+ 9a21b00116d9a9c3b528b01455c84a5a23b13aa2913c876db59cbe9ca10b5456c6fd11721db3d3fb640d0869efeeffce79012de1ed68ff4feeb9d5a2e40eac17 4131 main/source/Sources
+ 7da3be920565e342234bd24038d9283deae71b3bd63ae39a01c7ede7c26e81becd9d55c209d1b640094c57f25c4ee98c276c6232c3a35fe67c7b0be2cb1c2a93 1399 main/source/Sources.gz
+ ec4242ea2135ea4b153c722ad5f06a619a4b7cb5b4088f608771bf82cd941174c548fc67a0177fb3948b5cf52d0126c95947cff77e21769bf16f09d972630fe7 85 main/source/Release
+
 -----BEGIN PGP SIGNATURE-----
 
+<<<<<<< HEAD
 iQIzBAEBCgAdFiEEkQFrhB/kL89m7EzJYGF/fMruLIoFAmoATZ0ACgkQYGF/fMru
 LIoVFg/8DREwrDtJUSzOKSrcfTw3v6ToBWsEonANtgvt0WBQTXFsiAGBUHy4kcvH
 tNlt396SM0WlPHf/watz/OI69ZCqH8M/rNC9cgHoLN/c6iW5JA98rt/MbGHVSFIn
@@ -44,4 +72,19 @@ lTFDDPM2SAmC+7FJLlTthWy57qqMppx5P+42h17MrsHESKGrRzYsaKLyC5/GK3yw
 +dl3ffgisDkZ/vMRXv72hNo2x9jsH/d9x3eo0oQACrU8BgMcrrvSnOROEifN3RD4
 GPSWlf2WAQ/2uAYnKLJ6r9x6EoiJTBv6UPgV2aiaYtg0VxYVJbI=
 =pDmn
+=======
+iQIzBAEBCgAdFiEEkQFrhB/kL89m7EzJYGF/fMruLIoFAmoUdcMACgkQYGF/fMru
+LIqJww//WXQnqBlxAFBAddFuctIiL5HZdTqPXLWSifX7f0hfPwKVRx0ArSaUSUb0
+ZXn9cSLMw8BS7VIUWcLTaXERA6ML1ChNELGzv4pU+CaVBmVhwgKDObiv7uo87KfS
+Tg6sPTwSt+mSuOcyWb/dyGFOFRcbBu596CzsxCKR9JH7XKhtY+V60tszhq+Fe3yN
+qdd9w30kGuOKwvJ23VLg4vvvJSOLB3lOn9R5arCPoZ0RsGQ7u6v4S9kDmSr9o/DY
+87hlmnE/ZRaV3gdIQhnM3/RJob05KGLjdErBWJLoGKZOQXo+k3+OAuzLbeB+TU32
++QlWsjnEYkHqMjWvnSsS2YTHmSnsj3BoeztdlnAd8hl2FR3mD2f/DIFSw6Bdsu7f
+AmcmGsQYmGtrbumaxlLcmlkRYC7F2+4/oZ9fQiI1/1fzgs8LynAj4YwhZH6Ap+yX
+bOK3Vr4Nckni52SzKrtmYpiJNlzDe7/cledmzf5lJv5jAhdeP+cH0rMB7Qb3WL4w
+XJCEzziwvW2Tw+M3EmaDEG/T7ckED2OBcCPJmRyWr5LliF6RujjXRH5C9yc4Bj6Y
+HgjMA4jvCg+BTeHDISZfXB7d0ZkTtegZy6SIEy8EaHfSSGFkLsjmp3sy2Xp1Rfyn
++wkL2bEI95Ke1wQ/rmYeR4y/VaXbj0Yfnbtm9sjNDQN1oxrRsrw=
+=zcS7
+>>>>>>> 9dd2fd1 (kos-sounds)
 -----END PGP SIGNATURE-----
