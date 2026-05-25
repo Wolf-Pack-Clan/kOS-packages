@@ -406,17 +406,17 @@ Description: A flat, colorful icon theme. Dracula color.
  https://github.com/vinceliuice/Tela-circle-icon-theme
 
 Package: tela-circle-manjaro-icons
-Version: 10.05.2026
+Version: 25.05.2026
 Architecture: all
 Maintainer: Kazam <kazam0180@proton.me>
 Installed-Size: 88584
 Priority: optional
 Section: x11
-Filename: pool/main/t/tela-circle-manjaro-icons/tela-circle-manjaro-icons_10.05.2026_all.deb
-Size: 3423100
-SHA256: 0569011d10d861ba65419576ed5f86e5c314464aac0f45caf5177abb6de7c21f
-SHA1: 9389d30d78beb5b5cbd3c7e11191e061750814f3
-MD5sum: 8939660548438567d91001ca3f1b5c5c
+Filename: pool/main/t/tela-circle-manjaro-icons/tela-circle-manjaro-icons_25.05.2026_all.deb
+Size: 3422876
+SHA256: 25b42f41b43b3f7cd9af5737eeaa008fa0bf3ca69180c956e8fcb629fe9bdb1b
+SHA1: aeadfe5c969eba24a3cc9899377d562738ceda5c
+MD5sum: eb669ebef01be795558b913b429ceb91
 Description: A flat, colorful icon theme. Manjaro color.
  https://github.com/vinceliuice/Tela-circle-icon-theme
 
