@@ -390,6 +390,22 @@ MD5sum: 6b006dfb33cfed04b34aa4c9e3546328
 Description: Boot theme for kazamOS
  Plymouth theme for kazamOS.
 
+Package: rustdesk
+Version: 1.4.6
+Architecture: amd64
+Maintainer: rustdesk <info@rustdesk.com>
+Homepage: https://rustdesk.com
+Depends: libgtk-3-0, libxcb-randr0, libxdo3 | libxdo4, libxfixes3, libxcb-shape0, libxcb-xfixes0, libasound2, libsystemd0, curl, libva2, libva-drm2, libva-x11-2, libgstreamer-plugins-base1.0-0, libpam0g, gstreamer1.0-pipewire
+Recommends: libayatana-appindicator3-1
+Priority: optional
+Section: net
+Filename: pool/main/r/rustdesk/rustdesk_1.4.6_amd64.deb
+Size: 23130764
+SHA256: 0da46d7a7b252282ded5323f74319a10c1fa7271001d3b297b3def415c8c8f04
+SHA1: 784679a7660110d0836b730d01471e618768d1a6
+MD5sum: 79fd067cda039f5d57b199a77b4ca5d5
+Description: A remote control software.
+
 Package: tela-circle-dracula-icons
 Version: 25.05.2026
 Architecture: all
