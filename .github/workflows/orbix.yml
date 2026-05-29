@@ -54,14 +54,14 @@ jobs:
         echo "Build completed"
 
     - name: Upload artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v6
       with:
         name: orbix-deb
         path: artifacts/orbix*.deb
         retention-days: 7
 
     - name: Upload artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v6
       with:
         name: orbix-tag
         path: artifacts/tag
@@ -72,17 +72,17 @@ jobs:
     needs: build-orbix
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
       with:
         fetch-depth: 0
 
     - name: Download build artifacts
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@v6
       with:
         name: orbix-deb
 
     - name: Download tag
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@v6
       with:
         name: orbix-tag
 
