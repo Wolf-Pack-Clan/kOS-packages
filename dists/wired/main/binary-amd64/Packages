@@ -206,19 +206,20 @@ Description: Scrollable-tiling Wayland compositor
 Installed-Size: 134122
 
 Package: orbix
-Version: 1.0.6-1
+Version: 1.0.6-2
 Architecture: amd64
 Maintainer: @the.watermelon:matrix.org
-Installed-Size: 5993
+Installed-Size: 5973
 Depends: libc6 (>= 2.39), libssl3t64 (>= 3.0.0)
 Recommends: bubblewrap, tzdata, git
+Suggests: meson, cmake, g++-multilib
 Priority: optional
 Section: utility
-Filename: pool/main/o/orbix/orbix_1.0.6-1_amd64.deb
-Size: 1876228
-SHA256: 8a34c75a12efdcdd977aa33e51bcb0ae19ece3b409f6a639e2fe72914df5c0b6
-SHA1: b2379c152156ee8a0bbac1dd8e0d34917e6cb6d2
-MD5sum: 29eea64894f90a36aa6b8cf86843d13c
+Filename: pool/main/o/orbix/orbix_1.0.6-2_amd64.deb
+Size: 1874080
+SHA256: 755344f01efa6bfbf6044ddc5d38eb760353efd2ca6d2bdf222764a74830de0b
+SHA1: ca0f6d15c954bcebf9e5cfe0e151e7dc999cd17d
+MD5sum: ddcd45d236b08e6d258bfd9e773e2b43
 Description: TUI CoD server panel written in Rust
  TUI server panel for Call of Duty (R) (2003), its expansion pack (United
  Offensive) and Call of Duty 2. Repo: https://gitlab.com/kazam0180/orbix
