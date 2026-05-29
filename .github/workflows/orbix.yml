@@ -40,7 +40,7 @@ jobs:
         git checkout $latestTag
 
         echo "################################################################"
-        sed -i 's|, git"|, git"\nsuggests = "meson, cmake, g++-multilib"\nrevision = 2|g' Cargo.toml
+        sed -i 's|, git"|, git"\nsuggests = "meson, cmake, g++-multilib"\nrevision = "2"|g' Cargo.toml
         cat Cargo.toml
 
         cargo deb
