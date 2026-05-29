@@ -14,7 +14,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
 
     - name: Setup environment
       run: |
@@ -39,7 +39,7 @@ jobs:
         latestTag=$(git describe --tags $(git rev-list --tags --max-count=1))
         git checkout $latestTag
 
-        sed -i 's|, git"|, git"\nsuggests = "meson, cmake, g++-multilib"' Cargo.toml
+        sed -i 's|, git"|, git"\nsuggests = "meson, cmake, g++-multilib"|g' Cargo.toml
         cat Cargo.toml
         exit 1
 
