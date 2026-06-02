@@ -30,9 +30,6 @@ jobs:
         latestTag=1.5
 
         wget -O stk-linux.tar.gz https://github.com/supertuxkart/stk-code/releases/download/1.5/SuperTuxKart-1.5-linux-x86_64.tar.gz 2> /dev/null
-        mkdir android
-        wget -O android/stk.apk https://github.com/supertuxkart/stk-code/releases/download/1.5/SuperTuxKart-1.5.apk 2> /dev/null
-        
         tar -xvf stk-linux.tar.gz > /dev/null
         
         mkdir -p stk
@@ -41,12 +38,6 @@ jobs:
         mv SuperTuxKart-1.5-linux-x86_64/lib stk/
         
         rm -rf SuperTuxKart-1.5-linux-x86_64 stk-linux*
-        
-        cd android
-        unzip stk.apk > /dev/null
-        mv assets/data ../stk/
-        cd ..
-        rm -rf android
 
         mkdir -p deb-pkg
         mkdir -p deb-pkg/DEBIAN
@@ -56,7 +47,6 @@ jobs:
 
         mv stk/bin deb-pkg/usr/share/supertuxkart-mini/
         mv stk/lib deb-pkg/usr/share/supertuxkart-mini/
-        mv stk/data deb-pkg/usr/share/supertuxkart-mini/
 
         cat > deb-pkg/usr/share/applications/supertuxkart-mini.desktop << 'EOF'
         [Desktop Entry]
@@ -94,11 +84,54 @@ jobs:
         Section: x11
         Maintainer: Kazam <kazam0180@proton.me>
         Priority: optional
+        Depends: wget, unzip
         Installed-Size: 261076
         Description: A mini version of SuperTuxKart
          Only contains essential assets from the Android version of STK
 
         EOF
+
+        cat > deb-pkg/DEBIAN/postinst << 'EOF'
+        #!/bin/sh
+        set -e
+        
+        DATADIR="/usr/share/supertuxkart-mini"
+        APK_URL="https://github.com/supertuxkart/stk-code/releases/download/1.5/SuperTuxKart-1.5.apk"
+        TMP_APK="$(mktemp /tmp/stk-XXXXXX.apk)"
+        
+        echo "Downloading SuperTuxKart assets..."
+        if ! wget -q -O "$TMP_APK" "$APK_URL"; then
+            echo "ERROR: Failed to download STK assets from $APK_URL" >&2
+            rm -f "$TMP_APK"
+            exit 1
+        fi
+        
+        echo "Extracting assets..."
+        mkdir -p "$DATADIR/data"
+        if ! unzip -q "$TMP_APK" "assets/data/*" -d /tmp/stk-extract; then
+            echo "ERROR: Failed to extract APK" >&2
+            rm -f "$TMP_APK"
+            rm -rf /tmp/stk-extract
+            exit 1
+        fi
+        
+        mv /tmp/stk-extract/assets/data/* "$DATADIR/data/"
+        rm -f "$TMP_APK"
+        rm -rf /tmp/stk-extract
+
+        chmod -R a+rX "$DATADIR/data"
+        echo "SuperTuxKart assets installed."
+        EOF
+
+        chmod 0755 deb-pkg/DEBIAN/postinst
+
+        cat > deb-pkg/DEBIAN/postrm << 'EOF'
+        #!/bin/sh
+        set -e
+        rm -rf /usr/share/supertuxkart-mini/data
+        EOF
+
+        chmod 0755 deb-pkg/DEBIAN/postrm
 
         # tree -I '*.png|*.ogg|*.spm|*.xml|*.jpg|stklib*|*.music' deb-pkg
 
