@@ -128,7 +128,7 @@ jobs:
         cat > deb-pkg/DEBIAN/postrm << 'EOF'
         #!/bin/sh
         set -e
-        rm -rf /usr/share/supertuxkart-mini/data
+        rm -rf /usr/share/supertuxkart-mini
         EOF
 
         chmod 0755 deb-pkg/DEBIAN/postrm
