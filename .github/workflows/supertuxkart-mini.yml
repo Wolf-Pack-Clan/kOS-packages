@@ -100,7 +100,7 @@ jobs:
 
         EOF
 
-        tree deb-pkg
+        tree tree -I '*.png' deb-pkg
 
         dpkg-deb --build deb-pkg supertuxkart-mini_$latestTag_amd64.deb
 
