@@ -145,14 +145,14 @@ jobs:
         echo "Build completed"
 
     - name: Upload artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v6
       with:
         name: supertuxkart-mini-deb
         path: artifacts/supertuxkart-mini*.deb
         retention-days: 7
 
     - name: Upload artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v6
       with:
         name: supertuxkart-mini-tag
         path: artifacts/tag
@@ -173,7 +173,7 @@ jobs:
         name: supertuxkart-mini-deb
 
     - name: Download tag
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@v6
       with:
         name: supertuxkart-mini-tag
 
