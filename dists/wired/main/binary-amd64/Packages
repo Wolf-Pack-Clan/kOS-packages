@@ -407,6 +407,22 @@ SHA1: 784679a7660110d0836b730d01471e618768d1a6
 MD5sum: 79fd067cda039f5d57b199a77b4ca5d5
 Description: A remote control software.
 
+Package: supertuxkart-mini
+Version: 1.5
+Architecture: amd64
+Maintainer: Kazam <kazam0180@proton.me>
+Depends: wget, unzip
+Installed-Size: 261076
+Priority: optional
+Section: x11
+Filename: pool/main/s/supertuxkart-mini/supertuxkart-mini_1.5_amd64.deb
+Size: 11790048
+SHA256: 45cadd7a5d34d56ff49d1feda0969d43818f58024b1b9eb012099df121b68c74
+SHA1: 84331689a82d2a57ccd3c58ab1c2f8e857923f37
+MD5sum: d367b92d29c270ec9b74e3c66be75490
+Description: A mini version of SuperTuxKart
+ Only contains essential assets from the Android version of STK
+
 Package: tela-circle-dracula-icons
 Version: 25.05.2026
 Architecture: all
