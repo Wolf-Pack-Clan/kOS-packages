@@ -411,15 +411,15 @@ Package: supertuxkart-mini
 Version: 1.5
 Architecture: amd64
 Maintainer: Kazam <kazam0180@proton.me>
-Depends: wget, unzip, libangelscript2.35.1t64 (>= 2.35.1+ds), libbluetooth3 (>= 4.91), libc6 (>= 2.38), libcurl3t64-gnutls (>= 7.16.2), libfreetype6 (>= 2.2.1), libgcc-s1 (>= 3.3.1), libharfbuzz0b (>= 0.9.9), libjpeg62-turbo (>= 1.3.1), libmbedcrypto16 (>= 3.6.0), libmcpp0, libopenal1 (>= 1.14), libpng16-16t64 (>= 1.6.46), libsdl2-2.0-0 (>= 2.0.12), libshaderc1 (>= 2022.2-1), libsqlite3-0 (>= 3.5.9), libsquish0 (>= 1.15), libstdc++6 (>= 14), libvorbisfile3 (>= 1.1.2), zlib1g (>= 1:1.1.4)
+Depends: wget, unzip, libangelscript2.35.1t64 (>= 2.35.1+ds), libc6 (>= 2.38), libgcc-s1 (>= 3.3.1), libmcpp0, libsquish0 (>= 1.15), libstdc++6 (>= 14)
 Installed-Size: 261076
 Priority: optional
 Section: x11
 Filename: pool/main/s/supertuxkart-mini/supertuxkart-mini_1.5_amd64.deb
-Size: 11789572
-SHA256: 95387cd71371a72405a27a3e026690c4713cf5d10b6f82a32d7650b3e803202f
-SHA1: 18ada428e222c030b5aebd6d0725a59f0193806f
-MD5sum: 412350b6716aa0b64615c9c100a234c2
+Size: 11790096
+SHA256: baee4fbf193513a69b524874589beb6b6254707295c525b8725b897cc902dabf
+SHA1: 459db267cc09e6d123f584b754b8b9c1628a3d4e
+MD5sum: ad36ad82726482bd4ff87c72f2eb1125
 Description: A mini version of SuperTuxKart
  Only contains essential assets from the Android version of STK
 
