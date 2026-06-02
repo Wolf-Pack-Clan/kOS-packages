@@ -33,7 +33,7 @@ jobs:
         mkdir android
         wget -O android/stk.apk https://github.com/supertuxkart/stk-code/releases/download/1.5/SuperTuxKart-1.5.apk
         
-        tar -xvf stk-linux.tar.gz
+        tar -xvf stk-linux.tar.gz > /dev/null
         
         mkdir -p stk
         
@@ -43,7 +43,7 @@ jobs:
         rm -rf SuperTuxKart-1.5-linux-x86_64 stk-linux*
         
         cd android
-        unzip stk.apk
+        unzip stk.apk > /dev/null
         mv assets/data ../stk/
         cd ..
         rm -rf android
@@ -98,6 +98,8 @@ jobs:
         Only contains essential assets from the Android version of STK
 
         EOF
+
+        tree .
 
         dpkg-deb --build deb-pkg supertuxkart-mini_$latestTag_amd64.deb
 
