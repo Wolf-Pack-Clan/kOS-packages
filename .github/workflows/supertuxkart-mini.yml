@@ -29,9 +29,9 @@ jobs:
         echo "DEBEMAIL=kazam0180@proton.me" >> $GITHUB_ENV
         latestTag=1.5
 
-        wget -O stk-linux.tar.gz https://github.com/supertuxkart/stk-code/releases/download/1.5/SuperTuxKart-1.5-linux-x86_64.tar.gz > /dev/null
+        wget -O stk-linux.tar.gz https://github.com/supertuxkart/stk-code/releases/download/1.5/SuperTuxKart-1.5-linux-x86_64.tar.gz 2> /dev/null
         mkdir android
-        wget -O android/stk.apk https://github.com/supertuxkart/stk-code/releases/download/1.5/SuperTuxKart-1.5.apk > /dev/null
+        wget -O android/stk.apk https://github.com/supertuxkart/stk-code/releases/download/1.5/SuperTuxKart-1.5.apk 2> /dev/null
         
         tar -xvf stk-linux.tar.gz > /dev/null
         
@@ -100,7 +100,7 @@ jobs:
 
         EOF
 
-        tree tree -I '*.png' deb-pkg
+        tree tree -I '*.png|*.ogg|*.spm|*.xml|*.jpg|stklib*|*.music' deb-pkg
 
         dpkg-deb --build deb-pkg supertuxkart-mini_$latestTag_amd64.deb
 
