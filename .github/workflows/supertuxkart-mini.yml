@@ -20,7 +20,7 @@ jobs:
       run: |
         apt-get update
         apt-get install -y --no-install-recommends \
-          sed coreutils unar unzip tar wget \
+          sed coreutils unar unzip tar wget tree \
           devscripts fakeroot dpkg-dev
 
     - name: Build Package
