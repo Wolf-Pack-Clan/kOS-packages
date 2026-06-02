@@ -50,6 +50,7 @@ jobs:
 
         mkdir -p deb-pkg
         mkdir -p deb-pkg/DEBIAN
+        mkdir -p deb-pkg/usr/bin
         mkdir -p deb-pkg/usr/share/applications
         mkdir -p deb-pkg/usr/share/supertuxkart-mini
 
@@ -57,7 +58,7 @@ jobs:
         mv stk/lib deb-pkg/usr/share/supertuxkart-mini/
         mv stk/data deb-pkg/usr/share/supertuxkart-mini/
 
-        cat > deb-pkg/usr/share/applications/supertuxkart-mini.desktop << EOF
+        cat > deb-pkg/usr/share/applications/supertuxkart-mini.desktop << 'EOF'
         [Desktop Entry]
         Name=SuperTuxKart (Mini Version)
         Icon=supertuxkart
@@ -71,18 +72,18 @@ jobs:
         PrefersNonDefaultGPU=true
         EOF
 
-        cat > deb-pkg/usr/bin/supertuxkart-mini << EOF
+        cat > deb-pkg/usr/bin/supertuxkart-mini << 'EOF'
         #!/bin/sh
 
-        export SYSTEM_LD_LIBRARY_PATH="\$LD_LIBRARY_PATH"
+        export SYSTEM_LD_LIBRARY_PATH="$LD_LIBRARY_PATH"
 
         export SUPERTUXKART_DATADIR="/usr/share/supertuxkart-mini"
         export SUPERTUXKART_ASSETS_DIR="/usr/share/supertuxkart-mini/data/"
 
-        cd \$SUPERTUXKART_DATADIR
+        cd $SUPERTUXKART_DATADIR
 
-        export LD_LIBRARY_PATH="\$SUPERTUXKART_DATADIR/lib:\$LD_LIBRARY_PATH"
-        "\$SUPERTUXKART_DATADIR/bin/supertuxkart" "\$@"
+        export LD_LIBRARY_PATH="$SUPERTUXKART_DATADIR/lib:$LD_LIBRARY_PATH"
+        "$SUPERTUXKART_DATADIR/bin/supertuxkart" "$@"
 
         EOF
 
