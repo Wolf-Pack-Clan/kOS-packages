@@ -65,16 +65,16 @@ jobs:
         }
         echo "GPG wrapper working correctly"
 
-        wget -O "rustdesk-1.4.6-x86_64.deb" "https://github.com/rustdesk/rustdesk/releases/download/1.4.6/rustdesk-1.4.6-x86_64.deb"
+        wget -O "rustdesk-1.4.7-x86_64.deb" "https://github.com/rustdesk/rustdesk/releases/download/1.4.7/rustdesk-1.4.7-x86_64.deb"
 
         find pool -name "rustdesk*.deb" -exec rm {} \;
         reprepro -b . export
-        reprepro -b . includedeb wired rustdesk-1.4.6-x86_64.deb
+        reprepro -b . includedeb wired rustdesk-1.4.7-x86_64.deb
         find pool -name "*.dsc" -exec reprepro -b . includedsc wired {} \;
         find pool -name "*.deb" -exec reprepro -b . includedeb wired {} \;
 
-        rm "rustdesk-1.4.6-x86_64.deb"
-        echo "latestTag=1.4.6" >> $GITHUB_ENV
+        rm "rustdesk-1.4.7-x86_64.deb"
+        echo "latestTag=1.4.7" >> $GITHUB_ENV
 
         # Verify files
         ls -l dists/wired/
