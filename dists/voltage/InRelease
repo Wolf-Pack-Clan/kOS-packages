@@ -1,0 +1,47 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Origin: kazamOS
+Label: kazamOS
+Suite: testing
+Codename: voltage
+Date: Fri, 26 Jun 2026 14:06:30 UTC
+Architectures: amd64
+Components: main
+MD5Sum:
+ cb38091b75f013fbeaf5cd594dc02fb9 18018 main/binary-amd64/Packages
+ e9fb43a6d326eeea9f6ef3044b09a302 6243 main/binary-amd64/Packages.gz
+ 365cf0f87534e0c0c2e2c6a7710af98b 84 main/binary-amd64/Release
+ 81c1519df8d8296248e4c29885e27169 4131 main/source/Sources
+ f4a3b780f83729c63f47ffdff871e23c 1399 main/source/Sources.gz
+ 30bae49292a0ec3b4c3b1f8d740efa9f 85 main/source/Release
+SHA1:
+ cd3c2347d74e2bd574f1777e22583d6dcd69fea7 18018 main/binary-amd64/Packages
+ b344000a2e5b63c70789c433a57de0b51ccc68eb 6243 main/binary-amd64/Packages.gz
+ 46105b3c179126b1600fde7a8b797ec5d477d299 84 main/binary-amd64/Release
+ 029747fee68e0a8d169cd681a7ce9cdb9e1622f1 4131 main/source/Sources
+ 18ca7164a088e5cd1e285bcbad8be1d5260ef0d9 1399 main/source/Sources.gz
+ 8719f95feb2f480758c07431327e2f2b99d63f59 85 main/source/Release
+SHA256:
+ dab88b42d3ee55f14eb42e1e2b4cd4af848e7cb83b6df7510915e0b0c17d3587 18018 main/binary-amd64/Packages
+ 7146ff12ba0d1801fc6ccb84e8d3159f24c27dc42fe0d6ed8efa9205bdc02d60 6243 main/binary-amd64/Packages.gz
+ 9fabe4aa9a8e566f4f5d69c8ff67d37b5415d7b254842941b34dd1c6aeb1fa71 84 main/binary-amd64/Release
+ 9d5ea70c65e5e01ca91d763037eca124d750c53548e53726344a14d7e9f6cb55 4131 main/source/Sources
+ 27644aa867f2fefd5cc497fdbbbeb3a3132e271f64b190d8682b79d8f600be82 1399 main/source/Sources.gz
+ 9eff6d3251959088c63467429c735cf0353c1fe3c9c27e8c80d2075d19e3ff95 85 main/source/Release
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEkQFrhB/kL89m7EzJYGF/fMruLIoFAmo+h2YACgkQYGF/fMru
+LIpATw/+KIQbzbgsgrrWJYDiiGo/kIKPpfehBFHG/U4rkNdsiMQb+9QxU6LVzQi3
+I23K6q0SmgPSCwMlEOpefh7hONyQhx6RQjnvDThaE3h4r97hLqivHoXjf6Xjp6Uz
+JyPSPWO3WZO+vonhxuwpQrlgFALFvT7Pmx0fwa/gVL98sk/h9KP6Sitpgz8r4Hnj
+nmDr632cYBKr3t30wnDiARMczB+NW42BHwdyqcbm501Ai5289t1gSWHz6cUbKC9w
+MeUMHWOrzPJwKWRjfrc8Lw48/Mlnm3w/CZnRIB+RaecBmLw2yjIITlns0412BpoQ
+Wi8iPQA/hWeaNXwNc9Wh69+kQcbRfJEXYSFjroTczE23UFcuNWt8jbEXmr5nQ9/d
+K4ZxPXu3x0uUPUJeKuwrUthf2o1BfB/XDJMwVBylbBpuiUkvkS30xv9gbMj5FCx2
+Ojxg3DawihdNj8InHxvzkdChk0F+4cLR7U6n2TnSZPhrcIH+huqG3ZIK8Wnc/JKK
+uA/2zna4VB8qM3ZbEZGi4ZgKIYOPl7D0e2c0qdAVaBSB1Vh4S8hR4Efl76NPAMTg
+DjrojBt5dCFXnRLqoIkdEe3TkJrSIUAsletfX7xAnYzfFrOKyuc3PREW1bkMvwYR
+seEwKATU3ZWFQvqKftnmUesQbCCqSDwjZHw/y8XqYORsMVp15PQ=
+=Jjv7
+-----END PGP SIGNATURE-----
