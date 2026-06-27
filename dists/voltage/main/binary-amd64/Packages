@@ -1,20 +1,20 @@
 Package: calamares
-Version: 3.3.14-1~kazamos1
+Version: 3.3.14-0ubuntu25~kazamos1
 Architecture: amd64
-Maintainer: Jonathan Carter <jcc@debian.org>
-Installed-Size: 11076
-Depends: os-prober, libc6 (>= 2.34), libcrypt1 (>= 1:4.1.0), libgcc-s1 (>= 3.0), libkf6coreaddons6 (>= 6.0.0), libkf6crash6 (>= 6.0.0), libkf6parts6 (>= 6.0.0), libkpmcore12 (>= 24.05.2), libparted2t64 (>= 3.1), libpwquality1 (>= 1.1.0), libpython3.13 (>= 3.13.0~rc3), libqt6core6t64 (>= 6.8.2), libqt6dbus6 (>= 6.4.0), libqt6gui6 (>= 6.8.2), libqt6network6 (>= 6.1.2), libqt6qml6 (>= 6.6.0), libqt6quick6 (>= 6.6.0), libqt6quickwidgets6 (>= 6.6.0), libqt6svg6 (>= 6.6.0), libqt6widgets6 (>= 6.7.2), libqt6xml6 (>= 6.6.0), libstdc++6 (>= 14), libyaml-cpp0.8 (>= 0.8.0+dfsg-7)
+Maintainer: Lubuntu Developers <lubuntu-devel@lists.ubuntu.com>
+Installed-Size: 8017
+Depends: calamares-data (= 3.3.14-0ubuntu25~kazamos1), libcalamares3.3 (= 3.3.14-0ubuntu25~kazamos1), libcalamaresui3.3 (= 3.3.14-0ubuntu25~kazamos1), os-prober, util-linux-extra, libappstreamqt3 (>= 1.1.2), libc6 (>= 2.34), libcrypt1 (>= 1:4.1.0), libgcc-s1 (>= 3.3.1), libicu78 (>= 78.1-1~), libkf6configcore6 (>= 6.0.0), libkf6coreaddons6 (>= 6.0.0), libkf6crash6 (>= 6.0.0), libkf6package6 (>= 6.0.0), libkf6parts6 (>= 6.0.0), libkpmcore13 (>= 25.04.0), libparted2t64 (>= 3.1), libpwquality1 (>= 1.1.0), libqt6core6t64 (>= 6.10.2), libqt6dbus6 (>= 6.5.0), libqt6gui6 (>= 6.9.1), libqt6network6 (>= 6.5.0), libqt6qml6 (>= 6.6.0), libqt6quick6 (>= 6.6.0), libqt6quickwidgets6 (>= 6.6.0), libqt6widgets6 (>= 6.7.2), libqt6xml6 (>= 6.6.0), libstdc++6 (>= 14), libyaml-cpp0.8 (>= 0.7.0)
 Recommends: btrfs-progs, squashfs-tools
-Breaks: calamares-extensions (<< 3.3.12-1)
-Replaces: calamares-extensions (<< 3.3.12-1)
+Breaks: calamares (<< 3.3.14-0ubuntu4)
+Replaces: calamares (<< 3.3.14-0ubuntu4)
 Homepage: https://github.com/calamares/calamares
 Priority: optional
 Section: utils
-Filename: pool/main/c/calamares/calamares_3.3.14-1~kazamos1_amd64.deb
-Size: 4234100
-SHA256: 679cb1b75a8a2254b45161f70308a52f8b609fc3aff4cd539c265b71dd8810fc
-SHA1: 181c71e13bf4d64d7ed0a53fc03b3f4376e5c072
-MD5sum: 39c91fa5fe9c4da4d9d2f760f5c8dc03
+Filename: pool/main/c/calamares/calamares_3.3.14-0ubuntu25~kazamos1_amd64.deb
+Size: 3636666
+SHA256: b5dd3bf72715765e4d01a6ca9136a94794d5c9fb747bcff73683cad2077dc3cd
+SHA1: 65f42aa8bb7939cef4c89f67eccf9544538ac6bd
+MD5sum: ce24a5f21cce964d0f96a76097d69451
 Description: distribution-independent installer framework
  Calamares is a distribution-independent installer framework.
  .
@@ -26,6 +26,7 @@ Description: distribution-independent installer framework
  You will likely want to provide your own config files to match
  your distribution, reading the Calamares documentation will guide
  you through that process.
+Original-Maintainer: Jonathan Carter <jcc@debian.org>
 
 Package: calamares-settings-kos
 Version: 1.0.9-1
