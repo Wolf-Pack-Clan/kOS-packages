@@ -69,16 +69,16 @@ jobs:
 
         find pool -name "rustdesk*.deb" -exec rm {} \;
         reprepro -b . export
-        reprepro -b . includedeb wired rustdesk-1.4.7-x86_64.deb
-        find pool -name "*.dsc" -exec reprepro -b . includedsc wired {} \;
-        find pool -name "*.deb" -exec reprepro -b . includedeb wired {} \;
+        reprepro -b . includedeb voltage rustdesk-1.4.7-x86_64.deb
+        find pool -name "*.dsc" -exec reprepro -b . includedsc voltage {} \;
+        find pool -name "*.deb" -exec reprepro -b . includedeb voltage {} \;
 
         rm "rustdesk-1.4.7-x86_64.deb"
         echo "latestTag=1.4.7" >> $GITHUB_ENV
 
         # Verify files
-        ls -l dists/wired/
-        cat dists/wired/main/binary-amd64/Packages
+        ls -l dists/voltage/
+        cat dists/voltage/main/binary-amd64/Packages
 
         git status
 

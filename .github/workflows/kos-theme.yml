@@ -157,17 +157,17 @@ jobs:
 
         find pool -name "kos-theme_*.deb" -exec rm {} \;
         reprepro -b . export
-        reprepro -b . includedeb wired kos-theme_*.deb
-        find pool -name "*.dsc" -exec reprepro -b . includedsc wired {} \;
-        find pool -name "*.deb" -exec reprepro -b . includedeb wired {} \;
+        reprepro -b . includedeb voltage kos-theme_*.deb
+        find pool -name "*.dsc" -exec reprepro -b . includedsc voltage {} \;
+        find pool -name "*.deb" -exec reprepro -b . includedeb voltage {} \;
 
         rm kos-theme_*.deb
         echo "latestTag=$(cat tag)" >> $GITHUB_ENV
         rm tag
 
         # Verify files
-        ls -l dists/wired/
-        cat dists/wired/main/binary-amd64/Packages
+        ls -l dists/voltage/
+        cat dists/voltage/main/binary-amd64/Packages
 
         git status
 
