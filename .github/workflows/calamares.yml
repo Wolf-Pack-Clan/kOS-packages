@@ -10,7 +10,7 @@ jobs:
   build-calamares:
     runs-on: ubuntu-latest
     container:
-      image: debian:trixie
+      image: ubuntu:26.04
 
     steps:
     - name: Checkout repository
@@ -23,11 +23,6 @@ jobs:
           rsync python3-yaml python3-jsonschema \
           devscripts build-essential fakeroot dpkg-dev \
           equivs ca-certificates git gnupg
-
-        # Add source repositories
-        echo "deb-src http://deb.debian.org/debian trixie main contrib non-free non-free-firmware" >> /etc/apt/sources.list
-        echo "deb-src http://deb.debian.org/debian-security trixie-security main contrib non-free non-free-firmware" >> /etc/apt/sources.list
-        echo "deb-src http://deb.debian.org/debian trixie-updates main contrib non-free non-free-firmware" >> /etc/apt/sources.list
 
         apt-get update
         apt-get build-dep -y calamares
@@ -58,14 +53,14 @@ jobs:
         echo "Build completed"
 
     - name: Upload artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v6
       with:
         name: calamares-deb
         path: artifacts/calamares_*.deb
         retention-days: 7
 
     - name: Upload debug artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v6
       with:
         name: calamares-dbg
         path: artifacts/calamares-dbg*.deb
@@ -76,12 +71,12 @@ jobs:
     needs: build-calamares
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
       with:
         fetch-depth: 0
 
     - name: Download build artifacts
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@v6
       with:
         name: calamares-deb
 
