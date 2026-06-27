@@ -24,12 +24,6 @@ jobs:
           devscripts build-essential fakeroot dpkg-dev \
           equivs ca-certificates git gnupg
 
-        apt-get update
-        apt-get build-dep -y calamares
-
-        apt-get source calamares
-        git clone https://gitlab.com/kazamOS/calamares-kos.git
-
         cat > /etc/apt/sources.list.d/ubuntu-src.sources << EOF
         Types: deb-src
         URIs: http://us.archive.ubuntu.com/ubuntu/
@@ -37,6 +31,12 @@ jobs:
         Components: main restricted universe multiverse
         Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
         EOF
+
+        apt-get update
+        apt-get build-dep -y calamares
+
+        apt-get source calamares
+        git clone https://gitlab.com/kazamOS/calamares-kos.git
 
     - name: Build Calamares
       run: |
