@@ -1,20 +1,20 @@
 Package: calamares
-Version: 3.3.14-0ubuntu25~kazamos1
+Version: 3.3.14-1~kazamos1
 Architecture: amd64
-Maintainer: Lubuntu Developers <lubuntu-devel@lists.ubuntu.com>
-Installed-Size: 8017
-Depends: calamares-data (= 3.3.14-0ubuntu25~kazamos1), libcalamares3.3 (= 3.3.14-0ubuntu25~kazamos1), libcalamaresui3.3 (= 3.3.14-0ubuntu25~kazamos1), os-prober, util-linux-extra, libappstreamqt3 (>= 1.1.2), libc6 (>= 2.34), libcrypt1 (>= 1:4.1.0), libgcc-s1 (>= 3.3.1), libicu78 (>= 78.1-1~), libkf6configcore6 (>= 6.0.0), libkf6coreaddons6 (>= 6.0.0), libkf6crash6 (>= 6.0.0), libkf6package6 (>= 6.0.0), libkf6parts6 (>= 6.0.0), libkpmcore13 (>= 25.04.0), libparted2t64 (>= 3.1), libpwquality1 (>= 1.1.0), libqt6core6t64 (>= 6.10.2), libqt6dbus6 (>= 6.5.0), libqt6gui6 (>= 6.9.1), libqt6network6 (>= 6.5.0), libqt6qml6 (>= 6.6.0), libqt6quick6 (>= 6.6.0), libqt6quickwidgets6 (>= 6.6.0), libqt6widgets6 (>= 6.7.2), libqt6xml6 (>= 6.6.0), libstdc++6 (>= 14), libyaml-cpp0.8 (>= 0.7.0)
+Maintainer: Jonathan Carter <jcc@debian.org>
+Installed-Size: 11076
+Depends: os-prober, libc6 (>= 2.34), libcrypt1 (>= 1:4.1.0), libgcc-s1 (>= 3.0), libkf6coreaddons6 (>= 6.0.0), libkf6crash6 (>= 6.0.0), libkf6parts6 (>= 6.0.0), libkpmcore12 (>= 24.05.2), libparted2t64 (>= 3.1), libpwquality1 (>= 1.1.0), libpython3.13 (>= 3.13.0~rc3), libqt6core6t64 (>= 6.8.2), libqt6dbus6 (>= 6.4.0), libqt6gui6 (>= 6.8.2), libqt6network6 (>= 6.1.2), libqt6qml6 (>= 6.6.0), libqt6quick6 (>= 6.6.0), libqt6quickwidgets6 (>= 6.6.0), libqt6svg6 (>= 6.6.0), libqt6widgets6 (>= 6.7.2), libqt6xml6 (>= 6.6.0), libstdc++6 (>= 14), libyaml-cpp0.8 (>= 0.8.0+dfsg-7)
 Recommends: btrfs-progs, squashfs-tools
-Breaks: calamares (<< 3.3.14-0ubuntu4)
-Replaces: calamares (<< 3.3.14-0ubuntu4)
+Breaks: calamares-extensions (<< 3.3.12-1)
+Replaces: calamares-extensions (<< 3.3.12-1)
 Homepage: https://github.com/calamares/calamares
 Priority: optional
 Section: utils
-Filename: pool/main/c/calamares/calamares_3.3.14-0ubuntu25~kazamos1_amd64.deb
-Size: 3636666
-SHA256: b5dd3bf72715765e4d01a6ca9136a94794d5c9fb747bcff73683cad2077dc3cd
-SHA1: 65f42aa8bb7939cef4c89f67eccf9544538ac6bd
-MD5sum: ce24a5f21cce964d0f96a76097d69451
+Filename: pool/main/c/calamares/calamares_3.3.14-1~kazamos1_amd64.deb
+Size: 4234100
+SHA256: 679cb1b75a8a2254b45161f70308a52f8b609fc3aff4cd539c265b71dd8810fc
+SHA1: 181c71e13bf4d64d7ed0a53fc03b3f4376e5c072
+MD5sum: 39c91fa5fe9c4da4d9d2f760f5c8dc03
 Description: distribution-independent installer framework
  Calamares is a distribution-independent installer framework.
  .
@@ -26,24 +26,23 @@ Description: distribution-independent installer framework
  You will likely want to provide your own config files to match
  your distribution, reading the Calamares documentation will guide
  you through that process.
-Original-Maintainer: Jonathan Carter <jcc@debian.org>
 
 Package: calamares-settings-kos
-Version: 1.0.9-1
+Version: 1.0.9-2
 Architecture: all
 Maintainer: Muhammad Kazam <kazam0180@proton.me>
 Installed-Size: 155
-Depends: calamares, rsync, cryptsetup, libglib2.0-bin, keyutils, pkexec, qml-module-qtquick-window2, qml-module-qtquick2, donatepage
-Conflicts: calamares-settings-debian
+Depends: calamares, rsync, cryptsetup, libglib2.0-bin, keyutils, pkexec, qml6-module-qtquick-window, qml6-module-qtquick, donatepage
+Conflicts: calamares-settings-debian, calamares-settings-kubuntu, calamares-settings-lubuntu, calamares-settings-mobian, calamares-settings-ubuntu-unity
 Provides: calamares-settings
 Homepage: https://gitlab.com/kazamOS/calamares/calamares-settings-kos
 Priority: optional
 Section: utils
-Filename: pool/main/c/calamares-settings-kos/calamares-settings-kos_1.0.9-1_all.deb
-Size: 72108
-SHA256: 782108fa2fdce1a726978dd09e4708d3f27ba33d3ca9cf019809f193867815d0
-SHA1: 615bed52f1e91449b577a456c54d9c9c2a5a891c
-MD5sum: 02e836fc078261cd6193271e5c404a70
+Filename: pool/main/c/calamares-settings-kos/calamares-settings-kos_1.0.9-2_all.deb
+Size: 72136
+SHA256: ca27d4eac06579083a2a94b40f3e715a1dae9dc6f8ec496313aaf20253b2f3b9
+SHA1: fbd35f11b6aee293028841d2aca0db0a8bdf41db
+MD5sum: e6ef7396223239d45e66610edacffae3
 Description: kazamOS theme and settings for the Calamares Installer
  Calamares is a generic installer framework for Linux distributions.
  By default, it contains a set of boilerplate wording and images.
