@@ -141,7 +141,8 @@ jobs:
         }
         echo "GPG wrapper working correctly"
 
-        find pool -name "*calamares*.deb" -exec rm {} \;
+        find pool -name "*calamares_*.deb" -exec rm {} \;
+        find pool -name "*calamares-data*.deb" -exec rm {} \;
         reprepro -b . export
         reprepro -b . includedeb voltage *calamares*.deb
         find pool -name "*.dsc" -exec reprepro -b . includedsc voltage {} \;
