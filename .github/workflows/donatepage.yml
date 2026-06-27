@@ -21,8 +21,8 @@ jobs:
         apt-get update
         apt-get install -y --no-install-recommends \
           rsync python3-yaml python3-jsonschema libcurl4-openssl-dev \
-          devscripts build-essential fakeroot dpkg-dev \
-          equivs ca-certificates git gnupg rustup pkgconf
+          devscripts build-essential fakeroot dpkg-dev libgio-2.0-dev libwebkitgtk-6.0-dev \
+          equivs ca-certificates git gnupg rustup pkgconf libgtk-4-* libwebkit2gtk-4.1-dev
 
         rustup default stable
         cargo install cargo-deb
