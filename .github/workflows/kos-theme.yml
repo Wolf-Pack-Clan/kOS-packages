@@ -10,7 +10,7 @@ jobs:
   build-kos-theme:
     runs-on: ubuntu-latest
     container:
-      image: debian:trixie
+      image: ubuntu:26.04
 
     steps:
     - name: Checkout repository

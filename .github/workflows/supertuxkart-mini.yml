@@ -10,7 +10,7 @@ jobs:
   build-supertuxkart-mini:
     runs-on: ubuntu-latest
     container:
-      image: debian:trixie
+      image: ubuntu:26.04
 
     steps:
     - name: Checkout repository
@@ -86,7 +86,7 @@ jobs:
         Section: x11
         Maintainer: Kazam <kazam0180@proton.me>
         Priority: optional
-        Depends: wget, unzip, libangelscript2.35.1t64 (>= 2.35.1+ds), libc6 (>= 2.38), libgcc-s1 (>= 3.3.1), libmcpp0, libsquish0 (>= 1.15), libstdc++6 (>= 14)
+        Depends: wget, unzip, libangelscript2.38.0 (>= 2.38.0+ds), libc6 (>= 2.38), libgcc-s1 (>= 3.3.1), libmcpp0, libsquish0 (>= 1.15), libstdc++6 (>= 14)
         Installed-Size: 261076
         Description: A mini version of SuperTuxKart
          Only contains essential assets from the Android version of STK

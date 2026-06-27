@@ -9,8 +9,8 @@ permissions:
 jobs:
   build-niri:
     runs-on: ubuntu-latest
-    #container:
-    #  image: debian:trixie
+    container:
+      image: ubuntu:26.04
 
     steps:
     - name: Checkout repository
