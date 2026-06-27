@@ -142,15 +142,15 @@ jobs:
 
         find pool -name "calamares_*.deb" -exec rm {} \;
         reprepro -b . export
-        reprepro -b . includedeb wired calamares_*.deb
-        find pool -name "*.dsc" -exec reprepro -b . includedsc wired {} \;
-        find pool -name "*.deb" -exec reprepro -b . includedeb wired {} \;
+        reprepro -b . includedeb voltage calamares_*.deb
+        find pool -name "*.dsc" -exec reprepro -b . includedsc voltage {} \;
+        find pool -name "*.deb" -exec reprepro -b . includedeb voltage {} \;
 
         rm calamares_*.deb
 
         # Verify files
-        ls -l dists/wired/
-        cat dists/wired/main/binary-amd64/Packages
+        ls -l dists/voltage/
+        cat dists/voltage/main/binary-amd64/Packages
 
         git status
 
