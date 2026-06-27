@@ -55,6 +55,7 @@ jobs:
         dpkg-buildpackage -us -uc -b
 
         cd ..
+        ls -lh *.deb
         mkdir -p artifacts
         mv *.deb artifacts/ 2>/dev/null || echo "No deb files found"
 
@@ -64,7 +65,7 @@ jobs:
       uses: actions/upload-artifact@v6
       with:
         name: calamares-deb
-        path: artifacts/calamares_*.deb
+        path: artifacts/*calamares*.deb
         retention-days: 7
 
     - name: Upload debug artifact
@@ -140,9 +141,9 @@ jobs:
         }
         echo "GPG wrapper working correctly"
 
-        find pool -name "calamares_*.deb" -exec rm {} \;
+        find pool -name "*calamares*.deb" -exec rm {} \;
         reprepro -b . export
-        reprepro -b . includedeb voltage calamares_*.deb
+        reprepro -b . includedeb voltage *calamares*.deb
         find pool -name "*.dsc" -exec reprepro -b . includedsc voltage {} \;
         find pool -name "*.deb" -exec reprepro -b . includedeb voltage {} \;
 
