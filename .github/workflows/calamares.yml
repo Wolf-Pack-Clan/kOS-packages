@@ -30,6 +30,14 @@ jobs:
         apt-get source calamares
         git clone https://gitlab.com/kazamOS/calamares-kos.git
 
+        cat > /etc/apt/sources.list.d/ubuntu-src.sources << EOF
+        Types: deb-src
+        URIs: http://us.archive.ubuntu.com/ubuntu/
+        Suites: resolute resolute-updates resolute-backports resolute-proposed
+        Components: main restricted universe multiverse
+        Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
+        EOF
+
     - name: Build Calamares
       run: |
 
