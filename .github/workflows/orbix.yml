@@ -140,17 +140,17 @@ jobs:
 
         find pool -name "orbix_*.deb" -exec rm {} \;
         reprepro -b . export
-        reprepro -b . includedeb wired orbix*.deb
-        find pool -name "*.dsc" -exec reprepro -b . includedsc wired {} \;
-        find pool -name "*.deb" -exec reprepro -b . includedeb wired {} \;
+        reprepro -b . includedeb voltage orbix*.deb
+        find pool -name "*.dsc" -exec reprepro -b . includedsc voltage {} \;
+        find pool -name "*.deb" -exec reprepro -b . includedeb voltage {} \;
 
         rm orbix*.deb
         echo "latestTag=$(cat tag)" >> $GITHUB_ENV
         rm tag
 
         # Verify files
-        ls -l dists/wired/
-        cat dists/wired/main/binary-amd64/Packages
+        ls -l dists/voltage/
+        cat dists/voltage/main/binary-amd64/Packages
 
         git status
 
