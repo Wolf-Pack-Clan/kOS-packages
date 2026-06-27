@@ -2,6 +2,9 @@ name: RustDesk
 
 on:
   workflow_dispatch:
+  # Consider uncommenting the line below to run this automatically (e.g., daily at midnight)
+  # schedule:
+  #   - cron: '0 0 * * *'
 
 permissions:
   contents: write
@@ -16,7 +19,7 @@ jobs:
     - name: Install deps
       run: |
         sudo apt-get update
-        sudo apt-get install -y --no-install-recommends reprepro gnupg2 tree git wget
+        sudo apt-get install -y --no-install-recommends reprepro gnupg2 tree git wget curl jq
 
     - name: Setup Git
       run: |
@@ -42,7 +45,6 @@ jobs:
 
     - name: Setup reprepro and publish
       run: |
-
         tree -L 3
 
         GPG_PATH=$(which gpg)
@@ -54,7 +56,6 @@ jobs:
         sudo tee "$GPG_PATH" > /dev/null <<'WRAPPER'
         #!/bin/bash
         echo "${{ secrets.GPG_PASS }}" | /usr/bin/gpg_original --batch --pinentry-mode loopback --passphrase-fd 0 "$@"
-
         WRAPPER
         sudo chmod +x $GPG_PATH
 
@@ -65,16 +66,26 @@ jobs:
         }
         echo "GPG wrapper working correctly"
 
-        wget -O "rustdesk-1.4.7-x86_64.deb" "https://github.com/rustdesk/rustdesk/releases/download/1.4.7/rustdesk-1.4.7-x86_64.deb"
+        # Dynamically fetch the latest release tag from GitHub API
+        LATEST_TAG=$(curl -s https://api.github.com/repos/rustdesk/rustdesk/releases/latest | jq -r .tag_name)
+        
+        # Strip a leading 'v' if present (e.g., 'v1.4.7' -> '1.4.7') for clean Debian package naming
+        VERSION=${LATEST_TAG#v}
+        
+        echo "Fetching RustDesk version: $VERSION (Tag: $LATEST_TAG)"
+
+        wget -O "rustdesk-${VERSION}-x86_64.deb" "https://github.com/rustdesk/rustdesk/releases/download/${LATEST_TAG}/rustdesk-${VERSION}-x86_64.deb"
 
         find pool -name "rustdesk*.deb" -exec rm {} \;
         reprepro -b . export
-        reprepro -b . includedeb voltage rustdesk-1.4.7-x86_64.deb
+        reprepro -b . includedeb voltage "rustdesk-${VERSION}-x86_64.deb"
         find pool -name "*.dsc" -exec reprepro -b . includedsc voltage {} \;
         find pool -name "*.deb" -exec reprepro -b . includedeb voltage {} \;
 
-        rm "rustdesk-1.4.7-x86_64.deb"
-        echo "latestTag=1.4.7" >> $GITHUB_ENV
+        rm "rustdesk-${VERSION}-x86_64.deb"
+        
+        # Save to environment for the commit step
+        echo "latestTag=$VERSION" >> $GITHUB_ENV
 
         # Verify files
         ls -l dists/voltage/
@@ -98,11 +109,11 @@ jobs:
         fi
 
         if git diff --cached --quiet; then
-          echo "No repository changes to commit."
+          echo "No repository changes to commit. Version $latestTag is already up to date."
           exit 0
         fi
 
-        # create a unique branch name
+        # create a unique branch name using the newly fetched dynamic tag
         BRANCH="ci/rustdesk-update-$latestTag-${GITHUB_RUN_ID}"
         echo "Creating branch: $BRANCH"
 
@@ -110,7 +121,7 @@ jobs:
         git checkout -b "$BRANCH"
 
         # commit
-        git commit -m "CI: add/update rustdesk package (Build ${GITHUB_RUN_ID})"
+        git commit -m "CI: add/update rustdesk package to $latestTag (Build ${GITHUB_RUN_ID})"
 
         # push the new branch up
         git push --set-upstream origin "$BRANCH"
