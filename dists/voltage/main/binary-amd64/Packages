@@ -547,10 +547,10 @@ Installed-Size: 261076
 Priority: optional
 Section: x11
 Filename: pool/main/s/supertuxkart-mini/supertuxkart-mini_1.5_amd64.deb
-Size: 11788092
-SHA256: 7bbe89682f9ebf86373adf9dcc4c43ffb3b2bf44ffcdbbd3bd0159326453fa5c
-SHA1: 70b1d73d8a528fdfdcf75c040e3fc245ba91635a
-MD5sum: 281dceb78a64944c268b0b9b76f036db
+Size: 11791712
+SHA256: deff8213ade61e8de1cac973c9caedbf2ced3d4c3f57bc8ee990523efde1c02e
+SHA1: 3d72c8f16b9117a6242ba7224c1f8cf63063646f
+MD5sum: 9b83643d37bb1956764be778bc523df7
 Description: A mini version of SuperTuxKart
  Only contains essential assets from the Android version of STK
 
