@@ -1,3 +1,18 @@
+Package: buuf-nestort-icons
+Version: 29.06.2026
+Architecture: all
+Maintainer: Kazam <kazam0180@proton.me>
+Installed-Size: 74740
+Priority: optional
+Section: x11
+Filename: pool/main/b/buuf-nestort-icons/buuf-nestort-icons_29.06.2026_all.deb
+Size: 63509672
+SHA256: 3ef50a208bde0731e9750e8a2fb8c6f4f4bd1ca895bfcb61cdb5f719aa19d400
+SHA1: 514e07758f6fedb4c9c9a320b2d05cf200b304db
+MD5sum: db74a48ac3d015970c500f277482ab19
+Description: A fairly complete set of icons for Gnome, KDE Plasma, XFCE, LXQt, Cinnamon and Mate.
+ https://git.disroot.org/eudaimon/buuf-nestort
+
 Package: calamares
 Version: 3.3.14-0ubuntu25~kazamos1
 Architecture: amd64
