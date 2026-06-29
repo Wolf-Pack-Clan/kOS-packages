@@ -38,6 +38,7 @@ jobs:
         (./install.sh -d ../telaicons dracula)
 
         cd ..
+        insize=$(du -sk telaicons | cut -f1)
         mkdir -p deb-pkg/DEBIAN
         mkdir -p deb-pkg/usr/share/icons/
         cp -r telaicons/* deb-pkg/usr/share/icons/
@@ -49,7 +50,7 @@ jobs:
         Section: x11
         Maintainer: Kazam <kazam0180@proton.me>
         Priority: optional
-        Installed-Size: 88584
+        Installed-Size: $insize
         Description: A flat, colorful icon theme. Dracula color.
          https://github.com/vinceliuice/Tela-circle-icon-theme
         EOF
