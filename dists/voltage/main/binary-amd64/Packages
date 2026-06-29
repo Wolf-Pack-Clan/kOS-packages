@@ -571,17 +571,17 @@ Description: A mini version of SuperTuxKart
  Only contains essential assets from the Android version of STK
 
 Package: tela-circle-dracula-icons
-Version: 25.05.2026
+Version: 29.06.2026
 Architecture: all
 Maintainer: Kazam <kazam0180@proton.me>
-Installed-Size: 88584
+Installed-Size: 83708
 Priority: optional
 Section: x11
-Filename: pool/main/t/tela-circle-dracula-icons/tela-circle-dracula-icons_25.05.2026_all.deb
-Size: 3422924
-SHA256: e809835f0fea17396771ff2c5413a86d0bbcc09be65652847e4514c06ed7bb15
-SHA1: 3886b1b0d222621aeb66e3281398ed9b3d006523
-MD5sum: 82e63bd0d3e001b959ff58c727d3960f
+Filename: pool/main/t/tela-circle-dracula-icons/tela-circle-dracula-icons_29.06.2026_all.deb
+Size: 3535282
+SHA256: 4f0a11170133ceb04ac16e3d3f04d83c73b96edcf9360781ca904c23c5984223
+SHA1: 84454853f7884d1ede742bd47baf72775d7cb288
+MD5sum: 42c1624a07f1e688ee2ae4f7c54b76c1
 Description: A flat, colorful icon theme. Dracula color.
  https://github.com/vinceliuice/Tela-circle-icon-theme
 
