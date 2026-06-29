@@ -507,19 +507,19 @@ MD5sum: 1cf345f46b8609b568b23adad6c0d234
 Description: Oreo Cursors (white color)
 
 Package: plymouth-theme-kos
-Version: 1.0.0-1
+Version: 1.0.1-1
 Architecture: all
 Maintainer: Kazam <kazam0180@proton.me>
 Installed-Size: 9857
-Depends: libc6, libplymouth5
+Depends: libplymouth5
 Homepage: https://gitlab.com/kazamOS/plymouth-theme-kos
 Priority: optional
 Section: misc
-Filename: pool/main/p/plymouth-theme-kos/plymouth-theme-kos_1.0.0-1_all.deb
-Size: 5747992
-SHA256: 35b1fc9ed83a65bc4725b137ec34ccb1ee330b07468971ea53313a2b26b4a466
-SHA1: b4b0385803dc040fd9a248722ee07e8b92954c67
-MD5sum: 6b006dfb33cfed04b34aa4c9e3546328
+Filename: pool/main/p/plymouth-theme-kos/plymouth-theme-kos_1.0.1-1_all.deb
+Size: 5748148
+SHA256: 197bf6499bc98162716292e4c78a3c029b03b66d37878df9b22b532c04c7b299
+SHA1: ebe6f05e1619b16f7c7a350fb7c093d69e60e654
+MD5sum: 7c6761096ce6a26011868c84713f3d54
 Description: Boot theme for kazamOS
  Plymouth theme for kazamOS.
 
