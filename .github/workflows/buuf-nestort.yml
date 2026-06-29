@@ -23,7 +23,8 @@ jobs:
           sed coreutils gtk-update-icon-cache \
           devscripts fakeroot dpkg-dev git \
 
-        git clone https://git.disroot.org/eudaimon/buuf-nestort.git
+        git clone https://git.disroot.org/eudaimon/buuf-nestort.git --single-branch --depth=1
+        rm -rf buuf-nestort/.git
 
     - name: Build Icon Theme
       run: |
@@ -31,10 +32,8 @@ jobs:
         echo "DEBEMAIL=kazam0180@proton.me" >> $GITHUB_ENV
 
         latestTag=$(date +'%d.%m.%Y')
+        insize=$(du -sk buuf-nestort | cut -f1)
 
-        (./install.sh -d ../telaicons manjaro)
-
-        cd ..
         mkdir -p deb-pkg/DEBIAN
         mkdir -p deb-pkg/usr/share/icons/
         cp -r buuf-nestort deb-pkg/usr/share/icons/
@@ -46,7 +45,7 @@ jobs:
         Section: x11
         Maintainer: Kazam <kazam0180@proton.me>
         Priority: optional
-        Installed-Size: 88584
+        Installed-Size: $insize
         Description: A fairly complete set of icons for Gnome, KDE Plasma, XFCE, LXQt, Cinnamon and Mate.
          https://git.disroot.org/eudaimon/buuf-nestort
         EOF
