@@ -26,12 +26,14 @@ jobs:
         git clone https://github.com/vinceliuice/Tela-circle-icon-theme.git
 
     - name: Build Icon Theme
+      env:
+        DEBEMAIL: kazam0180@proton.me
+        DEBFULLNAME: Kazam
+        DEBIAN_FRONTEND: noninteractive
       run: |
 
         SRCDIR="Tela-circle-icon-theme"
         echo "SRCDIR=${SRCDIR}" >> $GITHUB_ENV
-        DEBEMAIL=kazam0180@proton.me
-        echo "DEBEMAIL=$DEBEMAIL" >> $GITHUB_ENV
 
         cd "$SRCDIR"
         latestTag=$(date +'%d.%m.%Y')

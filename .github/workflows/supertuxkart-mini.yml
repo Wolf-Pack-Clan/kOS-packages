@@ -24,10 +24,12 @@ jobs:
           devscripts fakeroot dpkg-dev
 
     - name: Build Package
+      env:
+        DEBEMAIL: kazam0180@proton.me
+        DEBFULLNAME: Kazam
+        DEBIAN_FRONTEND: noninteractive
       run: |
 
-        DEBEMAIL=kazam0180@proton.me
-        echo "DEBEMAIL=$DEBEMAIL" >> $GITHUB_ENV
         export latestTag=1.5
 
         wget -O stk-linux.tar.gz https://github.com/supertuxkart/stk-code/releases/download/1.5/SuperTuxKart-1.5-linux-x86_64.tar.gz 2> /dev/null
