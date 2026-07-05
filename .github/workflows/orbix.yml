@@ -29,12 +29,14 @@ jobs:
         git clone https://gitlab.com/kazam0180/orbix.git
 
     - name: Build Orbix
+      env:
+        DEBEMAIL: kazam0180@proton.me
+        DEBFULLNAME: Kazam
+        DEBIAN_FRONTEND: noninteractive
       run: |
 
         SRCDIR="orbix"
         echo "SRCDIR=${SRCDIR}" >> $GITHUB_ENV
-        DEBEMAIL=kazam0180@proton.me
-        echo "DEBEMAIL=$DEBEMAIL" >> $GITHUB_ENV
 
         cd "$SRCDIR"
         latestTag=$(git describe --tags $(git rev-list --tags --max-count=1))

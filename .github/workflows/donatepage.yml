@@ -29,6 +29,10 @@ jobs:
         git clone https://gitlab.com/kazamOS/donate-page.git
 
     - name: Build donatepage
+      env:
+        DEBEMAIL: kazam0180@proton.me
+        DEBFULLNAME: Kazam
+        DEBIAN_FRONTEND: noninteractive
       run: |
 
         SRCDIR="donate-page"

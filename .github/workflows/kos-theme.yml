@@ -26,12 +26,14 @@ jobs:
         git clone https://gitlab.com/kazamOS/kOS-theme.git
 
     - name: Build Theme
+      env:
+        DEBEMAIL: kazam0180@proton.me
+        DEBFULLNAME: Kazam
+        DEBIAN_FRONTEND: noninteractive
       run: |
 
         SRCDIR="kOS-theme"
         echo "SRCDIR=${SRCDIR}" >> $GITHUB_ENV
-        DEBEMAIL=kazam0180@proton.me
-        echo "DEBEMAIL=$DEBEMAIL" >> $GITHUB_ENV
 
         cd "$SRCDIR"
         latestTag=$(git describe --tags $(git rev-list --tags --max-count=1))

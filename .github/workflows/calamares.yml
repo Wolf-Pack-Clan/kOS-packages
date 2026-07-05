@@ -39,12 +39,14 @@ jobs:
         git clone https://gitlab.com/kazamOS/calamares-kos.git
 
     - name: Build Calamares
+      env:
+        DEBEMAIL: kazam0180@proton.me
+        DEBFULLNAME: Kazam
+        DEBIAN_FRONTEND: noninteractive
       run: |
 
         SRCDIR="$(ls -d calamares-*/ | head -n 1)"
         echo "SRCDIR=${SRCDIR}" >> $GITHUB_ENV
-        DEBEMAIL=kazam0180@proton.me
-        echo "DEBEMAIL=$DEBEMAIL" >> $GITHUB_ENV
 
         cd "$SRCDIR"
         rsync -a ../calamares-kos/kOS-images/ data/images/

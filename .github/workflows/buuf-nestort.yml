@@ -27,11 +27,11 @@ jobs:
         rm -rf buuf-nestort/.git
 
     - name: Build Icon Theme
+      env:
+        DEBEMAIL: kazam0180@proton.me
+        DEBFULLNAME: Kazam
+        DEBIAN_FRONTEND: noninteractive
       run: |
-
-        DEBEMAIL=kazam0180@proton.me
-        echo "DEBEMAIL=$DEBEMAIL" >> $GITHUB_ENV
-
         latestTag=$(date +'%d.%m.%Y')
         insize=$(du -sk buuf-nestort | cut -f1)
 
