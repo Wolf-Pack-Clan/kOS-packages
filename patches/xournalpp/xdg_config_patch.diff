@@ -1,0 +1,181 @@
+diff --git a/src/core/control/Control.cpp b/src/core/control/Control.cpp
+index 12f8889..8633d10 100644
+--- a/src/core/control/Control.cpp
++++ b/src/core/control/Control.cpp
+@@ -130,8 +130,14 @@ Control::Control(GApplication* gtkApp, GladeSearchpath* gladeSearchPath, bool di
+     this->metadata = new MetadataManager();
+     this->cursor = new XournalppCursor(this);
+ 
+-    auto name = Util::getConfigFile(SETTINGS_XML_FILE);
+-    this->settings = new Settings(std::move(name));
++    auto name = Util::getConfigFileWithFallback(SETTINGS_XML_FILE);
++    auto saveName = Util::getConfigFile(SETTINGS_XML_FILE);
++
++    if (name != saveName) {
++        this->settings = new Settings(std::move(saveName), std::move(name));
++    } else {
++        this->settings = new Settings(std::move(name));
++    }
+     this->settings->load();
+     this->loadPaletteFromSettings();
+ 
+diff --git a/src/core/control/settings/Settings.cpp b/src/core/control/settings/Settings.cpp
+index 96d246b..027c8c1 100644
+--- a/src/core/control/settings/Settings.cpp
++++ b/src/core/control/settings/Settings.cpp
+@@ -49,7 +49,11 @@ constexpr auto DEFAULT_TOOLBAR = "Portrait";
+     com = xmlNewComment((const xmlChar*)(var)); \
+     xmlAddPrevSibling(xmlNode, com);
+ 
+-Settings::Settings(fs::path filepath): filepath(std::move(filepath)) { loadDefault(); }
++Settings::Settings(fs::path savePath): savePath(std::move(savePath)), loadPath(this->savePath) { loadDefault(); }
++
++Settings::Settings(fs::path savePath, fs::path loadPath): savePath(std::move(savePath)), loadPath(std::move(loadPath)) {
++    loadDefault();
++}
+ 
+ Settings::~Settings() = default;
+ 
+@@ -826,12 +830,10 @@ void Settings::loadButtonConfig() {
+ auto Settings::load() -> bool {
+     xmlKeepBlanksDefault(0);
+ 
+-    if (!fs::exists(filepath)) {
+-        g_warning("Settings file %s does not exist. Regenerating. ", filepath.string().c_str());
+-        save();
+-    }
++    if (!fs::exists(loadPath))
++        g_warning("Settings file %s does not exist. Regenerating.", loadPath.string().c_str());
+ 
+-    xmlDocPtr doc = xmlParseFile(char_cast(filepath.u8string().c_str()));
++    xmlDocPtr doc = xmlParseFile(char_cast(loadPath.u8string().c_str()));
+ 
+     if (doc == nullptr) {
+         g_warning("Settings::load:: doc == null, could not load Settings!\n");
+@@ -840,14 +842,14 @@ auto Settings::load() -> bool {
+ 
+     xmlNodePtr cur = xmlDocGetRootElement(doc);
+     if (cur == nullptr) {
+-        g_message("The settings file \"%s\" is empty", filepath.string().c_str());
++        g_message("The settings file \"%s\" is empty", loadPath.string().c_str());
+         xmlFreeDoc(doc);
+ 
+         return false;
+     }
+ 
+     if (xmlStrcmp(cur->name, reinterpret_cast<const xmlChar*>("settings"))) {
+-        g_message("File \"%s\" is of the wrong type", filepath.string().c_str());
++        g_message("File \"%s\" is of the wrong type", loadPath.string().c_str());
+         xmlFreeDoc(doc);
+ 
+         return false;
+@@ -1238,7 +1240,7 @@ void Settings::save() {
+         saveData(root, p.first, p.second);
+     }
+ 
+-    xmlSaveFormatFileEnc(char_cast(filepath.u8string().c_str()), doc, "UTF-8", 1);
++    xmlSaveFormatFileEnc(char_cast(savePath.u8string().c_str()), doc, "UTF-8", 1);
+     xmlFreeDoc(doc);
+ }
+ 
+diff --git a/src/core/control/settings/Settings.h b/src/core/control/settings/Settings.h
+index a9395d9..46a575b 100644
+--- a/src/core/control/settings/Settings.h
++++ b/src/core/control/settings/Settings.h
+@@ -102,7 +102,8 @@ private:
+ 
+ class Settings {
+ public:
+-    /*[[implicit]]*/ Settings(fs::path filepath);
++    explicit Settings(fs::path savePath);
++    Settings(fs::path savePath, fs::path loadPath);
+     Settings(const Settings& settings) = delete;
+     void operator=(const Settings& settings) = delete;
+     virtual ~Settings();
+@@ -612,13 +613,19 @@ public:
+ 
+     LatexSettings latexSettings{};
+ 
+-    inline const fs::path& getSettingsFile() const { return filepath; }
++    inline const fs::path& getSettingsFile() const { return savePath; }
+ 
+ private:
+     /**
+-     *  The config filepath
++     *  The config file path used for saving
+      */
+-    fs::path filepath;
++    fs::path savePath;
++
++    /**
++     *  The config file path used for loading, may differ from savePath
++     *  when falling back to system directories
++     */
++    fs::path loadPath;
+ 
+ private:
+     /**
+diff --git a/src/util/PathUtil.cpp b/src/util/PathUtil.cpp
+index 5ad591c..7569bc1 100644
+--- a/src/util/PathUtil.cpp
++++ b/src/util/PathUtil.cpp
+@@ -414,6 +414,47 @@ auto Util::getStateSubfolder(const fs::path& subfolder) -> fs::path {
+     return Util::ensureFolderExists(p);
+ }
+ 
++auto Util::getConfigFileWithFallback(const fs::path& relativeFileName) -> fs::path {
++    // Try user config home
++    fs::path userConfigPath = getConfigFile(relativeFileName);
++    std::error_code ec;
++    if (fs::exists(userConfigPath, ec)) {
++        g_message("Found user config file at: %s", userConfigPath.string().c_str());
++        return userConfigPath;
++    }
++    if (ec) {
++        g_warning("Error checking config path existence (%s): %s", userConfigPath.string().c_str(),
++                  ec.message().c_str());
++    }
++
++    // Look in system config directories
++    g_message("Looking for config file in system config directories");
++    const gchar* const* systemConfigDirs = g_get_system_config_dirs();
++    if (systemConfigDirs != nullptr) {
++        for (int i = 0; systemConfigDirs[i] != nullptr; i++) {
++            auto p = GFilename(systemConfigDirs[i]).toPath();
++            if (!p) {
++                g_warning("Could not convert system config dir to path: %s", systemConfigDirs[i]);
++                continue;
++            }
++            fs::path systemConfigPath = *p;
++            systemConfigPath /= CONFIG_FOLDER_NAME;
++            systemConfigPath /= relativeFileName;
++
++            if (fs::exists(systemConfigPath, ec)) {
++                g_message("Found system config file at: %s", systemConfigPath.string().c_str());
++                return systemConfigPath;
++            }
++            if (ec) {
++                g_warning("Error checking system config path existence (%s): %s", systemConfigPath.string().c_str(),
++                          ec.message().c_str());
++            }
++        }
++    }
++
++    return userConfigPath;
++}
++
+ auto Util::getConfigFile(const fs::path& relativeFileName) -> fs::path {
+     fs::path p = getConfigSubfolder(relativeFileName.parent_path());
+     p /= relativeFileName.filename();
+diff --git a/src/util/include/util/PathUtil.h b/src/util/include/util/PathUtil.h
+index 63cab81..251caff 100644
+--- a/src/util/include/util/PathUtil.h
++++ b/src/util/include/util/PathUtil.h
+@@ -154,6 +154,7 @@ auto system_single_byte_filename(const fs::path& path) -> std::string;
+ [[maybe_unused]] [[nodiscard]] fs::path getDataSubfolder(const fs::path& subfolder = "");
+ [[maybe_unused]] [[nodiscard]] fs::path getStateSubfolder(const fs::path& subfolder = "");
+ [[maybe_unused]] [[nodiscard]] fs::path getConfigFile(const fs::path& relativeFileName = "");
++[[maybe_unused]] [[nodiscard]] fs::path getConfigFileWithFallback(const fs::path& relativeFileName = "");
+ [[maybe_unused]] [[nodiscard]] fs::path getCacheFile(const fs::path& relativeFileName = "");
+ [[maybe_unused]] [[nodiscard]] fs::path getTmpDirSubfolder(const fs::path& subfolder = "");
+ [[maybe_unused]] [[nodiscard]] fs::path getAutosaveFilepath();
