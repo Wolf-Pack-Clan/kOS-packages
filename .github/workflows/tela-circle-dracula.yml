@@ -30,7 +30,8 @@ jobs:
 
         SRCDIR="Tela-circle-icon-theme"
         echo "SRCDIR=${SRCDIR}" >> $GITHUB_ENV
-        echo "DEBEMAIL=kazam0180@proton.me" >> $GITHUB_ENV
+        DEBEMAIL=kazam0180@proton.me
+        echo "DEBEMAIL=$DEBEMAIL" >> $GITHUB_ENV
 
         cd "$SRCDIR"
         latestTag=$(date +'%d.%m.%Y')

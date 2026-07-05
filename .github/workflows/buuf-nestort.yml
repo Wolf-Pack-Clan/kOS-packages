@@ -29,7 +29,8 @@ jobs:
     - name: Build Icon Theme
       run: |
 
-        echo "DEBEMAIL=kazam0180@proton.me" >> $GITHUB_ENV
+        DEBEMAIL=kazam0180@proton.me
+        echo "DEBEMAIL=$DEBEMAIL" >> $GITHUB_ENV
 
         latestTag=$(date +'%d.%m.%Y')
         insize=$(du -sk buuf-nestort | cut -f1)

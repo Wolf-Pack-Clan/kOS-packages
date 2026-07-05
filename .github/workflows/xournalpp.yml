@@ -42,7 +42,8 @@ jobs:
 
         SRCDIR="$(ls -d xournalpp-*/ | head -n 1)"
         echo "SRCDIR=${SRCDIR}" >> $GITHUB_ENV
-        echo "DEBEMAIL=kazam0180@proton.me" >> $GITHUB_ENV
+        DEBEMAIL=kazam0180@proton.me
+        echo "DEBEMAIL=$DEBEMAIL" >> $GITHUB_ENV
 
         cd "$SRCDIR"
         patch -p1 < ../patches/xournalpp/xdg_config_patch.diff
