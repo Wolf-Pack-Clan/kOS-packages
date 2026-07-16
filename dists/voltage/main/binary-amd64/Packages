@@ -111,6 +111,21 @@ SHA1: 8d5b66ebcc8277e21489cb24021905fd3244bdf2
 MD5sum: 78e50c6975df37832eff30794062cbe1
 Description: WebKit app for showing Kazam's donation page.
 
+Package: fonts-firacode-nerd
+Version: 3.4.0
+Architecture: all
+Installed-Size: 46712
+Maintainer: Kazam <kazam0180@proton.me>
+Priority: optional
+Section: x11
+Filename: pool/main/f/fonts-firacode-nerd/fonts-firacode-nerd_3.4.0_all.deb
+Size: 5203880
+SHA256: 29f737bc74b775dd728f4a57f067306faaf54b62e6dd78386792af69fa21e98f
+SHA1: 8b9d64cec2a7fb3032208989209023e32f973ec9
+MD5sum: 378ab3451d64e68936a277ea8874c4cb
+Description: FiraCode Nerd font.
+ Source: https://github.com/ryanoasis/nerd-fonts
+
 Package: greengodot
 Source: greengodot
 Version: 3.6.3+96b2bd0
