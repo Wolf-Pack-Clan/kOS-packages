@@ -62,9 +62,8 @@ jobs:
         dpkg-deb --build deb-pkg fonts-firacode-nerd_$latestTag.deb
 
         # Move artifacts
-        cd ..
         mkdir -p artifacts
-        mv $SRCDIR/fonts-firacode-nerd_$latestTag.deb artifacts/ 2>/dev/null || echo "No deb files found"
+        mv fonts-firacode-nerd_$latestTag.deb artifacts/ 2>/dev/null || echo "No deb files found"
         echo "$latestTag" >> artifacts/tag
 
         echo "Build completed"
