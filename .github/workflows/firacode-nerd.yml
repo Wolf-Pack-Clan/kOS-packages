@@ -20,9 +20,9 @@ jobs:
       run: |
         apt-get update
         apt-get install -y --no-install-recommends \
-          dpkg-dev devscripts fakeroot dpkg-dev wget tree \
+          dpkg-dev devscripts fakeroot dpkg-dev wget unzip tree \
 
-        wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/FiraCode.zip
+        wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/FiraCode.zip > /dev/null
         mkdir -p fonts
         cd fonts
         unzip ../FiraCode.zip
@@ -56,6 +56,8 @@ jobs:
         Description: FiraCode Nerd font.
          Source: https://github.com/ryanoasis/nerd-fonts
         EOF
+
+        tree deb-pkg
 
         dpkg-deb --build deb-pkg fonts-firacode-nerd_$latestTag.deb
 
