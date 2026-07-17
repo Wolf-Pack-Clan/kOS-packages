@@ -615,6 +615,21 @@ MD5sum: eb669ebef01be795558b913b429ceb91
 Description: A flat, colorful icon theme. Manjaro color.
  https://github.com/vinceliuice/Tela-circle-icon-theme
 
+Package: termom
+Version: 0.1.0-1
+Architecture: amd64
+Maintainer: @the.watermelon:matrix.org
+Installed-Size: 401
+Depends: libc6 (>= 2.34)
+Priority: optional
+Section: misc
+Filename: pool/main/t/termom/termom_0.1.0-1_amd64.deb
+Size: 167980
+SHA256: 73b18023ea26d924ddaf4f85629c326f423be6791e5580a1eda89449d566a082
+SHA1: 57324903055fc999667d89683d0af4668242baba
+MD5sum: 1f5477e8f14ade272e88b397c76be5ab
+Description: Tells you to go sleep
+
 Package: xournalpp
 Version: 1.3.3-1~ukazamos1
 Architecture: amd64
