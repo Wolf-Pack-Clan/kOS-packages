@@ -22,7 +22,7 @@ jobs:
         apt-get install -y --no-install-recommends \
           rsync python3-yaml python3-jsonschema libcurl4-openssl-dev \
           devscripts build-essential fakeroot dpkg-dev libgtk-4-* \
-          equivs ca-certificates git gnupg rustup pkgconf pkgconfig
+          equivs ca-certificates git gnupg rustup pkgconf
 
         rustup default stable
         cargo install cargo-deb
