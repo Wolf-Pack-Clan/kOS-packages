@@ -1,3 +1,67 @@
+Package: appgallery
+Version: 0.1.0-1
+Architecture: amd64
+Maintainer: @the.watermelon:matrix.org
+Installed-Size: 6208
+Depends: libbz2-1.0, libc6 (>= 2.39), libglib2.0-0t64 (>= 2.54.0), libgtk-4-1 (>= 4.6.0), libssl3t64 (>= 3.0.0)
+Priority: optional
+Section: misc
+Filename: pool/main/a/appgallery/appgallery_0.1.0-1_amd64.deb
+Size: 2055936
+SHA256: 9de0ef33cd3dd69d5aa6ae19795d24e1f15426c6631f5174d7dc6ca22372fe54
+SHA1: 14950d0975c32359c72928489bc3d4505d05db4f
+MD5sum: 801e7b0ff955aae82f713b8906a8fa69
+Description: Portable Apps Store
+ # AppGallery
+ GUI frontend for AM made with GTK4.
+ .
+ > [!IMPORTANT]
+ > AppGallery has not gone through thorough testing. Bug reports would be
+ appreciated!
+ .
+ ## Building
+ ### Prerequisites
+ - **Rust**:
+ .
+ On Debian based distros:
+ ```bash
+ sudo apt install rustup
+ rustup default stable
+ ```
+ On Arch based distros:
+ ```bash
+ sudo pacman -S rustup
+ rustup default stable
+ ```
+ - **AM**:
+ .
+ See instructions at: https://github.com/ivan-hc/AM#installation
+ .
+ - and the **source code** of this project of course
+ .
+ ### Compiling
+ ```bash
+ cd appgallery
+ ```
+ .
+ Directly run:
+ ```bash
+ cargo run --bin appgallery # this will create and run a debug binary
+ ```
+ ```bash
+ cargo run --bin appgallery --release # this will create an optimized release
+ binary (takes longer to compile)
+ ```
+ OR install to `~/.cargo/bin`
+ ```bash
+ cargo install --path . # this is also a release build
+ ```
+ .
+ ## TODO
+ - Add feature to integrate AppImages by DnD'ing them (mimicking `am
+ --launcher`)
+ - Add feature to manage sandboxing
+
 Package: buuf-nestort-icons
 Version: 29.06.2026
 Architecture: all
