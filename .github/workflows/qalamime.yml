@@ -25,7 +25,7 @@ jobs:
 
         git clone https://gitlab.com/kazamOS/qalamime.git --depth=1
 
-    - name: Build Icon Theme
+    - name: Build
       env:
         DEBEMAIL: kazam0180@proton.me
         DEBFULLNAME: Kazam
