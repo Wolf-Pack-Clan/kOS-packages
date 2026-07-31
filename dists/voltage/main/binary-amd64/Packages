@@ -180,6 +180,20 @@ SHA1: 8d5b66ebcc8277e21489cb24021905fd3244bdf2
 MD5sum: 78e50c6975df37832eff30794062cbe1
 Description: WebKit app for showing Kazam's donation page.
 
+Package: fcitx-qalam
+Version: 0.1.0
+Architecture: all
+Maintainer: Kazam <kazam0180@proton.me>
+Installed-Size: 2856
+Priority: optional
+Section: x11
+Filename: pool/main/f/fcitx-qalam/fcitx-qalam_0.1.0_all.deb
+Size: 1072416
+SHA256: 3c4ae8ec7385a580efae49a3f1f962be1dbd97822f871184696fa234b1541247
+SHA1: d5dec82dea0f366e11fb9ecacfb9eb9dc87a182f
+MD5sum: 53ded2e6d52bae65d24ff82b2caadb83
+Description: Context-sensitive completion for English and Urdu on GNU/Linux
+
 Package: fonts-firacode-nerd
 Version: 3.4.0
 Architecture: all
