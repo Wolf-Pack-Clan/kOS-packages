@@ -41,7 +41,8 @@ jobs:
         cmake --install cpp/build
         cp target/release/libqalamime_core.so ../qlm-install/usr/lib
 
-        insize=$(du -sk buuf-nestort | cut -f1)
+        cd ..
+        insize=$(du -sk qlm-install | cut -f1)
 
         mkdir -p deb-pkg/DEBIAN
         mkdir -p deb-pkg/usr/share/icons/
