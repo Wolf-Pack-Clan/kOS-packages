@@ -2,15 +2,15 @@ Package: appgallery
 Version: 0.1.1-1
 Architecture: amd64
 Maintainer: @the.watermelon:matrix.org
-Installed-Size: 6208
+Installed-Size: 6237
 Depends: libbz2-1.0, libc6 (>= 2.39), libglib2.0-0t64 (>= 2.54.0), libgtk-4-1 (>= 4.6.0), libssl3t64 (>= 3.0.0)
 Priority: optional
 Section: misc
 Filename: pool/main/a/appgallery/appgallery_0.1.1-1_amd64.deb
-Size: 2058176
-SHA256: 97b37fd799b88a46b99ed671553d1871e2437800af1e8a783c4a9336d97f0791
-SHA1: d8ffad8bb28e967ccf6e137ac6bb5eaafcb26ecd
-MD5sum: 4ad31ecbe2800cfac05d4f7bc8def105
+Size: 2067756
+SHA256: aeb2c57df0f95631f839d2e8efdae012d9c36d191eba5cddd36219dc7dd02c75
+SHA1: 814b9bdc55a2d9a37e524e7cb9d3b0943daa700d
+MD5sum: 74a2f463455dbf9f0df62aed0edcb3b6
 Description: Portable Apps Store
  # AppGallery
  GUI frontend for AM made with GTK4.
