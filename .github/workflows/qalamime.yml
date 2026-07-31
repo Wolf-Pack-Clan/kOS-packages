@@ -31,10 +31,15 @@ jobs:
         DEBFULLNAME: Kazam
         DEBIAN_FRONTEND: noninteractive
       run: |
-        latestTag=$(date +'%d.%m.%Y')
-
         mkdir -p qlm-install/usr/lib
-        cd qalamime
+
+        SRCDIR="qalamime"
+        echo "SRCDIR=${SRCDIR}" >> $GITHUB_ENV
+
+        cd "$SRCDIR"
+        latestTag=$(git describe --tags $(git rev-list --tags --max-count=1))
+        git checkout $latestTag
+
         cargo build --release
         cmake -S cpp -B cpp/build --install-prefix $(realpath ../qlm-install/usr/)
         cmake --build cpp/build
