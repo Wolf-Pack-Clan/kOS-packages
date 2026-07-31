@@ -38,7 +38,8 @@ jobs:
         cd "$SRCDIR"
         latestTag=$(git describe --tags $(git rev-list --tags --max-count=1))
         git checkout $latestTag
-        rm -rf $SRCDIR/.git
+        rm -rf .git
+        cd ..
 
         insize=$(du -sk $SRCDIR | cut -f1)
 
