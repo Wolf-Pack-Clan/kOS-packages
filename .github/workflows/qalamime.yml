@@ -20,8 +20,8 @@ jobs:
       run: |
         apt-get update
         apt-get install -y --no-install-recommends \
-          sed coreutils rustc cargo cmake g++ fcitx5 fcitx5-dev \
-          devscripts fakeroot dpkg-dev git extra-cmake-modules \
+          sed coreutils rustc cargo cmake fcitx5 libfcitx5config-dev libfcitx5core-dev \
+          devscripts fakeroot dpkg-dev git extra-cmake-modules g++ libfcitx5utils-dev \
 
         git clone https://gitlab.com/kazamOS/qalamime.git --depth=1
 
