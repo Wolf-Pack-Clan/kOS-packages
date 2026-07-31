@@ -82,7 +82,7 @@ jobs:
 
   publish-deb:
     runs-on: ubuntu-latest
-    needs: build-qalamime
+    needs: build-theme
 
     steps:
     - uses: actions/checkout@v6
