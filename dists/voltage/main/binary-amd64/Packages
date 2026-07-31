@@ -180,6 +180,20 @@ SHA1: 8d5b66ebcc8277e21489cb24021905fd3244bdf2
 MD5sum: 78e50c6975df37832eff30794062cbe1
 Description: WebKit app for showing Kazam's donation page.
 
+Package: fcitx-kos-theme
+Version: 0.1.0
+Architecture: all
+Maintainer: Kazam <kazam0180@proton.me>
+Installed-Size: 56
+Priority: optional
+Section: x11
+Filename: pool/main/f/fcitx-kos-theme/fcitx-kos-theme_0.1.0_all.deb
+Size: 2200
+SHA256: ba534164cbd403cbb8c8d519d0512dfe25f95d5a851d5d581e2069499d448745
+SHA1: 720633c2ee01d9e9d5580a1f9e43c8554c36de12
+MD5sum: 6451503c2a9d7802d3f1c3dfe4033eca
+Description: Fcitx5 theme for kazamOS, based on fcitx-nord
+
 Package: fcitx-qalam
 Version: 0.1.0
 Architecture: all
