@@ -31,7 +31,7 @@ jobs:
         DEBFULLNAME: Kazam
         DEBIAN_FRONTEND: noninteractive
       run: |
-        mkdir -p qlm-install/usr/lib
+        mkdir -p qlm-install/usr/lib/x86_64-linux-gnu
 
         SRCDIR="qalamime"
         echo "SRCDIR=${SRCDIR}" >> $GITHUB_ENV
@@ -44,7 +44,8 @@ jobs:
         cmake -S cpp -B cpp/build --install-prefix $(realpath ../qlm-install/usr/)
         cmake --build cpp/build
         cmake --install cpp/build
-        cp target/release/libqalamime_core.so ../qlm-install/usr/lib
+        cp target/release/libqalamime_core.so ../qlm-install/usr/lib/x86_64-linux-gnu
+        mv ../qlm-install/usr/lib/fcitx5 ../qlm-install/usr/lib/x86_64-linux-gnu/
 
         cd ..
         insize=$(du -sk qlm-install | cut -f1)
