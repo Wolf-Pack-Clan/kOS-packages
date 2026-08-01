@@ -195,17 +195,17 @@ MD5sum: 6451503c2a9d7802d3f1c3dfe4033eca
 Description: Fcitx5 theme for kazamOS, based on fcitx-nord
 
 Package: fcitx-qalam
-Version: 0.1.0
+Version: 0.1.1
 Architecture: all
 Maintainer: Kazam <kazam0180@proton.me>
-Installed-Size: 2856
+Installed-Size: 2864
 Priority: optional
 Section: x11
-Filename: pool/main/f/fcitx-qalam/fcitx-qalam_0.1.0_all.deb
-Size: 1072416
-SHA256: 3c4ae8ec7385a580efae49a3f1f962be1dbd97822f871184696fa234b1541247
-SHA1: d5dec82dea0f366e11fb9ecacfb9eb9dc87a182f
-MD5sum: 53ded2e6d52bae65d24ff82b2caadb83
+Filename: pool/main/f/fcitx-qalam/fcitx-qalam_0.1.1_all.deb
+Size: 1073194
+SHA256: 496e9e4d9583f6ab1b0f446072dda79de8c474beea762c7fe2beb2006d96a47f
+SHA1: 0c4f396c82cb1c1a075b50e9bd0e75d5f19711a5
+MD5sum: 44ba00dfc5a2bcd656eb475c18b9bc9b
 Description: Context-sensitive completion for English and Urdu on GNU/Linux
 
 Package: fonts-firacode-nerd
