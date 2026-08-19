@@ -1,0 +1,61 @@
+From f0d6daa2e9a66a88b60cd1284a8af10ff4328c85 Mon Sep 17 00:00:00 2001
+From: Mechamorph <kazam0180@proton.me>
+Date: Sun, 2 Aug 2026 07:03:06 +0500
+Subject: [PATCH] add `calc-button-panel` css class for theming
+
+Signed-off-by: Mechamorph <kazam0180@proton.me>
+---
+ src/buttons-advanced.ui    | 1 +
+ src/buttons-basic.ui       | 1 +
+ src/buttons-financial.ui   | 1 +
+ src/buttons-programming.ui | 1 +
+ 4 files changed, 4 insertions(+)
+
+diff --git a/src/buttons-advanced.ui b/src/buttons-advanced.ui
+index 2979b173..8d340a18 100644
+--- a/src/buttons-advanced.ui
++++ b/src/buttons-advanced.ui
+@@ -13,6 +13,7 @@
+         <property name="can_focus">False</property>
+         <property name="row_homogeneous">True</property>
+         <property name="column_homogeneous">True</property>
++        <style><class name="calc-button-panel"/></style>
+         <child>
+           <object class="GtkButton" id="calc_factor_button">
+             <property name="label">a×b</property>
+diff --git a/src/buttons-basic.ui b/src/buttons-basic.ui
+index 2ff3ac1c..fd9258b5 100644
+--- a/src/buttons-basic.ui
++++ b/src/buttons-basic.ui
+@@ -13,6 +13,7 @@
+         <property name="can_focus">False</property>
+         <property name="row_homogeneous">True</property>
+         <property name="column_homogeneous">True</property>
++        <style><class name="calc-button-panel"/></style>
+         <child>
+           <object class="GtkButton" id="calc_4_button">
+             <property name="label">4</property>
+diff --git a/src/buttons-financial.ui b/src/buttons-financial.ui
+index 406febf1..6b6edde3 100644
+--- a/src/buttons-financial.ui
++++ b/src/buttons-financial.ui
+@@ -1848,6 +1848,7 @@
+         <property name="can_focus">False</property>
+         <property name="row_homogeneous">True</property>
+         <property name="column_homogeneous">True</property>
++        <style><class name="calc-button-panel"/></style>
+         <child>
+           <object class="GtkButton" id="calc_memory_button">
+             <property name="visible">True</property>
+diff --git a/src/buttons-programming.ui b/src/buttons-programming.ui
+index 27bdc99d..b47b9386 100644
+--- a/src/buttons-programming.ui
++++ b/src/buttons-programming.ui
+@@ -115,6 +115,7 @@
+         <property name="can-focus">False</property>
+         <property name="orientation">vertical</property>
+         <property name="spacing">6</property>
++        <style><class name="calc-button-panel"/></style>
+         <child>
+           <object class="GtkBox" id="hbox1">
+             <property name="visible">True</property>
