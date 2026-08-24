@@ -2,26 +2,26 @@ Origin: kazamOS
 Label: kazamOS
 Suite: testing
 Codename: voltage
-Date: Sat, 22 Aug 2026 13:53:34 UTC
+Date: Mon, 24 Aug 2026 11:42:07 UTC
 Architectures: amd64
 Components: main
 MD5Sum:
- 59186b9fb1138a3f7d2ccf72b0ff0d95 31567 main/binary-amd64/Packages
- 025d179650703bd53a4441b22b8ff05a 10190 main/binary-amd64/Packages.gz
+ aba954087f90323338a90c127f8524b7 31567 main/binary-amd64/Packages
+ d7193303128345f7ed0d92945403c3e8 10190 main/binary-amd64/Packages.gz
  365cf0f87534e0c0c2e2c6a7710af98b 84 main/binary-amd64/Release
  ca2085e796a75b109e85316f07d75c66 5528 main/source/Sources
  579f8360f96bf2183b80d37e81c46759 1768 main/source/Sources.gz
  30bae49292a0ec3b4c3b1f8d740efa9f 85 main/source/Release
 SHA1:
- 9a9e6b8579e5ec6f746a2d535daf8d254067e8ba 31567 main/binary-amd64/Packages
- 33f6d28aa23615b1a737e9c10a701a5e320a440a 10190 main/binary-amd64/Packages.gz
+ efadcee0695cd674f7a52f513edc6cd8a1bb8102 31567 main/binary-amd64/Packages
+ 49b76dc494fd59d3c5f47f5a45586ac0a1be70e1 10190 main/binary-amd64/Packages.gz
  46105b3c179126b1600fde7a8b797ec5d477d299 84 main/binary-amd64/Release
  dbe56eb6c5c2e422fa501a36cfb7a464cb72f429 5528 main/source/Sources
  d3761ca74f75a00c9904f1260c040475c61ff1ca 1768 main/source/Sources.gz
  8719f95feb2f480758c07431327e2f2b99d63f59 85 main/source/Release
 SHA256:
- 157569ccd1e1fcf3e6f8bfdfc134fdf7d35814761826a58e46f3540142212dc0 31567 main/binary-amd64/Packages
- 0a73369416ae80a4d5a1a48e2bd0a1c61a7bf6b6515228f12135b181e55ad663 10190 main/binary-amd64/Packages.gz
+ cafee3c62d7ace81e419fff8c79e02acb798d7450560ffa70462554cb1b2a2ad 31567 main/binary-amd64/Packages
+ a603f482d0381c58ea55b80532c56d8f49cff73e0e2dff82008304f90cd3fc96 10190 main/binary-amd64/Packages.gz
  9fabe4aa9a8e566f4f5d69c8ff67d37b5415d7b254842941b34dd1c6aeb1fa71 84 main/binary-amd64/Release
  f87de436341330d725f9c163cb238b03f24a636a67b99f24bfc02a941773b03c 5528 main/source/Sources
  8a4b5aca259ba9f160b020780e796e1752f8141d867ae70172d58008cf9d99a3 1768 main/source/Sources.gz
