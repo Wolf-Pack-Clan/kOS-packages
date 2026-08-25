@@ -45,6 +45,8 @@ jobs:
         ninja -C _build | grep terminal
         tree _build/src/xfce4-terminal
         ninja -C _build install
+        
+        insize=$(du -sk prefix | cut -f1)
 
         mkdir -p deb-pkg/DEBIAN
         mkdir -p deb-pkg/usr
@@ -54,7 +56,7 @@ jobs:
         Package: kos-theme
         Version: $latestTag
         Architecture: all
-        Installed-Size: 15748
+        Installed-Size: $insize
         Section: x11
         Maintainer: Kazam <kazam0180@proton.me>
         Priority: optional
