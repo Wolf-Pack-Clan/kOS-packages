@@ -424,6 +424,49 @@ Description: UI shared object files for Calamares
  UI shared object files for Calamares.
 Original-Maintainer: Jonathan Carter <jcc@debian.org>
 
+Package: mate-calc
+Version: 1.28.0-1~ukazamos1
+Architecture: amd64
+Maintainer: Debian+Ubuntu MATE Packaging Team <debian-mate@lists.debian.org>
+Installed-Size: 492
+Depends: mate-calc-common (>= 1.28.0-1~ukazamos1), mate-calc-common (<< 1.28.0-1~ukazamos1.1~), libatk1.0-0t64 (>= 1.12.4), libc6 (>= 2.38), libglib2.0-0t64 (>= 2.80.0), libgtk-3-0t64 (>= 3.21.5), libmpc3 (>= 1.1.0), libmpfr6 (>= 4.0.0), libpango-1.0-0 (>= 1.14.0), libxml2-16 (>= 2.14.1)
+Homepage: https://mate-desktop.org/
+Priority: optional
+Section: math
+Filename: pool/main/m/mate-calc/mate-calc_1.28.0-1~ukazamos1_amd64.deb
+Size: 156174
+SHA256: c0fca79f169f6831e8db7922a9b78235377fddc0cef16098457761d17b8128d1
+SHA1: 2814a12d2b1f0428ded1aefcf7862ddfbd23c8c5
+MD5sum: b7e9f92fe1bffe44f47074b6b86526e5
+Description: MATE desktop calculator
+ mate-calc is a powerful graphical calculator with financial, logical and
+ scientific modes. It uses a multiple precision package to do its arithmetic
+ to give a high degree of accuracy.
+
+Package: mate-calc-common
+Source: mate-calc
+Version: 1.28.0-1~ukazamos1
+Architecture: all
+Maintainer: Debian+Ubuntu MATE Packaging Team <debian-mate@lists.debian.org>
+Installed-Size: 8232
+Depends: dconf-gsettings-backend | gsettings-backend
+Breaks: mate-calc (<< 1.17.0)
+Replaces: mate-calc (<< 1.17.0)
+Homepage: https://mate-desktop.org/
+Priority: optional
+Section: math
+Filename: pool/main/m/mate-calc/mate-calc-common_1.28.0-1~ukazamos1_all.deb
+Size: 621696
+SHA256: 9642001b8af5c2e8c9bcae512726b59c573796f5605411af6f39f55bb59648a1
+SHA1: 16beb095181ec522c270eb938cb1153a6eb76776
+MD5sum: 85a46afbfa446283e92ecf535a4b1e06
+Description: MATE desktop calculator (common files)
+ mate-calc is a powerful graphical calculator with financial, logical and
+ scientific modes. It uses a multiple precision package to do its arithmetic
+ to give a high degree of accuracy.
+ .
+ This package contains the architecture independent files.
+
 Package: mpris-kontrol-server
 Version: 0.1.0-1
 Architecture: amd64
