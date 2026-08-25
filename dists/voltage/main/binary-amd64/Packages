@@ -326,6 +326,21 @@ MD5sum: 2bc4be9a5914e78e534addf7f778423e
 Description: Default theme for kazamOS. Based on Materia.
  It focuses on XFCE desktop environment and LightDM.
 
+Package: kos-welcome
+Version: 0.1.0-1
+Architecture: amd64
+Maintainer: Kazam (the.watermelon:matrix.org)
+Installed-Size: 607
+Depends: libc6 (>= 2.34), libgdk-pixbuf-2.0-0 (>= 2.22.0), libglib2.0-0t64 (>= 2.54.0), libgtk-3-0t64 (>= 3.16.2)
+Priority: optional
+Section: misc
+Filename: pool/main/k/kos-welcome/kos-welcome_0.1.0-1_amd64.deb
+Size: 245876
+SHA256: a2740d904735572efc2bc7ef3a181fc2b9126614a421a69d7120dc997645afcb
+SHA1: 83989df4ae0f9d2a23370fd8239b0c9f5eda1f40
+MD5sum: 1de235e774f4a4a1f96df23362a94b68
+Description: Welcome app
+
 Package: libcalamares-dev
 Source: calamares
 Version: 3.3.14-0ubuntu25~kazamos1
