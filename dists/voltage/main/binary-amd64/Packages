@@ -311,18 +311,18 @@ Description: Sound theme for kazamOS
  Sound theme for kazamOS.
 
 Package: kos-theme
-Version: 2.1.2
+Version: 2.1.3
 Architecture: all
-Installed-Size: 15748
+Installed-Size: 24016
 Maintainer: Kazam <kazam0180@proton.me>
 Recommends: gtk2-engines-murrine, libgtk-3-common, libgtk2.0-common, libgtk-4-common
 Priority: optional
 Section: x11
-Filename: pool/main/k/kos-theme/kos-theme_2.1.2_all.deb
-Size: 171124
-SHA256: 38ef698f4b2913d99bef031f2c736d7e776408bd7a9a04c3d1ef426a72c16938
-SHA1: 5eb81edba8a02983f78e5afe0d30666fa37b3a9a
-MD5sum: 5aa30e83345f7af71814c1ee254e6ce7
+Filename: pool/main/k/kos-theme/kos-theme_2.1.3_all.deb
+Size: 178464
+SHA256: bd3a0409e2d769763f5f064402079a989264243821ef98182c76603d6b364198
+SHA1: 947c41fb3db748bcbe2bb76364ad86aa52d77afa
+MD5sum: 2bc4be9a5914e78e534addf7f778423e
 Description: Default theme for kazamOS. Based on Materia.
  It focuses on XFCE desktop environment and LightDM.
 
