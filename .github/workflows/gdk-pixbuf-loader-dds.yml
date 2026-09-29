@@ -1,0 +1,226 @@
+name: Gdk Pixbuf Loader DDS
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-gdk-pixbuf-loader-dds:
+    runs-on: ubuntu-latest
+    container:
+      image: ubuntu:26.04
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v6
+
+    - name: Setup environment
+      run: |
+        apt-get update
+        apt-get install -y --no-install-recommends \
+          build-essential pkgconf libgdk-pixbuf-2.0-dev \
+          ca-certificates git dpkg-dev
+
+    - name: Build deb
+      run: |
+        set -euo pipefail
+
+        git clone https://github.com/talaria0101/gdk-pixbuf-loader-dds.git
+        cd gdk-pixbuf-loader-dds
+
+        SHA=$(git rev-parse --short HEAD)
+        VERSION="0.1.0~git$(date -u +%Y%m%d).${SHA}"
+        echo "Building gdk-pixbuf-loader-dds ${VERSION} from ${SHA}"
+
+        make
+
+        # Stage the package tree
+        STAGE="${GITHUB_WORKSPACE}/staging"
+        rm -rf "$STAGE"
+        make install DESTDIR="$STAGE" PREFIX=/usr
+
+        # Debian control file
+        mkdir -p "$STAGE/DEBIAN"
+        cat > "$STAGE/DEBIAN/control" <<EOF
+        Package: gdk-pixbuf-loader-dds
+        Version: ${VERSION}
+        Section: graphics
+        Priority: optional
+        Architecture: amd64
+        Maintainer: Kazam <kazam0180@proton.me>
+        Depends: libc6 (>= 2.34), libgdk-pixbuf-2.0-0 (>= 2.42.0), libgdk-pixbuf2.0-bin
+        Homepage: https://github.com/talaria0101/gdk-pixbuf-loader-dds
+        Description: GdkPixbuf loader and thumbnailer for DDS (DirectDraw Surface) images
+         Adds a gdk-pixbuf loader module so image viewers (ristretto, eog, gthumb),
+         file managers (Thunar via tumbler), and any GdkPixbuf-based application can
+         open and thumbnail .dds textures.
+         .
+         Supports DXT1/BC1, DXT3/BC2, DXT5/BC3, the DX10 extended header
+         (BC1/BC2/BC3, R8G8B8A8, B8G8R8A8), uncompressed RGB/RGBA with arbitrary
+         bitmasks, and luminance formats. Ships dds.thumbnailer so tumbler and
+         other freedesktop thumbnailer stacks pick it up.
+        EOF
+
+        cat > "$STAGE/DEBIAN/postinst" <<'PKG_SCRIPT_EOF'
+        #!/bin/sh
+        set -e
+        if [ "$1" = "configure" ] && command -v gdk-pixbuf-query-loaders >/dev/null 2>&1; then
+            gdk-pixbuf-query-loaders --update-cache || true
+        fi
+        PKG_SCRIPT_EOF
+
+        cat > "$STAGE/DEBIAN/postrm" <<'PKG_SCRIPT_EOF'
+        #!/bin/sh
+        set -e
+        if [ "$1" = "remove" ] && command -v gdk-pixbuf-query-loaders >/dev/null 2>&1; then
+            gdk-pixbuf-query-loaders --update-cache || true
+        fi
+        PKG_SCRIPT_EOF
+        chmod 755 "$STAGE/DEBIAN/postinst" "$STAGE/DEBIAN/postrm"
+
+        dpkg-deb --root-owner-group --build "$STAGE" \
+          "gdk-pixbuf-loader-dds_${VERSION}_amd64.deb"
+
+        # Move artifacts
+        cd "$GITHUB_WORKSPACE"
+        mkdir -p artifacts
+        mv gdk-pixbuf-loader-dds/gdk-pixbuf-loader-dds_*.deb artifacts/
+        echo "${VERSION}" >> artifacts/version
+
+        echo "Build completed"
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v6
+      with:
+        name: gdk-pixbuf-loader-dds-deb
+        path: artifacts/gdk-pixbuf-loader-dds*.deb
+        retention-days: 7
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v6
+      with:
+        name: gdk-pixbuf-loader-dds-version
+        path: artifacts/version
+        retention-days: 7
+
+  publish-deb:
+    runs-on: ubuntu-latest
+    needs: build-gdk-pixbuf-loader-dds
+
+    steps:
+    - uses: actions/checkout@v6
+      with:
+        fetch-depth: 0
+
+    - name: Download build artifacts
+      uses: actions/download-artifact@v6
+      with:
+        name: gdk-pixbuf-loader-dds-deb
+
+    - name: Download version
+      uses: actions/download-artifact@v6
+      with:
+        name: gdk-pixbuf-loader-dds-version
+
+    - name: Install deps
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y --no-install-recommends reprepro gnupg2 tree git
+
+    - name: Setup Git
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+    - name: Setup GPG
+      run: |
+        mkdir -p ~/.gnupg
+        chmod 700 ~/.gnupg
+        echo "allow-loopback-pinentry" >> ~/.gnupg/gpg-agent.conf
+        echo "pinentry-mode loopback" >> ~/.gnupg/gpg.conf
+
+        # Import GPG key
+        echo "${{ secrets.GPG_PKEY }}" | base64 -d > /tmp/private.key
+        gpg --batch --import /tmp/private.key
+        rm /tmp/private.key
+
+        echo "GPG_KEY_ID=91016B841FE42FCF66EC4CC960617F7CCAEE2C8A" >> $GITHUB_ENV
+
+        echo "key check"
+        gpg --list-secret-keys --keyid-format LONG
+
+    - name: Setup reprepro and publish
+      run: |
+
+        tree -L 3
+
+        GPG_PATH=$(which gpg)
+        echo "Original GPG at: $GPG_PATH"
+
+        sudo mv "$GPG_PATH" "${GPG_PATH}_original"
+
+        # Create wrapper script that provides passphrase automatically
+        sudo tee "$GPG_PATH" > /dev/null <<'WRAPPER'
+        #!/bin/bash
+        echo "${{ secrets.GPG_PASS }}" | /usr/bin/gpg_original --batch --pinentry-mode loopback --passphrase-fd 0 "$@"
+
+        WRAPPER
+        sudo chmod +x $GPG_PATH
+
+        echo "test" | gpg --armor --detach-sign \
+          --default-key "$GPG_KEY_ID" --output /tmp/test.sig || {
+          echo "GPG wrapper test failed"
+          exit 1
+        }
+        echo "GPG wrapper working correctly"
+
+        find pool -name "gdk-pixbuf-loader-dds*.deb" -exec rm {} \;
+        reprepro -b . export
+        reprepro -b . includedeb voltage gdk-pixbuf-loader-dds*.deb
+
+        rm gdk-pixbuf-loader-dds*.deb
+        echo "latestTag=$(cat version)" >> $GITHUB_ENV
+        rm version
+
+        # Verify files
+        ls -l dists/voltage/
+        cat dists/voltage/main/binary-amd64/Packages
+
+        git status
+
+    - name: Commit and Push
+      run: |
+        set -euo pipefail
+
+        # safe stage of only the directories we expect to change
+        git add -- dists/ pool/ conf/
+
+        # Detect staged deletions (abort if any — safety)
+        DELETIONS=$(git status --porcelain | awk '/^ D/ {count++} END{print count+0}')
+        if [ "$DELETIONS" -gt 0 ]; then
+          echo "ERROR: Detected $DELETIONS staged deletions — aborting to avoid wiping repo"
+          git status --porcelain
+          exit 1
+        fi
+
+        if git diff --cached --quiet; then
+          echo "No repository changes to commit."
+          exit 0
+        fi
+
+        # create a unique branch name (~ is invalid in git refs)
+        BRANCH="ci/gdk-pixbuf-loader-dds-update-${latestTag//\~/-}-${GITHUB_RUN_ID}"
+        echo "Creating branch: $BRANCH"
+
+        # create branch from current main (checkout ensures we are on a branch)
+        git checkout -b "$BRANCH"
+
+        # commit
+        git commit -m "CI: add/update gdk-pixbuf-loader-dds package (Build ${GITHUB_RUN_ID})"
+
+        # push the new branch up
+        git push --set-upstream origin "$BRANCH"
+
+        echo "Pushed branch $BRANCH"
