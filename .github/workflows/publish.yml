@@ -1,0 +1,362 @@
+name: Publish site
+
+# Central publisher for the apt repository.
+# Rebuilt packages are selected below; everything else is taken from the
+# live site, merged with reprepro, and deployed to Pages. .deb files and
+# repo metadata are never committed to git.
+
+on:
+  workflow_dispatch:
+    inputs:
+      rebuild_all:
+        description: 'Rebuild every package'
+        required: false
+        default: false
+        type: boolean
+      appgallery:
+        description: 'Rebuild appgallery'
+        required: false
+        default: false
+        type: boolean
+      buuf-nestort:
+        description: 'Rebuild buuf-nestort-icons'
+        required: false
+        default: false
+        type: boolean
+      calamares:
+        description: 'Rebuild calamares'
+        required: false
+        default: false
+        type: boolean
+      donatepage:
+        description: 'Rebuild donatepage'
+        required: false
+        default: false
+        type: boolean
+      fcitx-theme:
+        description: 'Rebuild fcitx-kos-theme'
+        required: false
+        default: false
+        type: boolean
+      firacode-nerd:
+        description: 'Rebuild fonts-firacode-nerd'
+        required: false
+        default: false
+        type: boolean
+      kos-theme:
+        description: 'Rebuild kos-theme'
+        required: false
+        default: false
+        type: boolean
+      kos-welcome:
+        description: 'Rebuild kos-welcome'
+        required: false
+        default: false
+        type: boolean
+      mate-calc:
+        description: 'Rebuild mate-calc'
+        required: false
+        default: false
+        type: boolean
+      niri:
+        description: 'Rebuild niri'
+        required: false
+        default: false
+        type: boolean
+      orbix:
+        description: 'Rebuild orbix'
+        required: false
+        default: false
+        type: boolean
+      qalamime:
+        description: 'Rebuild fcitx-qalam'
+        required: false
+        default: false
+        type: boolean
+      rustdesk:
+        description: 'Rebuild rustdesk'
+        required: false
+        default: false
+        type: boolean
+      supertuxkart-mini:
+        description: 'Rebuild supertuxkart-mini'
+        required: false
+        default: false
+        type: boolean
+      tela-circle-dracula:
+        description: 'Rebuild tela-circle-dracula-icons'
+        required: false
+        default: false
+        type: boolean
+      tela-circle-manjaro:
+        description: 'Rebuild tela-circle-manjaro-icons'
+        required: false
+        default: false
+        type: boolean
+      termom:
+        description: 'Rebuild termom'
+        required: false
+        default: false
+        type: boolean
+      xournalpp:
+        description: 'Rebuild xournalpp'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build-appgallery:
+    if: ${{ inputs.rebuild_all || inputs.appgallery }}
+    uses: ./.github/workflows/appgallery.yml
+
+  build-buuf-nestort:
+    if: ${{ inputs.rebuild_all || inputs.buuf-nestort }}
+    uses: ./.github/workflows/buuf-nestort.yml
+
+  build-calamares:
+    if: ${{ inputs.rebuild_all || inputs.calamares }}
+    uses: ./.github/workflows/calamares.yml
+
+  build-donatepage:
+    if: ${{ inputs.rebuild_all || inputs.donatepage }}
+    uses: ./.github/workflows/donatepage.yml
+
+  build-fcitx-theme:
+    if: ${{ inputs.rebuild_all || inputs.fcitx-theme }}
+    uses: ./.github/workflows/fcitx-theme.yml
+
+  build-firacode-nerd:
+    if: ${{ inputs.rebuild_all || inputs.firacode-nerd }}
+    uses: ./.github/workflows/firacode-nerd.yml
+
+  build-kos-theme:
+    if: ${{ inputs.rebuild_all || inputs.kos-theme }}
+    uses: ./.github/workflows/kos-theme.yml
+
+  build-kos-welcome:
+    if: ${{ inputs.rebuild_all || inputs.kos-welcome }}
+    uses: ./.github/workflows/kos-welcome.yml
+
+  build-mate-calc:
+    if: ${{ inputs.rebuild_all || inputs.mate-calc }}
+    uses: ./.github/workflows/mate-calc.yml
+
+  build-niri:
+    if: ${{ inputs.rebuild_all || inputs.niri }}
+    uses: ./.github/workflows/niri.yml
+
+  build-orbix:
+    if: ${{ inputs.rebuild_all || inputs.orbix }}
+    uses: ./.github/workflows/orbix.yml
+
+  build-qalamime:
+    if: ${{ inputs.rebuild_all || inputs.qalamime }}
+    uses: ./.github/workflows/qalamime.yml
+
+  build-rustdesk:
+    if: ${{ inputs.rebuild_all || inputs.rustdesk }}
+    uses: ./.github/workflows/rustdesk.yml
+
+  build-supertuxkart-mini:
+    if: ${{ inputs.rebuild_all || inputs.supertuxkart-mini }}
+    uses: ./.github/workflows/supertuxkart-mini.yml
+
+  build-tela-dracula:
+    if: ${{ inputs.rebuild_all || inputs.tela-circle-dracula }}
+    uses: ./.github/workflows/tela-circle-dracula.yml
+
+  build-tela-manjaro:
+    if: ${{ inputs.rebuild_all || inputs.tela-circle-manjaro }}
+    uses: ./.github/workflows/tela-circle-manjaro.yml
+
+  build-termom:
+    if: ${{ inputs.rebuild_all || inputs.termom }}
+    uses: ./.github/workflows/termom.yml
+
+  build-xournalpp:
+    if: ${{ inputs.rebuild_all || inputs.xournalpp }}
+    uses: ./.github/workflows/xournalpp.yml
+
+  publish:
+    needs:
+      - build-appgallery
+      - build-buuf-nestort
+      - build-calamares
+      - build-donatepage
+      - build-fcitx-theme
+      - build-firacode-nerd
+      - build-kos-theme
+      - build-kos-welcome
+      - build-mate-calc
+      - build-niri
+      - build-orbix
+      - build-qalamime
+      - build-rustdesk
+      - build-supertuxkart-mini
+      - build-tela-dracula
+      - build-tela-manjaro
+      - build-termom
+      - build-xournalpp
+    if: ${{ !cancelled() && !failure() }}
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v6
+
+    - name: Download baseline site
+      run: |
+        mkdir -p site incoming
+        # Everything not rebuilt comes from the live site (stale listings excluded).
+        wget -q -r -np -nH --cut-dirs=1 -R "index.html*" -P site \
+          https://wolf-pack-clan.github.io/kOS-packages/pool/ \
+          https://wolf-pack-clan.github.io/kOS-packages/dists/ \
+          || echo "Baseline download incomplete, continuing with what was fetched"
+        mkdir -p site/pool site/dists/voltage
+        # Tracked files are the source of truth for repo config and site roots.
+        cp -r conf site/
+        cp README.md public-key.gpg kazamos.sources site/
+        ls site/
+
+    - name: Compute selection
+      id: selection
+      run: |
+        if [ "${{ inputs.rebuild_all }}" = "true" ]; then
+          SEL="appgallery buuf-nestort calamares donatepage fcitx-theme firacode-nerd kos-theme kos-welcome mate-calc niri orbix qalamime rustdesk supertuxkart-mini tela-circle-dracula tela-circle-manjaro termom xournalpp"
+        else
+          SEL=""
+          [ "${{ inputs.appgallery }}" = "true" ] && SEL="$SEL appgallery"
+          [ "${{ inputs.buuf-nestort }}" = "true" ] && SEL="$SEL buuf-nestort"
+          [ "${{ inputs.calamares }}" = "true" ] && SEL="$SEL calamares"
+          [ "${{ inputs.donatepage }}" = "true" ] && SEL="$SEL donatepage"
+          [ "${{ inputs.fcitx-theme }}" = "true" ] && SEL="$SEL fcitx-theme"
+          [ "${{ inputs.firacode-nerd }}" = "true" ] && SEL="$SEL firacode-nerd"
+          [ "${{ inputs.kos-theme }}" = "true" ] && SEL="$SEL kos-theme"
+          [ "${{ inputs.kos-welcome }}" = "true" ] && SEL="$SEL kos-welcome"
+          [ "${{ inputs.mate-calc }}" = "true" ] && SEL="$SEL mate-calc"
+          [ "${{ inputs.niri }}" = "true" ] && SEL="$SEL niri"
+          [ "${{ inputs.orbix }}" = "true" ] && SEL="$SEL orbix"
+          [ "${{ inputs.qalamime }}" = "true" ] && SEL="$SEL qalamime"
+          [ "${{ inputs.rustdesk }}" = "true" ] && SEL="$SEL rustdesk"
+          [ "${{ inputs.supertuxkart-mini }}" = "true" ] && SEL="$SEL supertuxkart-mini"
+          [ "${{ inputs.tela-circle-dracula }}" = "true" ] && SEL="$SEL tela-circle-dracula"
+          [ "${{ inputs.tela-circle-manjaro }}" = "true" ] && SEL="$SEL tela-circle-manjaro"
+          [ "${{ inputs.termom }}" = "true" ] && SEL="$SEL termom"
+          [ "${{ inputs.xournalpp }}" = "true" ] && SEL="$SEL xournalpp"
+        fi
+        SEL="$(echo "$SEL" | xargs)"
+        echo "packages=$SEL" >> "$GITHUB_OUTPUT"
+        echo "Selected packages:$SEL"
+
+    - name: Download built packages
+      if: ${{ steps.selection.outputs.packages != '' }}
+      uses: actions/download-artifact@v6
+      with:
+        pattern: '*-deb'
+        path: incoming
+        merge-multiple: true
+
+    - name: Install deps
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y --no-install-recommends reprepro gnupg2 tree git wget
+
+    - name: Setup GPG
+      run: |
+        mkdir -p ~/.gnupg
+        chmod 700 ~/.gnupg
+        echo "allow-loopback-pinentry" >> ~/.gnupg/gpg-agent.conf
+        echo "pinentry-mode loopback" >> ~/.gnupg/gpg.conf
+
+        # Import GPG key
+        echo "${{ secrets.GPG_PKEY }}" | base64 -d > /tmp/private.key
+        gpg --batch --import /tmp/private.key
+        rm /tmp/private.key
+
+        echo "GPG_KEY_ID=91016B841FE42FCF66EC4CC960617F7CCAEE2C8A" >> $GITHUB_ENV
+
+        echo "key check"
+        gpg --list-secret-keys --keyid-format LONG
+
+        GPG_PATH=$(which gpg)
+        echo "Original GPG at: $GPG_PATH"
+        sudo mv "$GPG_PATH" "${GPG_PATH}_original"
+        sudo tee "$GPG_PATH" > /dev/null <<'WRAPPER'
+        #!/bin/bash
+        echo "${{ secrets.GPG_PASS }}" | /usr/bin/gpg_original --batch --pinentry-mode loopback --passphrase-fd 0 "$@"
+        WRAPPER
+        sudo chmod +x $GPG_PATH
+
+        echo "test" | gpg --armor --detach-sign \
+          --default-key "$GPG_KEY_ID" --output /tmp/test.sig || {
+          echo "GPG wrapper test failed"
+          exit 1
+        }
+        echo "GPG wrapper working correctly"
+
+    - name: Update repository
+      if: ${{ steps.selection.outputs.packages != '' }}
+      run: |
+        set -e
+        cd site
+        # Drop the old binaries of rebuilt packages so nothing stale lingers.
+        for p in ${{ steps.selection.outputs.packages }}; do
+          case "$p" in
+            appgallery) PATS="appgallery_*.deb" ;;
+            buuf-nestort) PATS="buuf-nestort-icons_*.deb" ;;
+            calamares) PATS="*calamares_*.deb *calamares-data*.deb *libcalamares*.deb" ;;
+            donatepage) PATS="donatepage*.deb" ;;
+            fcitx-theme) PATS="fcitx-kos-theme_*.deb" ;;
+            firacode-nerd) PATS="fonts-firacode-nerd_*.deb" ;;
+            kos-theme) PATS="kos-theme_*.deb" ;;
+            kos-welcome) PATS="kos-welcome*.deb" ;;
+            mate-calc) PATS="*mate-calc_*.deb" ;;
+            niri) PATS="niri_*.deb" ;;
+            orbix) PATS="orbix_*.deb" ;;
+            qalamime) PATS="fcitx-qalam_*.deb" ;;
+            rustdesk) PATS="rustdesk*.deb" ;;
+            supertuxkart-mini) PATS="supertuxkart-mini*.deb" ;;
+            tela-circle-dracula) PATS="tela-circle-dracula-icons_*.deb" ;;
+            tela-circle-manjaro) PATS="tela-circle-manjaro-icons_*.deb" ;;
+            termom) PATS="termom_*.deb" ;;
+            xournalpp) PATS="*xournalpp_*.deb" ;;
+          esac
+          # shellcheck disable=SC2086
+          for pat in $PATS; do
+            find pool -name "$pat" -exec rm {} \;
+          done
+        done
+        # Register the fresh builds, then re-register the mirrored baseline.
+        reprepro -b . export
+        find ../incoming -name "*.deb" -exec reprepro -b . includedeb voltage {} \;
+        find pool -name "*.dsc" -exec reprepro -b . includedsc voltage {} \;
+        find pool -name "*.deb" -exec reprepro -b . includedeb voltage {} \;
+        echo "=== refreshed entries ==="
+        for p in ${{ steps.selection.outputs.packages }}; do
+          grep -H "^Package: " dists/voltage/main/binary-amd64/Packages | grep -i "$(echo "$p" | sed 's/-.*//')" || true
+        done
+
+    - name: Generate directory listings
+      uses: coyoteclan/directory-listing@main
+      with:
+        target: 'site'
+        show-hidden: false
+        overwrite: true
+
+    - name: Upload Pages artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: site
+
+    - name: Deploy to Pages
+      id: deployment
+      uses: actions/deploy-pages@v4

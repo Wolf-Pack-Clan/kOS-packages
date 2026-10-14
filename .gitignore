@@ -1,5 +1,12 @@
 db/
 
+# apt repo content is built and deployed by CI, never committed
+pool/
+dists/
+_pool/
+index.html
+*.deb
+
 *.swp
 *.swo
 .DS_Store
