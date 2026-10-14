@@ -137,12 +137,12 @@ index 5ad591c..7569bc1 100644
 +    const gchar* const* systemConfigDirs = g_get_system_config_dirs();
 +    if (systemConfigDirs != nullptr) {
 +        for (int i = 0; systemConfigDirs[i] != nullptr; i++) {
-+            auto p = GFilename(systemConfigDirs[i]).toPath();
-+            if (!p) {
++            fs::path p = fromGFilename(g_strdup(systemConfigDirs[i]));
++            if (p.empty()) {
 +                g_warning("Could not convert system config dir to path: %s", systemConfigDirs[i]);
 +                continue;
 +            }
-+            fs::path systemConfigPath = *p;
++            fs::path systemConfigPath = std::move(p);
 +            systemConfigPath /= CONFIG_FOLDER_NAME;
 +            systemConfigPath /= relativeFileName;
 +
