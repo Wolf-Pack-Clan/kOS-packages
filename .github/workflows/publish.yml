@@ -222,7 +222,9 @@ jobs:
       run: |
         mkdir -p site incoming
         # Everything not rebuilt comes from the live site (stale listings excluded).
-        wget -q -r -np -nH --cut-dirs=1 -P site \
+        # NOTE: the bot-generated listings carry a nofollow robots meta tag,
+        # without robots=off wget downloads the index pages but follows no links.
+        wget -q -r -np -nH --cut-dirs=1 -e robots=off -P site \
           https://wolf-pack-clan.github.io/kOS-packages/pool/ \
           https://wolf-pack-clan.github.io/kOS-packages/dists/ \
           || echo "Baseline download incomplete, continuing with what was fetched"
