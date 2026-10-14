@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   build-mate-calc:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     container:
       image: debian:trixie
 

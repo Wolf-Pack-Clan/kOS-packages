@@ -207,7 +207,7 @@ jobs:
       - build-termom
       - build-xournalpp
     if: ${{ !cancelled() && !failure() }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
 
     steps:
     - name: Checkout repository

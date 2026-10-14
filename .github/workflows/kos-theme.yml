@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   build-kos-theme:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     container:
       image: debian:trixie
 
@@ -77,14 +77,14 @@ jobs:
         echo "Build completed"
 
     - name: Upload artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: kos-theme-deb
         path: artifacts/kos*.deb
         retention-days: 7
 
     - name: Upload artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: kos-theme-tag
         path: artifacts/tag
