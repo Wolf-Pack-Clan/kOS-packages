@@ -13,6 +13,11 @@ on:
         required: false
         default: false
         type: boolean
+      seed_unbuilt:
+        description: 'One-time: restore packages without build workflows from git history'
+        required: false
+        default: false
+        type: boolean
       appgallery:
         description: 'Rebuild appgallery'
         required: false
@@ -217,15 +222,41 @@ jobs:
       run: |
         mkdir -p site incoming
         # Everything not rebuilt comes from the live site (stale listings excluded).
-        wget -q -r -np -nH --cut-dirs=1 -R "index.html*" -P site \
+        wget -q -r -np -nH --cut-dirs=1 -P site \
           https://wolf-pack-clan.github.io/kOS-packages/pool/ \
           https://wolf-pack-clan.github.io/kOS-packages/dists/ \
           || echo "Baseline download incomplete, continuing with what was fetched"
+        # Listings only guided the mirror; fresh ones are generated later.
+        find site -name "index.html*" -delete
         mkdir -p site/pool site/dists/voltage
+        echo "Baseline debs mirrored: $(find site/pool -name '*.deb' | wc -l)"
         # Tracked files are the source of truth for repo config and site roots.
         cp -r conf site/
         cp README.md public-key.gpg kazamos.sources site/
         ls site/
+
+    - name: Seed packages without build workflows
+      if: ${{ inputs.seed_unbuilt }}
+      run: |
+        set -e
+        # One-time restore of hand-built packages from pre-purge history.
+        # After the main-branch cutover these paths no longer exist there,
+        # and each miss below degrades to a no-op by design.
+        git fetch --depth=1 origin main:refs/remotes/origin/main || echo "seed fetch failed, continuing"
+        for d in \
+          c/calamares-settings-kos g/greengodot \
+          k/kazamos-desktop-base k/kazamos-getting-started \
+          k/kos-kvantum-theme k/kos-sounds \
+          m/mpris-kontrol-server \
+          o/oreo-black-cursors o/oreo-blue-cursors o/oreo-grey-cursors \
+          o/oreo-pink-cursors o/oreo-purple-cursors o/oreo-red-cursors \
+          o/oreo-spark-lime-cursors o/oreo-spark-orange-cursors \
+          o/oreo-teal-cursors o/oreo-white-cursors \
+          p/plymouth-theme-kos; do
+          git checkout origin/main -- "pool/main/$d" || echo "seed miss: $d"
+        done
+        if [ -d pool ]; then cp -a pool/. site/pool/; rm -rf pool; fi
+        echo "Seeded debs present: $(find site/pool -name '*.deb' | wc -l)"
 
     - name: Compute selection
       id: selection
@@ -302,7 +333,7 @@ jobs:
         echo "GPG wrapper working correctly"
 
     - name: Update repository
-      if: ${{ steps.selection.outputs.packages != '' }}
+      if: ${{ steps.selection.outputs.packages != '' || inputs.seed_unbuilt }}
       run: |
         set -e
         cd site
