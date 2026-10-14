@@ -42,6 +42,7 @@ jobs:
         cd "$SRCDIR"
         latestTag=$(git describe --tags $(git rev-list --tags --max-count=1))
         git checkout $latestTag
+        patch -p1 < ../patches/qalamime/cxx20.diff
 
         cargo build --release
         cmake -S cpp -B cpp/build --install-prefix $(realpath ../qlm-install/usr/)

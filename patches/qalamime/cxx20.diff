@@ -1,0 +1,13 @@
+diff --git a/cpp/CMakeLists.txt b/cpp/CMakeLists.txt
+--- a/cpp/CMakeLists.txt
++++ b/cpp/CMakeLists.txt
+@@ -7,4 +7,9 @@ find_package(Fcitx5Core REQUIRED)
+ find_package(Fcitx5Core REQUIRED)
+ include("${FCITX_INSTALL_CMAKECONFIG_DIR}/Fcitx5Utils/Fcitx5CompilerSettings.cmake")
+
++# The code uses C++20 (std::string::ends_with); enforce it here instead of
++# relying on the compiler default (GCC 14 defaults to C++17).
++set(CMAKE_CXX_STANDARD 20)
++set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
++
+ add_subdirectory(src)
