@@ -10,7 +10,7 @@ jobs:
   build-tela-icon-theme:
     runs-on: ubuntu-latest
     container:
-      image: ubuntu:26.04
+      image: debian:trixie
 
     steps:
     - name: Checkout repository

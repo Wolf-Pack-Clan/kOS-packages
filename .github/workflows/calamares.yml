@@ -10,7 +10,7 @@ jobs:
   build-calamares:
     runs-on: ubuntu-latest
     container:
-      image: ubuntu:26.04
+      image: debian:trixie
 
     steps:
     - name: Checkout repository
@@ -24,13 +24,10 @@ jobs:
           devscripts build-essential fakeroot dpkg-dev \
           equivs ca-certificates git gnupg
 
-        cat > /etc/apt/sources.list.d/ubuntu-src.sources << EOF
-        Types: deb-src
-        URIs: http://us.archive.ubuntu.com/ubuntu/
-        Suites: resolute resolute-updates resolute-backports resolute-proposed
-        Components: main restricted universe multiverse
-        Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
-        EOF
+        # Add source repositories
+        echo "deb-src http://deb.debian.org/debian trixie main contrib non-free non-free-firmware" >> /etc/apt/sources.list
+        echo "deb-src http://deb.debian.org/debian-security trixie-security main contrib non-free non-free-firmware" >> /etc/apt/sources.list
+        echo "deb-src http://deb.debian.org/debian trixie-updates main contrib non-free non-free-firmware" >> /etc/apt/sources.list
 
         apt-get update
         apt-get build-dep -y calamares
@@ -146,6 +143,7 @@ jobs:
 
         find pool -name "*calamares_*.deb" -exec rm {} \;
         find pool -name "*calamares-data*.deb" -exec rm {} \;
+        find pool -name "*libcalamares*.deb" -exec rm {} \;
         reprepro -b . export
         reprepro -b . includedeb voltage *calamares*.deb
         find pool -name "*.dsc" -exec reprepro -b . includedsc voltage {} \;
